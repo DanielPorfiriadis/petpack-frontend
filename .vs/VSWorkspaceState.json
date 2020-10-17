@@ -8,6 +8,6 @@
     "\\src\\app\\components\\registration-step2",
     "\\src\\app\\components\\registration-step3"
   ],
-  "SelectedNode": "\\src\\app\\app.component.ts",
+  "SelectedNode": "\\src\\app\\components\\registration-step1\\registration-step1.component.ts",
   "PreviewInSolutionExplorer": false
 }

@@ -20,6 +20,14 @@ export class RegistrationStep1Component implements OnInit {
     this.regForm.get('personalDetails').get('firstname').updateValueAndValidity();
     this.regForm.get('personalDetails').get('lastname').markAsTouched();
     this.regForm.get('personalDetails').get('lastname').updateValueAndValidity();
+    this.regForm.get('personalDetails').get('username').markAsTouched();
+    this.regForm.get('personalDetails').get('username').updateValueAndValidity();
+    this.regForm.get('personalDetails').get('email').markAsTouched();
+    this.regForm.get('personalDetails').get('email').updateValueAndValidity();
+    this.regForm.get('personalDetails').get('password').markAsTouched();
+    this.regForm.get('personalDetails').get('password').updateValueAndValidity();
+    this.regForm.get('personalDetails').get('conf-password').markAsTouched();
+    this.regForm.get('personalDetails').get('conf-password').updateValueAndValidity();
   }
 
 }

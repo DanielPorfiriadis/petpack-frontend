@@ -19,12 +19,13 @@
   <br />
 
   <!--Gender-->
-  <mat-radio-group class="form-group col-md-4" formGroupName="contactDetails" formControlName="gender"
-                   aria-label="Select Gender">
-    <mat-radio-button value="1">Male</mat-radio-button>
-    &nbsp;
-    <mat-radio-button value="2">Female</mat-radio-button>
-  </mat-radio-group>
+  <div class="form-group col-md-4" formGroupName="contactDetails">
+    <mat-radio-group formControlName="gender" aria-label="Select Gender">
+      <mat-radio-button value="1">Male</mat-radio-button>
+      &nbsp;
+      <mat-radio-button value="2">Female</mat-radio-button>
+    </mat-radio-group>
+  </div>
 
 </div>
 <br />

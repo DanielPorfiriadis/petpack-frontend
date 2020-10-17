@@ -23,11 +23,11 @@ export class AppComponent implements OnInit {
         'conf-password': new FormControl(null, [Validators.required]),
       }),
       'contactDetails': new FormGroup({
-        'email': new FormControl(null, [Validators.required, Validators.email]),/* gia kapoio logo an to sbisw buggarei*/
-        'petName': new FormControl(null, [Validators.required]),
+        'email': new FormControl(null),/* gia kapoio logo an to sbisw buggarei*/
+        'petName': new FormControl(null, Validators.required),
         'phone': new FormControl(null), /*to idio me prin*/
-        'species': new FormControl(null, [Validators.required]),
-        'gender': new FormControl(null, [Validators.required])
+        'species': new FormControl(null, Validators.required),
+        'gender': new FormControl(null, Validators.required),
       })
     });
 
