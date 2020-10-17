@@ -32,6 +32,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatStepperModule } from '@angular/material/stepper';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms'
+
 
 
 const materialModules = [
@@ -66,7 +70,10 @@ const materialModules = [
   MatGridListModule,
   MatRadioModule,
   MatDatepickerModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatStepperModule,
+  FormsModule,
+  ReactiveFormsModule
 ];
 
 @NgModule({
