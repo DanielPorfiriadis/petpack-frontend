@@ -1,8 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+<<<<<<< HEAD
     "\\src"
   ],
   "SelectedNode": "\\src\\main.ts",
+=======
+    "\\e2e"
+  ],
+>>>>>>> 1bdf2f0c0e83a5cfa4642b42dfcd5e1e53041d3d
   "PreviewInSolutionExplorer": false
 }
