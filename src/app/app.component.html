@@ -9,8 +9,8 @@
         <ng-template matStepLabel>Enter Personal Details</ng-template>
         <app-registration-step1 [regForm]="registrationForm"></app-registration-step1>
       </mat-step>
-      <mat-step formGroupName="contactDetails"
-                [stepControl]="registrationForm.get('contactDetails')">
+      <mat-step formGroupName="petDetails"
+                [stepControl]="registrationForm.get('petDetails')">
         <ng-template matStepLabel>Enter Pet's Data</ng-template>
         <app-registration-step2 [regForm]="registrationForm"></app-registration-step2>
       </mat-step>

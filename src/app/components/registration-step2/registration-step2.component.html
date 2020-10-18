@@ -1,14 +1,14 @@
 <div id="contact-details" [formGroup]="regForm">
 
   <!--Pet Name-->
-  <mat-form-field class="form-group col-md-4" formGroupName="contactDetails" appearance="outline">
+  <mat-form-field class="form-group col-md-4" formGroupName="petDetails" appearance="outline">
     <mat-label>Pet Name</mat-label>
     <input type="text" class="form-control" formControlName="petName" matInput>
   </mat-form-field>
   <br />
 
   <!--Species-->
-  <mat-form-field class="form-group col-md-4" formGroupName="contactDetails" appearance="outline">
+  <mat-form-field class="form-group col-md-4" formGroupName="petDetails" appearance="outline">
     <mat-label>Select</mat-label>
     <mat-select class="form-control" formControlName="species">
       <mat-option value="cat">Cat</mat-option>
@@ -19,7 +19,7 @@
   <br />
 
   <!--Gender-->
-  <div class="form-group col-md-4" formGroupName="contactDetails">
+  <div class="form-group col-md-4" formGroupName="petDetails">
     <mat-radio-group formControlName="gender" aria-label="Select Gender">
       <mat-radio-button value="1">Male</mat-radio-button>
       &nbsp;

@@ -16,12 +16,12 @@ export class RegistrationStep2Component implements OnInit {
   }
 
   step2Submitted() {
-    this.regForm.get('contactDetails').get('petName').markAsTouched();
-    this.regForm.get('contactDetails').get('petName').updateValueAndValidity();
-    this.regForm.get('contactDetails').get('species').markAsTouched();
-    this.regForm.get('contactDetails').get('species').updateValueAndValidity();
-    this.regForm.get('contactDetails').get('gender').markAsTouched();
-    this.regForm.get('contactDetails').get('gender').updateValueAndValidity();
+    this.regForm.get('petDetails').get('petName').markAsTouched();
+    this.regForm.get('petDetails').get('petName').updateValueAndValidity();
+    this.regForm.get('petDetails').get('species').markAsTouched();
+    this.regForm.get('petDetails').get('species').updateValueAndValidity();
+    this.regForm.get('petDetails').get('gender').markAsTouched();
+    this.regForm.get('petDetails').get('gender').updateValueAndValidity();
   }
 
 }

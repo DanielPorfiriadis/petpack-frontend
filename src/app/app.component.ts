@@ -8,7 +8,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 
 export class AppComponent implements OnInit {
-  title = 'petpack-frontend';
+  title = 'Petpack';
 
   registrationForm: FormGroup;
 
@@ -22,10 +22,8 @@ export class AppComponent implements OnInit {
         'password': new FormControl(null, [Validators.required]),
         'conf-password': new FormControl(null, [Validators.required]),
       }),
-      'contactDetails': new FormGroup({
-        'email': new FormControl(null),/* gia kapoio logo an to sbisw buggarei*/
+      'petDetails': new FormGroup({
         'petName': new FormControl(null, Validators.required),
-        'phone': new FormControl(null), /*to idio me prin*/
         'species': new FormControl(null, Validators.required),
         'gender': new FormControl(null, Validators.required),
       })
