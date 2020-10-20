@@ -30,5 +30,8 @@ export class RegisterStep1Component implements OnInit {
     this.regForm.get('personalDetails').get('conf-password').updateValueAndValidity();
   }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4fd2717211d1a4f61a9b318e31f4c40a80aebd30
 }

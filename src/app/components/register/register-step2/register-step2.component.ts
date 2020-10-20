@@ -9,7 +9,10 @@ import { FormGroup } from '@angular/forms';
 export class RegisterStep2Component implements OnInit {
 
   constructor() { }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4fd2717211d1a4f61a9b318e31f4c40a80aebd30
   @Input() regForm: FormGroup;
 
   ngOnInit() {
