@@ -1,15 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-<<<<<<< HEAD
-    "\\e2e"
-=======
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
     "\\src\\app\\components\\register",
     "\\src\\app\\components\\register\\register-step1"
->>>>>>> 4fd2717211d1a4f61a9b318e31f4c40a80aebd30
   ],
+  "SelectedNode": "\\src\\app\\components\\register\\register.component.spec.ts",
   "PreviewInSolutionExplorer": false
 }
