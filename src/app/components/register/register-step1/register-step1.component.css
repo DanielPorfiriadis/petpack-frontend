@@ -1,4 +1,5 @@
 .form-control.ng-touched.ng-invalid {
+<<<<<<< HEAD
     border-color: red;
   }
   
@@ -6,3 +7,12 @@
     margin-right: 5px;
     margin-left: 5px;
   }
+=======
+  border-color: red;
+}
+
+.form-group {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+>>>>>>> 573053cac1574dc4dc61eaa920b1aad8e5360bb3
