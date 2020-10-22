@@ -1,0 +1,8 @@
+.form-control.ng-touched.ng-invalid {
+    border-color: red;
+  }
+  
+  .form-group {
+    margin-right: 5px;
+    margin-left: 5px;
+  }

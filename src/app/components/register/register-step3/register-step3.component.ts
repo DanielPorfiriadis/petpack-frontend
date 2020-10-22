@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { FormGroup } from '@angular/forms'; 
 
 @Component({
   selector: 'app-register-step3',
@@ -9,7 +10,16 @@ export class RegisterStep3Component implements OnInit {
 
   constructor() { }
 
+  @Input() regForm: FormGroup;
+  formSubmitted: boolean = false;
+
   ngOnInit(): void {
+  }
+
+  submit() {
+    console.log('submitted');
+    console.log(this.regForm.value);
+    this.formSubmitted = true;
   }
 
 }
