@@ -14,6 +14,27 @@ export class RegisterStep2Component implements OnInit {
   ngOnInit() {
   }
 
+  /*Pet Name Validation*/
+  getPetnameErrorMessage() {
+    if (this.regForm.get('petDetails').get('petName').hasError('required')) {
+      return 'You must enter a value';
+    }
+    return 'Only letters are allowed'
+
+  }
+
+  getSpeciesErrorMessage() {
+    if (this.regForm.get('petDetails').get('species').hasError('required')) {
+      return 'You must select a value';
+    }
+  }
+
+  getGenderErrorMessage() {
+    if (this.regForm.get('petDetails').get('gender').hasError('required')) {
+      return 'You must select gender';
+    }
+  }
+
   step2Submitted() {
     this.regForm.get('petDetails').get('petName').markAsTouched();
     this.regForm.get('petDetails').get('petName').updateValueAndValidity();
@@ -21,6 +42,15 @@ export class RegisterStep2Component implements OnInit {
     this.regForm.get('petDetails').get('species').updateValueAndValidity();
     this.regForm.get('petDetails').get('gender').markAsTouched();
     this.regForm.get('petDetails').get('gender').updateValueAndValidity();
+
   }
 
 }
+
+
+/*
+@Output("addNewPet") addNewPet: EventEmitter < any > = new EventEmitter();
+constructor() { }
+onClick() {
+  this.addNewPet.emit();
+}*/

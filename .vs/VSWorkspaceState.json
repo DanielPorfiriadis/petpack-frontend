@@ -4,9 +4,8 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
-    "\\src\\app\\components\\register",
-    "\\src\\app\\components\\register\\register-step1"
+    "\\src\\app\\components\\landing-page"
   ],
-  "SelectedNode": "\\src\\app\\components\\register\\register.component.spec.ts",
+  "SelectedNode": "\\src\\app\\components\\landing-page\\landing-page.component.ts",
   "PreviewInSolutionExplorer": false
 }

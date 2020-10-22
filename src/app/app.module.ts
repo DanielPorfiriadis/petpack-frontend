@@ -22,6 +22,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterStep1Component } from './components/register/register-step1/register-step1.component';
 import { RegisterStep2Component } from './components/register/register-step2/register-step2.component';
 import { RegisterStep3Component } from './components/register/register-step3/register-step3.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { RegisterStep3Component } from './components/register/register-step3/reg
     RegisterComponent,
     RegisterStep1Component,
     RegisterStep2Component,
-    RegisterStep3Component
+    RegisterStep3Component,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

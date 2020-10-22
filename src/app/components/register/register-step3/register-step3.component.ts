@@ -11,6 +11,8 @@ export class RegisterStep3Component implements OnInit {
   constructor() { }
 
   @Input() regForm: FormGroup;
+  @Input() persDetails;
+  @Input() petsDetails;
   formSubmitted: boolean = false;
 
   ngOnInit() {
