@@ -12,6 +12,27 @@ export class RegisterStep1Component implements OnInit {
 
   @Input() regForm: FormGroup;
 
+<<<<<<< HEAD
+  ngOnInit(): void {
+  }
+
+  step1Submitted() {
+    this.regForm.get('personalDetails').get('firstname').markAsTouched();
+    this.regForm.get('personalDetails').get('firstname').updateValueAndValidity();
+    this.regForm.get('personalDetails').get('lastname').markAsTouched();
+    this.regForm.get('personalDetails').get('lastname').updateValueAndValidity();
+    this.regForm.get('personalDetails').get('username').markAsTouched();
+    this.regForm.get('personalDetails').get('username').updateValueAndValidity();
+    this.regForm.get('personalDetails').get('email').markAsTouched();
+    this.regForm.get('personalDetails').get('email').updateValueAndValidity();
+    this.regForm.get('personalDetails').get('password').markAsTouched();
+    this.regForm.get('personalDetails').get('password').updateValueAndValidity();
+    this.regForm.get('personalDetails').get('conf-password').markAsTouched();
+    this.regForm.get('personalDetails').get('conf-password').updateValueAndValidity();
+  }
+
+}
+=======
   ngOnInit() {
   }
 
@@ -92,3 +113,4 @@ export class RegisterStep1Component implements OnInit {
   }
 
 }
+>>>>>>> 573053cac1574dc4dc61eaa920b1aad8e5360bb3

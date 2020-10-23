@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
 
     loginForm: FormGroup;
 
+<<<<<<< HEAD
     ngOnInit(): void {
       this.loginUser();
       this.loginForm = new FormGroup({'Username': new FormControl(),
@@ -33,3 +34,8 @@ export class LoginComponent implements OnInit {
       console.log(respondMessages);
     }
 }
+=======
+}
+
+
+>>>>>>> pap_development
