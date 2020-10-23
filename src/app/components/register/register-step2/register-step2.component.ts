@@ -9,18 +9,6 @@ import { FormGroup } from '@angular/forms';
 export class RegisterStep2Component implements OnInit {
 
   constructor() { }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-  @Input() regForm: FormGroup;
-
-  ngOnInit(): void {
-=======
-=======
->>>>>>> 4fd2717211d1a4f61a9b318e31f4c40a80aebd30
->>>>>>> pap_development
   @Input() regForm: FormGroup;
 
   ngOnInit() {
@@ -54,20 +42,7 @@ export class RegisterStep2Component implements OnInit {
     this.regForm.get('petDetails').get('species').updateValueAndValidity();
     this.regForm.get('petDetails').get('gender').markAsTouched();
     this.regForm.get('petDetails').get('gender').updateValueAndValidity();
-<<<<<<< HEAD
 
-=======
->>>>>>> 573053cac1574dc4dc61eaa920b1aad8e5360bb3
-  }
-
-  step2Submitted() {
-    this.regForm.get('petDetails').get('petName').markAsTouched();
-    this.regForm.get('petDetails').get('petName').updateValueAndValidity();
-    this.regForm.get('petDetails').get('species').markAsTouched();
-    this.regForm.get('petDetails').get('species').updateValueAndValidity();
-    this.regForm.get('petDetails').get('gender').markAsTouched();
-    this.regForm.get('petDetails').get('gender').updateValueAndValidity();
->>>>>>> pap_development
   }
 
 }

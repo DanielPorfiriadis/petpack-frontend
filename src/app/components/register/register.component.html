@@ -1,135 +1,50 @@
-<<<<<<< HEAD
-=======
-<!--Register Format-->
-  
-    <div style="text-align:center">
-      <h1>Welcome to {{ title }}!</h1>
-    </div>
+<div class="container">
 
-    <div id="registration" class="conatiner col-md-12">
-      <form id="regForm" [formGroup]="registrationForm">
-        <mat-horizontal-stepper #stepper linear>
-            <mat-step formGroupName="personalDetails" [stepControl]="registrationForm.get('personalDetails')">
-            <ng-template matStepLabel>Enter Personal Details</ng-template>
-            <app-register-step1 [regForm]="registrationForm"></app-register-step1>
-          </mat-step>
+  <div class="row">
 
-          <mat-step formGroupName="petDetails" [stepControl]="registrationForm.get('petDetails')">
-              <ng-template matStepLabel>Enter Pet's Data</ng-template>
-              <app-register-step2 [regForm]="registrationForm"></app-register-step2>
-          </mat-step>
+      <div class="col-lg-8 d-lg-flex flex-lg-column justify-content-left align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1">
+        
+        <div class="register-wrapper" fxLayout="row" fxLayoutAlign="center">
 
-          <mat-step>
-              <ng-template matStepLabel>Confirm Details</ng-template>
-              <app-register-step3 [regForm]="registrationForm"></app-register-step3>
-          </mat-step>
-        </mat-horizontal-stepper>
-      </form>
-    </div>
+          <div id="registration" class="conatiner col-md-12">
+            
+            <form id="regForm" [formGroup]="registrationForm">
+              
+              <mat-card class="title">
+                <mat-card-title>Welcome to {{ title }}!</mat-card-title>
+              </mat-card >
 
+              <mat-vertical-stepper #stepper linear>
+                <mat-step formGroupName="personalDetails"
+                          [stepControl]="registrationForm.get('personalDetails')">
+                  <ng-template matStepLabel>Enter Personal Details</ng-template>
+                  <app-register-step1 [regForm]="registrationForm"></app-register-step1>
+                </mat-step>
+                <mat-step formGroupName="petDetails"
+                          [stepControl]="registrationForm.get('petDetails')">
+                  <ng-template matStepLabel>Enter Pet's Data</ng-template>
+                  <app-register-step2 [regForm]="registrationForm"></app-register-step2>
+                </mat-step>
+                <mat-step>
+                  <ng-template matStepLabel>Confirm Details</ng-template>
+                  <app-register-step3 [regForm]="registrationForm"></app-register-step3>
+                </mat-step>
+              </mat-vertical-stepper>
+            </form>
 
-<!-- <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
-    <mat-card class="box">
-      <mat-card-header>
-        <mat-card-title>Register</mat-card-title>
-      </mat-card-header>
-  
-      <form class="example-form">
-  
-        <mat-card-content>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Username">
-          </mat-form-field>
-  
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Email">
-          </mat-form-field>
-  
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Password">
-          </mat-form-field>
-  
-          <mat-form-field class="example-full-width">
-            <mat-label>Choose a role...</mat-label>
-            <mat-select>
-              <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-  
-        </mat-card-content>
-  
-        <button mat-stroked-button color="accent" class="btn-block">Register</button>
-  
-      </form>
-    </mat-card>
-  </div>
->>>>>>> pap_development
+          </div>
+        </div>
+      </div>
 
+      <div class="col-lg-4 d-lg-flex flex-lg-column justify-content-bottom align-items-stretch order-1 order-lg-2 landing-img ">
+        <img src="assets/img/animals.png" class="img-fluid" fxLayoutAlign="left center" alt="">
+      </div>
 
-<div style="text-align:center">
-  <h1>Welcome to {{ title }}!</h1>
+  </div> 
 </div>
-<div id="registration" class="conatiner col-md-12">
-  <form id="regForm" [formGroup]="registrationForm">
-    <mat-horizontal-stepper #stepper linear>
-      <mat-step formGroupName="personalDetails"
-                [stepControl]="registrationForm.get('personalDetails')">
-        <ng-template matStepLabel>Enter Personal Details</ng-template>
-        <app-register-step1 [regForm]="registrationForm"></app-register-step1>
-      </mat-step>
-      <mat-step formGroupName="petDetails"
-                [stepControl]="registrationForm.get('petDetails')">
-        <ng-template matStepLabel>Enter Pet's Data</ng-template>
-        <app-register-step2 [regForm]="registrationForm"></app-register-step2>
-      </mat-step>
-      <mat-step>
-        <ng-template matStepLabel>Confirm Details</ng-template>
-        <app-register-step3 [regForm]="registrationForm"></app-register-step3>
-      </mat-step>
-    </mat-horizontal-stepper>
-  </form>
-</div>
-<!--<app-register-step2 (addNewPet)="addNewPet()"></app-register-step2>-->
-
-<<<<<<< HEAD
 
 
 
-
-
-
-<router-outlet></router-outlet>
-
-=======
-<<<<<<< HEAD
-<!-- b -->
+  <!--<app-register-step2 (addNewPet)="addNewPet()"></app-register-step2>-->
+  <router-outlet></router-outlet>
   
-=======
-  <!-- b -->
-
-  <div style="text-align:center">
-    <h1>Welcome to {{ title }}!</h1>
-  </div>
-  <div id="registration" class="conatiner col-md-12">
-    <form id="regForm" [formGroup]="registrationForm">
-      <mat-horizontal-stepper #stepper linear>
-        <mat-step formGroupName="personalDetails"
-                  [stepControl]="registrationForm.get('personalDetails')">
-          <ng-template matStepLabel>Enter Personal Details</ng-template>
-          <app-register-step1 [regForm]="registrationForm"></app-register-step1>
-        </mat-step>
-        <mat-step formGroupName="petDetails"
-                  [stepControl]="registrationForm.get('petDetails')">
-          <ng-template matStepLabel>Enter Pet's Data</ng-template>
-          <app-register-step2 [regForm]="registrationForm"></app-register-step2>
-        </mat-step>
-        <mat-step>
-          <ng-template matStepLabel>Confirm Details</ng-template>
-          <app-register-step3 [regForm]="registrationForm"></app-register-step3>
-        </mat-step>
-      </mat-horizontal-stepper>
-    </form>
-  </div>
->>>>>>> 573053cac1574dc4dc61eaa920b1aad8e5360bb3
->>>>>>> pap_development
