@@ -16,6 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 /* Angular Flex Layout */
 import { FlexLayoutModule } from "@angular/flex-layout";
 
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 /* Components */
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
@@ -42,7 +44,8 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     AngularMaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
