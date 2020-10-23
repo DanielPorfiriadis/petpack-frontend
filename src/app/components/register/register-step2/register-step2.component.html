@@ -1,38 +1,50 @@
-<div id="contact-details" [formGroup]="regForm">
+<div class="row"> <!--form row-->
 
-  <!--Pet Name-->
-  <mat-form-field class="form-group col-md-4" formGroupName="petDetails" appearance="outline">
-    <mat-label>Pet Name</mat-label>
-    <input type="text" class="form-control" formControlName="petName" matInput>
-  </mat-form-field>
-  <br />
+  <div id="contact-details" [formGroup]="regForm">
 
-  <!--Species-->
-  <mat-form-field class="form-group col-md-4" formGroupName="petDetails" appearance="outline">
-    <mat-label>Select</mat-label>
-    <mat-select class="form-control" formControlName="species">
-      <mat-option value="cat">Cat</mat-option>
-      <mat-option value="cat">Dog</mat-option>
-      <mat-option value="cat">Other</mat-option> <!--gia to other prepei na mpei epilogh na bazei o xrhsths-->
-    </mat-select>
-  </mat-form-field>
-  <br />
+    <!--Pet Name-->
+    <mat-form-field class="form-group col-md-4" formGroupName="petDetails" appearance="outline">
+      <mat-label>Pet Name</mat-label>
+      <input type="text" class="form-control" formControlName="petName" matInput>
+      <mat-error *ngIf="regForm.get('petDetails').get('petName').invalid">{{getPetnameErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <!-- <br /> -->
 
-  <!--Gender-->
-  <div class="form-group col-md-4" formGroupName="petDetails">
-    <mat-radio-group formControlName="gender" aria-label="Select Gender">
-      <mat-radio-button value="1">Male</mat-radio-button>
-      &nbsp;
-      <mat-radio-button value="2">Female</mat-radio-button>
-    </mat-radio-group>
+    <!--Species-->
+    <mat-form-field class="form-group col-md-4" formGroupName="petDetails" appearance="outline">
+      <mat-label>Select</mat-label>
+      <mat-select class="form-control" formControlName="species">
+        <mat-option value="cat">Cat</mat-option>
+        <mat-option value="cat">Dog</mat-option>
+        <mat-option value="cat">Other</mat-option> <!--gia to other prepei na mpei epilogh na bazei o xrhsths-->
+      </mat-select>
+      <mat-error *ngIf="regForm.get('petDetails').get('species').invalid">{{getSpeciesErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <!-- <br /> -->
+
+    <!--Gender-->
+    <div class="form-group col-md-4" formGroupName="petDetails">
+      <mat-radio-group formControlName="gender" aria-label="Select Gender">
+        <mat-radio-button value="1">Male</mat-radio-button>
+        &nbsp;
+        <mat-radio-button value="2">Female</mat-radio-button>
+      </mat-radio-group>
+      <mat-error *ngIf="regForm.get('petDetails').get('gender').invalid && this.regForm.get('petDetails').get('gender').touched">{{getGenderErrorMessage()}}</mat-error>
+    </div>
+
   </div>
 
 </div>
+
 <br />
-<button type="button" matStepperPrevious>Back</button>
-&nbsp;
-<<<<<<< HEAD
-<button type="button" matStepperNext (click)="step2Submitted()">Next</button>
-=======
-<button type="button" matStepperNext (click)="step2Submitted()">Next</button>
->>>>>>> 573053cac1574dc4dc61eaa920b1aad8e5360bb3
+
+<!--button new row-->
+<div class="row_button"> 
+
+  <button type="button" matStepperPrevious>Back</button>
+  <!--&nbsp;
+  <button type="button" mat-raised-button color="primary" (click)="onClick()">Add New Pet</button>-->
+  &nbsp;
+  <button type="button" matStepperNext (click)="step2Submitted()">Next</button>
+
+</div>

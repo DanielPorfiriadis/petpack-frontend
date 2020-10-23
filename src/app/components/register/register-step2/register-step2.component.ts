@@ -9,28 +9,30 @@ import { FormGroup } from '@angular/forms';
 export class RegisterStep2Component implements OnInit {
 
   constructor() { }
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-  @Input() regForm: FormGroup;
-
-  ngOnInit(): void {
-=======
-=======
->>>>>>> 4fd2717211d1a4f61a9b318e31f4c40a80aebd30
   @Input() regForm: FormGroup;
 
   ngOnInit() {
   }
 
-  step2Submitted() {
-    this.regForm.get('petDetails').get('petName').markAsTouched();
-    this.regForm.get('petDetails').get('petName').updateValueAndValidity();
-    this.regForm.get('petDetails').get('species').markAsTouched();
-    this.regForm.get('petDetails').get('species').updateValueAndValidity();
-    this.regForm.get('petDetails').get('gender').markAsTouched();
-    this.regForm.get('petDetails').get('gender').updateValueAndValidity();
->>>>>>> 573053cac1574dc4dc61eaa920b1aad8e5360bb3
+  /*Pet Name Validation*/
+  getPetnameErrorMessage() {
+    if (this.regForm.get('petDetails').get('petName').hasError('required')) {
+      return 'You must enter a value';
+    }
+    return 'Only letters are allowed'
+
+  }
+
+  getSpeciesErrorMessage() {
+    if (this.regForm.get('petDetails').get('species').hasError('required')) {
+      return 'You must select a value';
+    }
+  }
+
+  getGenderErrorMessage() {
+    if (this.regForm.get('petDetails').get('gender').hasError('required')) {
+      return 'You must select gender';
+    }
   }
 
   step2Submitted() {
@@ -40,6 +42,15 @@ export class RegisterStep2Component implements OnInit {
     this.regForm.get('petDetails').get('species').updateValueAndValidity();
     this.regForm.get('petDetails').get('gender').markAsTouched();
     this.regForm.get('petDetails').get('gender').updateValueAndValidity();
+
   }
 
 }
+
+
+/*
+@Output("addNewPet") addNewPet: EventEmitter < any > = new EventEmitter();
+constructor() { }
+onClick() {
+  this.addNewPet.emit();
+}*/

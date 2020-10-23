@@ -1,5 +1,27 @@
-/* photo na mpei sto landing_page */
-
-.backgroundpic{
-    background-image: url(C:/Users/Kiki/source/repos/img/Start_Page.png);
+mat-toolbar {
+    position: absolute;
+    z-index: 1;
+    
+    background-color: transparent;
+  }
+.head {
+    padding: auto;
+    margin: 5px;
+    background-color: transparent;
 }
+
+.title{
+    padding: auto;
+    margin: 5px;
+}
+
+.button-row {
+  display: table-cell;
+  width: 490px;
+}
+
+.button-row .mat-button-base {
+  margin: 5px ;
+  padding: auto;
+}
+

@@ -1,87 +1,61 @@
-<div id="personal-details" [formGroup]="regForm">
+<!--form row-->
+<div class="row"> 
 
-<<<<<<< HEAD
+  <div id="personal-details" [formGroup]="regForm">
+
+
     <!--First Name-->
     <mat-form-field class="form-group col-md-4" formGroupName="personalDetails" appearance="outline">
       <mat-label>First Name</mat-label>
       <input type="text" class="form-control" formControlName="firstname" matInput>
+      <mat-error *ngIf="regForm.get('personalDetails').get('firstname').invalid">{{getFirstnameErrorMessage()}}</mat-error>
     </mat-form-field>
-  
+
     <!--Last Name-->
     <mat-form-field class="form-group col-md-4" formGroupName="personalDetails" appearance="outline">
       <mat-label>Last Name</mat-label>
       <input type="text" class="form-control" formControlName="lastname" matInput>
+      <mat-error *ngIf="regForm.get('personalDetails').get('lastname').invalid">{{getLastnameErrorMessage()}}</mat-error>
     </mat-form-field>
     <br />
-  
+
     <!--Username-->
     <mat-form-field class="form-group col-md-4" formGroupName="personalDetails" appearance="outline">
       <mat-label>Username</mat-label>
       <input type="text" class="form-control" formControlName="username" matInput>
+      <mat-error *ngIf="regForm.get('personalDetails').get('username').invalid">{{getUsernameErrorMessage()}}</mat-error>
     </mat-form-field>
     <br />
-  
+
     <!--Email-->
     <mat-form-field class="form-group col-md-4" formGroupName="personalDetails" appearance="outline">
       <mat-label>Email</mat-label>
       <input type="text" class="form-control" formControlName="email" matInput>
+      <mat-error *ngIf="regForm.get('personalDetails').get('email').invalid">{{getEmailErrorMessage()}}</mat-error>
     </mat-form-field>
     <br />
-  
+
     <!--Password-->
     <mat-form-field class="form-group col-md-4" formGroupName="personalDetails" appearance="outline">
       <mat-label>Password</mat-label>
       <input type="password" class="form-control" formControlName="password" matInput>
+      <mat-error *ngIf="regForm.get('personalDetails').get('password').invalid">{{getPasswordErrorMessage()}}</mat-error>
     </mat-form-field>
-  
+
     <!--Confirm Password-->
     <mat-form-field class="form-group col-md-4" formGroupName="personalDetails" appearance="outline">
       <mat-label>Confirm Password</mat-label>
       <input type="password" class="form-control" formControlName="conf-password" matInput>
+      <!--<mat-error >{{getConfirmErrorMessage()}}</mat-error>-->
     </mat-form-field>
+
   </div>
-  <br />
-  <button type="button" matStepperNext (click)="step1Submitted()">Next</button>
-=======
-  <!--First Name-->
-  <mat-form-field class="form-group col-md-4" formGroupName="personalDetails" appearance="outline">
-    <mat-label>First Name</mat-label>
-    <input type="text" class="form-control" formControlName="firstname" matInput>
-  </mat-form-field>
 
-  <!--Last Name-->
-  <mat-form-field class="form-group col-md-4" formGroupName="personalDetails" appearance="outline">
-    <mat-label>Last Name</mat-label>
-    <input type="text" class="form-control" formControlName="lastname" matInput>
-  </mat-form-field>
-  <br />
-
-  <!--Username-->
-  <mat-form-field class="form-group col-md-4" formGroupName="personalDetails" appearance="outline">
-    <mat-label>Username</mat-label>
-    <input type="text" class="form-control" formControlName="username" matInput>
-  </mat-form-field>
-  <br />
-
-  <!--Email-->
-  <mat-form-field class="form-group col-md-4" formGroupName="personalDetails" appearance="outline">
-    <mat-label>Email</mat-label>
-    <input type="text" class="form-control" formControlName="email" matInput>
-  </mat-form-field>
-  <br />
-
-  <!--Password-->
-  <mat-form-field class="form-group col-md-4" formGroupName="personalDetails" appearance="outline">
-    <mat-label>Password</mat-label>
-    <input type="password" class="form-control" formControlName="password" matInput>
-  </mat-form-field>
-
-  <!--Confirm Password-->
-  <mat-form-field class="form-group col-md-4" formGroupName="personalDetails" appearance="outline">
-    <mat-label>Confirm Password</mat-label>
-    <input type="password" class="form-control" formControlName="conf-password" matInput>
-  </mat-form-field>
 </div>
+
 <br />
-<button type="button" matStepperNext (click)="step1Submitted()">Next</button>
->>>>>>> 573053cac1574dc4dc61eaa920b1aad8e5360bb3
+
+<!--button new row-->
+<div class="row_button"> 
+  <button type="button" matStepperNext (click)="step1Submitted()">Next</button>
+</div>

@@ -25,10 +25,7 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-<<<<<<< HEAD
               "./node_modules/bootstrap/dist/css/bootstrap.css",
-=======
->>>>>>> 4fd2717211d1a4f61a9b318e31f4c40a80aebd30
               "src/styles.css"
             ],
             "scripts": [
