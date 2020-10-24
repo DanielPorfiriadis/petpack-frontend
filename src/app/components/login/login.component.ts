@@ -11,9 +11,9 @@ import {Service} from '../services';
 })
 
 export class LoginComponent implements OnInit {
-   
-  login: Login ={
-    userName : 'danielsan11',
+   //We manually create a loginData object that holds login credentials
+  loginData: Login  = {
+    userName : 'danielsan',
     password : '1234'
   };
 
@@ -27,9 +27,12 @@ export class LoginComponent implements OnInit {
       this.loginForm = new FormGroup({'Username': new FormControl(),
             'Password': new FormControl(),});
     }
+    
+    // the method we use to call the login service
     loginUser(): void{
-      console.log(this.login);
-      const respondMessages = this.loginService.login(this.login);
+
+      console.log(this.loginData);
+      const respondMessages = this.loginService.loginService(this.loginData).subscribe();
       console.log(respondMessages);
     }
 }
