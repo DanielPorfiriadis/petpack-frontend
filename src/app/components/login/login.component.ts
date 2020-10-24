@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     password : '1234'
   };
 
-  constructor(public loginService: Service) {}
+  constructor(public service: Service) {}
 
 
     loginForm: FormGroup;
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     loginUser(): void{
 
       console.log(this.loginData);
-      const respondMessages = this.loginService.loginService(this.loginData).subscribe();
+      const respondMessages = this.service.loginService(this.loginData).subscribe();
       console.log(respondMessages);
     }
 }
