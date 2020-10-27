@@ -11,7 +11,7 @@ import { FormControl } from '@angular/forms';
 
 export class Service{
   private loginUrl = 'http://localhost:1337/login';
-  private registerUrl = 'http://localhost:1337/register';
+  private registerUrl = 'http://localhost:1337/register/user';
 
       httpOptions = {
         headers: new HttpHeaders({
