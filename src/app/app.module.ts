@@ -16,7 +16,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
 /* Components */
+<<<<<<< HEAD
 import { AppComponent } from './app.component';
+=======
+>>>>>>> 9cfad224341da3761db52e0e918195a67db70c6e
 import { RegisterComponent } from './components/register/register.component'
 import { LoginComponent } from './components/login/login.component';
 import { RegisterStep1Component } from './components/register/register-step1/register-step1.component';
@@ -25,11 +28,14 @@ import { RegisterStep3Component } from './components/register/register-step3/reg
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
+<<<<<<< HEAD
 /* Feed*/
 import { FeedFormComponent } from './components/feed-form/feed-form.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+=======
+>>>>>>> 9cfad224341da3761db52e0e918195a67db70c6e
 
 
 
@@ -57,8 +63,12 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     ReactiveFormsModule,
     FormsModule,
     FlexLayoutModule,
+<<<<<<< HEAD
     HttpClientModule,
     
+=======
+    HttpClientModule
+>>>>>>> 9cfad224341da3761db52e0e918195a67db70c6e
   ],
 
   providers: [],

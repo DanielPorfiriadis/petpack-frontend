@@ -1,17 +1,28 @@
+<<<<<<< HEAD
 import { Injectable, Input } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
 import { Login } from './login/login';
 import { FormControl } from '@angular/forms';
 
+=======
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+
+import {Login} from './login/login';
+>>>>>>> 9cfad224341da3761db52e0e918195a67db70c6e
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class Service{
+<<<<<<< HEAD
   private loginUrl = 'http://localhost:1337/login';
   private registerUrl = 'http://localhost:1337/register';
+=======
+    private loginUrl ='http://localhost:1337/login';
+>>>>>>> 9cfad224341da3761db52e0e918195a67db70c6e
 
       httpOptions = {
         headers: new HttpHeaders({
@@ -21,8 +32,11 @@ export class Service{
 
     constructor(private http: HttpClient){}
 
+<<<<<<< HEAD
   @Input() regForm: FormGroup;
 
+=======
+>>>>>>> 9cfad224341da3761db52e0e918195a67db70c6e
 //the method that commynicate with the backend and send the post request
     loginService(loginData: Login): any {
     
@@ -33,6 +47,7 @@ export class Service{
 
         return this.http.post(this.loginUrl, body, this.httpOptions);
     }
+<<<<<<< HEAD
 
   registerService(regForm: FormGroup): any {
 
@@ -48,3 +63,6 @@ export class Service{
   }
 
 }
+=======
+}
+>>>>>>> 9cfad224341da3761db52e0e918195a67db70c6e
