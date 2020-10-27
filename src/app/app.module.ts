@@ -2,8 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 /* Routing */
 import { AppRoutingModule } from './app-routing.module';
-
-import { AppComponent } from './app.component';
+/* new import for feed*/ import { RouterModule, Routes } from '@angular/router';
 
 /* Angular Material */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,13 +16,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
 /* Components */
-import { RegisterComponent } from './components/register/register.component';
+import { AppComponent } from './app.component';
+import { RegisterComponent } from './components/register/register.component'
 import { LoginComponent } from './components/login/login.component';
 import { RegisterStep1Component } from './components/register/register-step1/register-step1.component';
 import { RegisterStep2Component } from './components/register/register-step2/register-step2.component';
 import { RegisterStep3Component } from './components/register/register-step3/register-step3.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
+/* Feed*/
+import { FeedFormComponent } from './components/feed-form/feed-form.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { FeedComponent } from './components/feed/feed.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+
+
+
+/* Feed stop */
 
 @NgModule({
   declarations: [
@@ -33,7 +43,11 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     RegisterStep1Component,
     RegisterStep2Component,
     RegisterStep3Component,
-    LandingPageComponent
+    LandingPageComponent,
+    FeedFormComponent,
+    DashboardComponent,
+    FeedComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,8 +56,11 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     AngularMaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule,
+    
   ],
+
   providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

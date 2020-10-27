@@ -1,6 +1,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #585a61;
+  height: 100%;
 }
 
 a {
@@ -21,6 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #landing {
   width: 100%;
+  height: 100%;
   position: relative;
   overflow: hidden;
   padding: 140px 0 100px 0;
@@ -121,14 +123,16 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #footer {
   background: #fff;
-  padding: 0 0 30px 0;
+  padding: 2%;
   color: #47536e;
   font-size: 14px;
   background: #eff2f8;
+  position: bottom;
 }
 
   #footer .footer-top {
-    padding: 60px 0 30px 0;
+    padding-top: auto;
+    margin: auto;
     background: #fff;
   }
 
@@ -144,7 +148,7 @@ h1, h2, h3, h4, h5, h6 {
       font-size: 16px;
       font-weight: bold;
       color: #47536e;
-      position: relative;
+      position: bottom;
       padding-bottom: 12px;
     }
 
