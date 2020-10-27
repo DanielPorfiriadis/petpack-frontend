@@ -11,16 +11,7 @@ import {Service} from '../services';
 })
 
 export class LoginComponent implements OnInit {
-   //We manually create a loginData object that holds login credentials
-  loginData: Login  = {
-    userName : 'danielsan',
-    password : '1234'
-  };
 
-  constructor(public service: Service) {}
-
-
-<<<<<<< HEAD
   hide = true;
 
    //We manually create a loginData object that holds login credentials
@@ -32,8 +23,6 @@ export class LoginComponent implements OnInit {
   constructor(public service: Service) {}
 
 
-=======
->>>>>>> 9cfad224341da3761db52e0e918195a67db70c6e
     loginForm: FormGroup;
 
     ngOnInit(): void {
@@ -43,18 +32,10 @@ export class LoginComponent implements OnInit {
     }
     
     // the method we use to call the login service
-<<<<<<< HEAD
   loginUser(): void{
-=======
-    loginUser(): void{
->>>>>>> 9cfad224341da3761db52e0e918195a67db70c6e
 
       console.log(this.loginData);
       const respondMessages = this.service.loginService(this.loginData).subscribe();
       console.log(respondMessages);
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9cfad224341da3761db52e0e918195a67db70c6e
