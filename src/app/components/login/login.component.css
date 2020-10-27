@@ -68,7 +68,6 @@ body {
   z-index: -1;
 }
 
-/* login form*/
 .login-wrapper .example-form {
   min-width: 100%;
   max-width: 300px;
@@ -80,7 +79,6 @@ body {
   width: 100%;
 }
 
-/* login text*/
 .login-wrapper mat-card-header {
   text-align: center;
   width: 100%;
