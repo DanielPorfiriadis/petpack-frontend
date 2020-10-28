@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -11,16 +12,6 @@ export class RegisterComponent implements OnInit {
   title = 'Petpack';
 
   registrationForm: FormGroup;
-
-/*
-pass = this.registrationForm.get('personalDetails').get('password').value;
-conf = this.registrationForm.get('personalDetails').get('conf-password').value;
-matching() {
-  if (this.pass != this.conf) {
-    return false;
-  }
-  return true;
-}*/
 
   ngOnInit(): void {
     this.registrationForm = new FormGroup({

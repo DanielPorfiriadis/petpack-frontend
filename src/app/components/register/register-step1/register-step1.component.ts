@@ -11,10 +11,28 @@ export class RegisterStep1Component implements OnInit {
   constructor() { }
 
   @Input() regForm: FormGroup;
-
+  
   ngOnInit() {
   }
 
+  /*passwords matching test*/
+  matching() {
+    const pass = this.regForm.get('personalDetails').get('password').value;
+    const conf = this.regForm.get('personalDetails').get('conf-password').value;
+    if (pass !== conf) {
+      return this.regForm.get('personalDetails').get('conf-password').setErrors({ 'notMatching': true });
+    }
+    return this.regForm.get('personalDetails').get('conf-password').setErrors(null);
+  }
+
+  /*Matching error message*/
+  getConfirmErrorMessage() {
+    if (this.regForm.get('personalDetails').get('conf-password').hasError('notMatching')) {
+      return 'Passwords do not match'
+    }
+  }
+
+  /*email error message*/
   getEmailErrorMessage() {
     if (this.regForm.get('personalDetails').get('email').hasError('required')) {
       return 'You must enter a value';
@@ -52,43 +70,30 @@ export class RegisterStep1Component implements OnInit {
 
   }
 
+  /*password error message*/
   getPasswordErrorMessage() {
     if (this.regForm.get('personalDetails').get('password').hasError('required')) {
       return 'You must enter a value';
     }
-
-
     return 'At least 6 characters and include: number(s) & special characters';
-
   }
 
-  getConfirmErrorMessage() {
-    const pass = this.regForm.get('personalDetails').get('password').value;
-    const conf = this.regForm.get('personalDetails').get('conf-password').value;
-    if ((pass !== conf) && (this.regForm.get('personalDetails').get('conf-password').value != null) && (this.regForm.get('personalDetails').get('password').value != null)) {
-      return 'Passwords do not match'
-    }
-    else if (this.regForm.get('personalDetails').get('password').hasError('required')) {
-      return 'You must enter a value';
-    }
-    else {
-      return 'Todos Bien!'
-    }
-  }
 
   step1Submitted() {
-    this.regForm.get('personalDetails').get('firstname').markAsTouched();
-    this.regForm.get('personalDetails').get('firstname').updateValueAndValidity();
-    this.regForm.get('personalDetails').get('lastname').markAsTouched();
-    this.regForm.get('personalDetails').get('lastname').updateValueAndValidity();
-    this.regForm.get('personalDetails').get('username').markAsTouched();
-    this.regForm.get('personalDetails').get('username').updateValueAndValidity();
-    this.regForm.get('personalDetails').get('email').markAsTouched();
-    this.regForm.get('personalDetails').get('email').updateValueAndValidity();
-    this.regForm.get('personalDetails').get('password').markAsTouched();
-    this.regForm.get('personalDetails').get('password').updateValueAndValidity();
-    this.regForm.get('personalDetails').get('conf-password').markAsTouched();
-    this.regForm.get('personalDetails').get('conf-password').updateValueAndValidity();
-  }
+
+      this.regForm.get('personalDetails').get('firstname').markAsTouched();
+      this.regForm.get('personalDetails').get('firstname').updateValueAndValidity();
+      this.regForm.get('personalDetails').get('lastname').markAsTouched();
+      this.regForm.get('personalDetails').get('lastname').updateValueAndValidity();
+      this.regForm.get('personalDetails').get('username').markAsTouched();
+      this.regForm.get('personalDetails').get('username').updateValueAndValidity();
+      this.regForm.get('personalDetails').get('email').markAsTouched();
+      this.regForm.get('personalDetails').get('email').updateValueAndValidity();
+      this.regForm.get('personalDetails').get('password').markAsTouched();
+      this.regForm.get('personalDetails').get('password').updateValueAndValidity();
+      this.regForm.get('personalDetails').get('conf-password').markAsTouched();
+      this.regForm.get('personalDetails').get('conf-password').updateValueAndValidity();
+
+    }
 
 }

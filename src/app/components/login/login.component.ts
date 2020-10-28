@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import {Login} from '../login';
-import {LoginService} from '../login.service';
+import {Login} from './login';
+import {Service} from '../services';
 
 @Component({
   selector: 'app-login',
@@ -11,25 +11,33 @@ import {LoginService} from '../login.service';
 })
 
 export class LoginComponent implements OnInit {
-   
-  login: Login ={
-    userName : 'danielsan11',
+
+  hide = true;
+
+   //We manually create a loginData object that holds login credentials
+  loginData: Login  = {
+    userName : 'danielsan',
     password : '1234'
   };
 
-  constructor(public loginService: LoginService) {}
+  constructor(public service: Service) {}
 
 
     loginForm: FormGroup;
 
-    ngOnInit(): void {
-      this.loginUser();
+  ngOnInit(): void {
+
       this.loginForm = new FormGroup({'Username': new FormControl(),
-            'Password': new FormControl(),});
+        'Password': new FormControl(),
+      });
+      /*this.loginUser();*/
     }
-    loginUser(): void{
-      console.log(this.login);
-      const respondMessages = this.loginService.login(this.login);
+    
+    // the method we use to call the login service
+  loginUser(): void{
+
+    console.log(this.loginForm.value);
+    const respondMessages = this.service.loginService(this.loginForm).subscribe();
       console.log(respondMessages);
     }
 }

@@ -1,0 +1,20 @@
+/* buttons*/
+.row_button{
+    margin-left: 1%;
+  }
+  .download-btn {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    display: inline-block;
+    padding: 10px 24px 10px 24px;
+    border-radius: 3px;
+    transition: 0.5s;
+    color: #fff;
+    background: #47536e;
+    position: relative;
+  }
+  
+  .download-btn:hover {
+      background: #5777ba;
+    }
