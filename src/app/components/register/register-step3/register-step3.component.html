@@ -1,4 +1,4 @@
-contactDetails<div *ngIf="formSubmitted">
+<div *ngIf="formSubmitted">
   <h4>Details submitted successfully</h4>
 </div>
 <div *ngIf="!formSubmitted">
@@ -7,8 +7,11 @@ contactDetails<div *ngIf="formSubmitted">
   {{regForm.get('personalDetails').get('lastname').value}}
   <br />Username : {{regForm.get('personalDetails').get('username').value}}
   <br />Email : {{regForm.get('personalDetails').get('email').value}}
+  <br />Pet Name : {{regForm.get('petDetails').get('petName').value}}
   <br />
-  <button type="button" matStepperPrevious>Back</button>
-  &nbsp;
-  <button type="button" (click)="submit()">Submit</button>
+  <div class="row_button"> 
+    <button type="button" class="download-btn" matStepperPrevious>Back</button>
+    &nbsp;
+    <button type="button" class="download-btn" (click)="submit()">Submit</button>
+  </div>
 </div>

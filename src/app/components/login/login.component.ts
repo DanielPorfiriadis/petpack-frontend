@@ -25,17 +25,19 @@ export class LoginComponent implements OnInit {
 
     loginForm: FormGroup;
 
-    ngOnInit(): void {
-      this.loginUser();
+  ngOnInit(): void {
+
       this.loginForm = new FormGroup({'Username': new FormControl(),
-            'Password': new FormControl(),});
+        'Password': new FormControl(),
+      });
+      /*this.loginUser();*/
     }
     
     // the method we use to call the login service
   loginUser(): void{
 
-      console.log(this.loginData);
-      const respondMessages = this.service.loginService(this.loginData).subscribe();
+    console.log(this.loginForm.value);
+    const respondMessages = this.service.loginService(this.loginForm).subscribe();
       console.log(respondMessages);
     }
 }

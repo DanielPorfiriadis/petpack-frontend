@@ -56,6 +56,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 20px;
   }
 
+  /* buttons*/
   #landing .download-btn {
     font-family: "Raleway", sans-serif;
     font-weight: 500;
@@ -107,7 +108,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 30px;
   }
 
-  #landing .landingo-img img {
+  #landing .landing-img img {
     width: 70%;
   }
 }
