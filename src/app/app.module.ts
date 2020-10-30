@@ -1,8 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-<<<<<<< HEAD
-=======
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
->>>>>>> 5369d94190eebcae466a8dd586c8c3c8789b850f
 
 /* Routing */
 import { AppRoutingModule } from './app-routing.module';
@@ -39,20 +35,9 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 
 /* Feed stop */
 
-/*Angular Material*/
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AngularMaterialModule } from './angular-material.module';
-
-/*Steps*/
-import { RegistrationStep1Component } from './components/registration-step1/registration-step1.component';
-import { RegistrationStep2Component } from './components/registration-step2/registration-step2.component';
-import { RegistrationStep3Component } from './components/registration-step3/registration-step3.component';
-/*apo edw: https://github.com/srikanthmadasu/angular-material-stepper-example/tree/master/src/app/components/registration-step1*/
-
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
     LoginComponent,
     RegisterComponent,
     RegisterStep1Component,
@@ -63,26 +48,17 @@ import { RegistrationStep3Component } from './components/registration-step3/regi
     DashboardComponent,
     FeedComponent,
     PageNotFoundComponent,
-=======
-    RegistrationStep1Component,
-    RegistrationStep2Component,
-    RegistrationStep3Component
->>>>>>> 5369d94190eebcae466a8dd586c8c3c8789b850f
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-<<<<<<< HEAD
     AngularMaterialModule,
     ReactiveFormsModule,
     FormsModule,
     FlexLayoutModule,
     HttpClientModule,
     
-=======
-    AngularMaterialModule
->>>>>>> 5369d94190eebcae466a8dd586c8c3c8789b850f
   ],
 
   providers: [],

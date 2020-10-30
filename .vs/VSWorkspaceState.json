@@ -1,38 +1,9 @@
 {
   "ExpandedNodes": [
-<<<<<<< HEAD
-    ""
-  ],
-=======
     "",
-<<<<<<< HEAD
     "\\src",
-    "\\src\\app",
-    "\\src\\app\\components",
-    "\\src\\app\\components\\landing-page"
+    "\\src\\app"
   ],
-  "SelectedNode": "\\src\\app\\components\\landing-page\\landing-page.component.ts",
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "\\src"
-  ],
-  "SelectedNode": "\\src\\main.ts",
-=======
-    "\\e2e"
-  ],
->>>>>>> 1bdf2f0c0e83a5cfa4642b42dfcd5e1e53041d3d
-=======
-    "\\src",
-    "\\src\\app",
-    "\\src\\app\\components",
-    "\\src\\app\\components\\registration-step1",
-    "\\src\\app\\components\\registration-step2",
-    "\\src\\app\\components\\registration-step3"
-  ],
-  "SelectedNode": "\\src\\app\\app.module.ts",
->>>>>>> vasilis_development
->>>>>>> f74e2244b2aa300dde7e9fef83fdfc14418615ad
->>>>>>> 5369d94190eebcae466a8dd586c8c3c8789b850f
+  "SelectedNode": "\\src\\app\\app-routing.module.ts",
   "PreviewInSolutionExplorer": false
 }
