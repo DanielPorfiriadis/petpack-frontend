@@ -1,10 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
+<<<<<<< HEAD
+  })
+  export class AppComponent {
+  title = 'petpack-frontend';
+=======
 })
 
 export class AppComponent implements OnInit {
@@ -31,6 +37,7 @@ export class AppComponent implements OnInit {
 
   }
 
+>>>>>>> 5369d94190eebcae466a8dd586c8c3c8789b850f
 }
 
 

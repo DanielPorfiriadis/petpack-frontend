@@ -24,11 +24,9 @@
               "src/assets"
             ],
             "styles": [
-<<<<<<< HEAD
-              "./node_modules/bootstrap/dist/css/bootstrap.css",
-=======
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
->>>>>>> vasilis_development
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": [
@@ -130,8 +128,12 @@
       }
     }
   },
+<<<<<<< HEAD
+  "defaultProject": "petpack-frontend"
+=======
   "defaultProject": "petpack-frontend",
   "cli": {
     "analytics": false
   }
+>>>>>>> 5369d94190eebcae466a8dd586c8c3c8789b850f
 }

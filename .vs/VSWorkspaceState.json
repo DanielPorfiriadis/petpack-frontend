@@ -1,6 +1,18 @@
 {
   "ExpandedNodes": [
+<<<<<<< HEAD
+    ""
+  ],
+=======
     "",
+<<<<<<< HEAD
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\components",
+    "\\src\\app\\components\\landing-page"
+  ],
+  "SelectedNode": "\\src\\app\\components\\landing-page\\landing-page.component.ts",
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
     "\\src"
@@ -20,5 +32,7 @@
   ],
   "SelectedNode": "\\src\\app\\app.module.ts",
 >>>>>>> vasilis_development
+>>>>>>> f74e2244b2aa300dde7e9fef83fdfc14418615ad
+>>>>>>> 5369d94190eebcae466a8dd586c8c3c8789b850f
   "PreviewInSolutionExplorer": false
 }

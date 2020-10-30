@@ -86,4 +86,8 @@ const materialModules = [
   ],
 })
 
+<<<<<<< HEAD
 export class AngularMaterialModule { }
+=======
+export class AngularMaterialModule { }
+>>>>>>> 5369d94190eebcae466a8dd586c8c3c8789b850f
