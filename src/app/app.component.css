@@ -1,7 +1,6 @@
 mat-toolbar {
     position: absolute;
     z-index: 1;
-    
     background-color: transparent;
   }
 .head {
@@ -13,6 +12,13 @@ mat-toolbar {
 .title{
     padding: auto;
     margin: 5px;
+}
+.title h1 {
+  color: #5777ba;
+  font-family: "Poppins", sans-serif;
+  line-height: 56px;
+  font-size: 30px;
+  font-weight: 800;
 }
 
 .button-row {

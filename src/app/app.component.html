@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!-- Toolbar -->
 
 <mat-toolbar class="app-header">
@@ -14,13 +13,11 @@
   <div class="title"> 
     <h1>PetPack</h1>
   </div>
-
-
+  
   <!-- Αν θέλω να βάλω κουμπιά στη navbar
 
   <div class="button-row">
     <span class="nav-tool-items">
-        <a mat-raised-button routerLink="dashboard" routerLinkActive="active">dashboard</a>
         <a mat-raised-button routerLink="login" routerLinkActive="active">Log in</a>
         <a mat-raised-button routerLink="register" routerLinkActive="active" >Register</a>
     </span>
@@ -31,42 +28,3 @@
 
 <router-outlet></router-outlet>
   
-=======
-<div style="text-align:center">
-  <h1>Welcome to {{ title }}!</h1>
-</div>
-<div id="registration" class="conatiner col-md-12">
-  <form id="regForm" [formGroup]="registrationForm">
-    <mat-horizontal-stepper #stepper linear>
-      <mat-step formGroupName="personalDetails"
-                [stepControl]="registrationForm.get('personalDetails')">
-        <ng-template matStepLabel>Enter Personal Details</ng-template>
-        <app-registration-step1 [regForm]="registrationForm"></app-registration-step1>
-      </mat-step>
-      <mat-step formGroupName="petDetails"
-                [stepControl]="registrationForm.get('petDetails')">
-        <ng-template matStepLabel>Enter Pet's Data</ng-template>
-        <app-registration-step2 [regForm]="registrationForm"></app-registration-step2>
-      </mat-step>
-      <mat-step>
-        <ng-template matStepLabel>Confirm Details</ng-template>
-        <app-registration-step3 [regForm]="registrationForm"></app-registration-step3>
-      </mat-step>
-    </mat-horizontal-stepper>
-  </form>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<router-outlet></router-outlet>
->>>>>>> 5369d94190eebcae466a8dd586c8c3c8789b850f
