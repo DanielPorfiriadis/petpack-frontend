@@ -1,0 +1,54 @@
+<!-- ======= Login ======= -->
+<section id="mylogin" class="d-flex align-items-center">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1">
+        <div class="login-wrapper" fxLayout="row" fxLayoutAlign="left-center center">
+
+          <mat-card class="box" >
+            <mat-card-header>
+              <mat-card-title><h1><i style='font-size:16px' class='fas'>&#xf1b0;</i> Log in <i style='font-size:16px' class='fas'>&#xf1b0;</i></h1></mat-card-title>
+              <p>login here using your username and password</p>
+              <br/>
+            </mat-card-header>
+        
+            <form [formGroup]="loginForm" class="example-form">
+              <mat-card-content>
+                <mat-form-field class="example-full-width">
+                  <input formControlName="Username" matInput placeholder="Username" required>
+                </mat-form-field>
+        
+                <mat-form-field class="example-full-width">
+                  <input formControlName="Password" matInput placeholder="Password" required matInput [type]="hide ? 'password' : 'text'">
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                </mat-form-field>
+              </mat-card-content>
+             
+              <div class="mt-4">
+                <div class="d-flex justify-content-center">
+                  <a href="login" class="download-btn" (click)="loginUser()"> Login</a>
+                </div>
+              </div>
+
+              <div class="mt-4">
+                <div class="d-flex justify-content-center links">
+                  Don't have an account? <a href="register" class="ml-2">Sign Up</a>
+                </div>
+              </div>
+              
+            </form>
+          </mat-card>
+        
+        </div>
+      </div>
+      <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 mylogin-img">
+        <img src="assets/img/animals.png" class="img-fluid" alt="">
+      </div>
+    </div>
+  </div>
+
+</section><!-- End -->
+
