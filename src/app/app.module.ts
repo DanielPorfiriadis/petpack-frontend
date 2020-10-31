@@ -30,6 +30,7 @@ import { FeedFormComponent } from './components/feed-form/feed-form.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { AfterloginComponent } from './components/afterlogin/afterlogin.component';
 
 
 
@@ -48,6 +49,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     DashboardComponent,
     FeedComponent,
     PageNotFoundComponent,
+    AfterloginComponent,
   ],
   imports: [
     BrowserModule,
