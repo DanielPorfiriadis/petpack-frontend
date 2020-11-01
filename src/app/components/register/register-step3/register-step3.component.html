@@ -1,5 +1,6 @@
 <div *ngIf="formSubmitted">
-  <h4>Details submitted successfully</h4>
+  <h4>Details submitted successfully</h4> 
+  <!-- <a href="afterlogin">Wellcome</a> -->
 </div>
 <div *ngIf="!formSubmitted">
   <h4>Following details submitted, please confirm and hit submit</h4>
@@ -12,6 +13,7 @@
   <div class="row_button"> 
     <button type="button" class="download-btn" matStepperPrevious>Back</button>
     &nbsp;
-    <button type="button" class="download-btn" (click)="submit()">Submit</button>
+    <button type="button" class="download-btn" (click)="submit()" onclick="window.location.href='afterlogin';">Submit </button>
   </div>
+
 </div>
