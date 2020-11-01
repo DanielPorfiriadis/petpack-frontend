@@ -2,7 +2,7 @@
   <h4>Details submitted successfully</h4> 
   <!-- <a href="afterlogin">Wellcome</a> -->
 </div>
-<div *ngIf="!formSubmitted">
+<div class=reg3 *ngIf="!formSubmitted">
   <h4>Following details submitted, please confirm and hit submit</h4>
   <br />Name: {{regForm.get('personalDetails').get('firstname').value}}
   {{regForm.get('personalDetails').get('lastname').value}}
@@ -15,5 +15,4 @@
     &nbsp;
     <button type="button" class="download-btn" (click)="submit()" onclick="window.location.href='afterlogin';">Submit </button>
   </div>
-
 </div>
