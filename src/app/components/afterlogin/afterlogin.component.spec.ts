@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RegistrationStep2Component } from './registration-step2.component';
+import { AfterloginComponent } from './afterlogin.component';
 
-describe('RegistrationStep2Component', () => {
-  let component: RegistrationStep2Component;
-  let fixture: ComponentFixture<RegistrationStep2Component>;
+describe('AfterloginComponent', () => {
+  let component: AfterloginComponent;
+  let fixture: ComponentFixture<AfterloginComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegistrationStep2Component ]
+      declarations: [ AfterloginComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RegistrationStep2Component);
+    fixture = TestBed.createComponent(AfterloginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

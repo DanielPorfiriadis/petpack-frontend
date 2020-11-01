@@ -1,8 +1,9 @@
 <div *ngIf="formSubmitted">
-  <h4>Details submitted successfully</h4>
+  <h4>Details submitted successfully</h4> 
 </div>
-<div *ngIf="!formSubmitted">
-  <h4>Following details submitted, please confirm and hit submit</h4>
+
+<div class=reg3 *ngIf="!formSubmitted">
+  <h4><i>Following details submitted, please confirm and hit submit</i></h4>
   <br />Name: {{regForm.get('personalDetails').get('firstname').value}}
   {{regForm.get('personalDetails').get('lastname').value}}
   <br />Username : {{regForm.get('personalDetails').get('username').value}}
@@ -12,6 +13,7 @@
   <div class="row_button"> 
     <button type="button" class="download-btn" matStepperPrevious>Back</button>
     &nbsp;
-    <button type="button" class="download-btn" (click)="submit()">Submit</button>
+    <button type="button" class="download-btn" (click)="submit()" onclick="window.location.href='afterlogin';">Submit </button>
+
   </div>
 </div>
