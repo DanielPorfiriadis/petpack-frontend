@@ -33,8 +33,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { AfterloginComponent } from './components/afterlogin/afterlogin.component';
 
 
-
-/* Feed stop */
+/* npm install angular-countdown-date-time */
+import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time';
 
 @NgModule({
   declarations: [
@@ -60,7 +60,7 @@ import { AfterloginComponent } from './components/afterlogin/afterlogin.componen
     FormsModule,
     FlexLayoutModule,
     HttpClientModule,
-    
+    AngularCountdownDateTimeModule,
   ],
 
   providers: [],

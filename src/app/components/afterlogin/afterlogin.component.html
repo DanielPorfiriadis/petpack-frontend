@@ -1,59 +1,32 @@
 <div class="bgimg">
 
   <!-- <img src="/src/assets/img/animals.png"  alt="" style="width:100%;"> -->
-  <img src="assets/img/Start_Page.png" class="img-fluid" alt="" style="width:100%;">
+  <img src="assets/img/Start_Page.png" class="img-fluid" alt="" background-size="full" width="100%" height="100%">
 
   <div class="topleft">
     <p></p>
   </div>
 
   <div class="middle">
-    <h1>COMING SOON</h1><h2> Noe 20 2020 </h2>
-    <hr>
-    <p id="demo" style="font-size:30px" ></p>
+    
+
+    <h1 style="color:white"> <b>COMING SOON</b> </h1>
+    
+    <h2 style="color:white"> <b> Noe 20 2020</b> </h2>
+
+
+     <!-- countdown-date-time, https://www.npmjs.com/package/angular-countdown-date-time -->
+     <lib-angular-countdown-dateTime [endDateBind]="endTime" [dayText]="'day'" [hourText]="'hour'" [minutesText]="'min'" [secondsText]="'sec'"> </lib-angular-countdown-dateTime>
+
+     
+    
+     <hr>
+     <p style="color:black"> <b>Team A - Pet Pack </b> </p>
   </div>
 
   <div class="bottomleft">
-    <p>Team A - Pet Pack</p>
+   
   </div>
 
 </div>
-
-<!-- <div class="container">
-  <img src="/src/assets/img/Start_Page.png"  alt="" style="width:100%;">
-  <div class="bottom-left">Team A - Pet Pack</div>
-  <div class="centered"></div>
-</div> -->
-
-<script timer>
-  // Set the date we're counting down to
-  var countDownDate = new Date("November 20, 2020 17:30:00").getTime();
-
-  // Update the count down every 1 second
-  var countdownfunction = setInterval(function() {
-
-    // Get todays date and time
-    var now = new Date().getTime();
-    
-    // Find the distance between now an the count down date
-    var distance = countDownDate - now;
-    
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-    // Output the result in an element with id="demo"
-    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s ";
-    
-    // If the count down is over, write some text 
-    if (distance < 0) {
-      clearInterval(countdownfunction);
-      document.getElementById("demo").innerHTML = "EXPIRED";
-   }
-  }, 1000);
-</script>
-
 
