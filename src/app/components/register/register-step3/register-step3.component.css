@@ -20,5 +20,6 @@
     }
 
   .reg3{
-    text-shadow: 1px 1px 2px grey;;
+    text-shadow: 1px 1px 1px gray;
+    font-weight: bold;
   }
