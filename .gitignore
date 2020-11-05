@@ -53,3 +53,5 @@ Thumbs.db
 /.vs/slnx.sqlite
 /.vs/slnx.sqlite~merged
 /.vs/VSWorkspaceState.json
+
+/.vscode
