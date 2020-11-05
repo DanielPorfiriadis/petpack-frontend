@@ -1,0 +1,288 @@
+body {
+  font-family: "Open Sans", sans-serif;
+<<<<<<< HEAD
+  
+=======
+  color: #585a61;
+  height: 100%;
+>>>>>>> vasilis_development
+}
+
+a {
+  color: #5777ba;
+}
+
+  a:hover {
+    color: #7b94c9;
+    text-decoration: none;
+  }
+
+<<<<<<< HEAD
+h1, h2, h3, h4, h5, h6, p {
+  font-family: "Raleway", sans-serif;
+}
+#main {
+  margin-top: 75px;
+}
+=======
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+}
+>>>>>>> vasilis_development
+
+/*--------------------------------------------------------------
+# landing Section
+--------------------------------------------------------------*/
+#landing {
+  width: 100%;
+<<<<<<< HEAD
+=======
+  height: 100%;
+>>>>>>> vasilis_development
+  position: relative;
+  overflow: hidden;
+  padding: 140px 0 100px 0;
+  margin-bottom: -75px;
+}
+
+  #landing::before {
+    content: '';
+    position: absolute;
+    right: -100%;
+    top: 20%;
+    width: 250%;
+    height: 200%;
+    z-index: -1;
+    background-color: #e8ecf5;
+    transform: skewY(135deg);
+  }
+
+  #landing h1 {
+    margin: 0 0 10px 0;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 56px;
+    color: #5777ba;
+    font-family: "Poppins", sans-serif;
+  }
+
+  #landing h2 {
+    color: #515f7d;
+    margin-bottom: 50px;
+    font-size: 20px;
+  }
+
+<<<<<<< HEAD
+=======
+  /* buttons*/
+>>>>>>> vasilis_development
+  #landing .download-btn {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    display: inline-block;
+    padding: 10px 24px 10px 24px;
+    border-radius: 3px;
+    transition: 0.5s;
+    color: #fff;
+    background: #47536e;
+    position: relative;
+  }
+
+    #landing .download-btn:hover {
+      background: #5777ba;
+    }
+
+    #landing .download-btn + .download-btn {
+      margin-left: 20px;
+    }
+
+@media (max-width: 991px) {
+  #landing {
+    text-align: center;
+  }
+
+    #landing .download-btn + .download-btn {
+      margin: 0 10px;
+    }
+
+    #landing .landing-img {
+      text-align: center;
+    }
+
+    #landing .landing-img img {
+      width: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+  #landing h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  #landing h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+
+<<<<<<< HEAD
+  #landing .landingo-img img {
+=======
+  #landing .landing-img img {
+>>>>>>> vasilis_development
+    width: 70%;
+  }
+}
+
+@media (max-width: 575px) {
+  #landing .landing-img img {
+    width: 80%;
+  }
+}
+
+/*--------------------------------------------------------------
+<<<<<<< HEAD
+# Sections General
+--------------------------------------------------------------*/
+section {
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+.section-bg {
+  background-color: #f2f5fa;
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  padding-bottom: 0;
+  color: #5777ba;
+  font-family: "Poppins", sans-serif;
+}
+
+.section-title p {
+  margin-bottom: 0px;
+  color: #515f7d;
+  font-size: 16px;
+}
+
+/*--------------------------------------------------------------
+# App Features
+--------------------------------------------------------------*/
+.features .content .content {
+  padding-top: 30px;
+}
+
+.features .content h3 {
+  font-weight: 700;
+  font-size: 32px;
+  color: #47536e;
+}
+
+.features .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.features .content ul li {
+  padding-bottom: 10px;
+  color: #515f7d;
+  font-size: 16px;
+}
+
+.features .content ul i {
+  font-size: 20px;
+  padding-right: 4px;
+  color: #5777ba;
+}
+
+.features .content p {
+  margin-bottom: 0;
+  font-size: 20px;
+  padding-right: 4px;
+  color: #5777ba;
+}
+
+@media (max-width: 991px) {
+  .features .image {
+    text-align: center;
+  }
+  .features .image img {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 667px) {
+  .features .image img {
+    max-width: 100%;
+  }
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  padding: 30px 0 30px 0;
+  color: #47536e;
+  font-size: 14px;
+  background: #eff2f8;
+}
+
+=======
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background: #fff;
+  padding: 2%;
+  color: #47536e;
+  font-size: 14px;
+  background: #eff2f8;
+  position: bottom;
+}
+
+  #footer .footer-top {
+    padding-top: auto;
+    margin: auto;
+    background: #fff;
+  }
+
+      #footer .footer-top .footer-contact p {
+        font-size: 14px;
+        line-height: 24px;
+        margin-bottom: 0;
+        font-family: "Raleway", sans-serif;
+        color: #8a8c95;
+      }
+
+    #footer .footer-top h4 {
+      font-size: 16px;
+      font-weight: bold;
+      color: #47536e;
+      position: bottom;
+      padding-bottom: 12px;
+    }
+
+>>>>>>> vasilis_development
+  #footer .copyright {
+    text-align: center;
+    float: left;
+    color: #47536e;
+  }
+
+  
+@media (max-width: 768px) {
+  #footer .copyright {
+    float: none;
+    text-align: center;
+    padding: 5px 0;
+  }
+}

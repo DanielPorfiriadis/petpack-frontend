@@ -1,0 +1,39 @@
+<!-- Toolbar -->
+
+<mat-toolbar class="app-header">
+
+  <div class="head">
+    <button mat-fab color="blue">
+      <a href="landing-page" >
+        <mat-icon>home</mat-icon>
+      </a>
+    </button>
+  </div>
+
+  <div class="title"> 
+    <h1>PetPack</h1>
+  </div>
+<<<<<<< HEAD
+  
+=======
+
+
+>>>>>>> vasilis_development
+  <!-- Αν θέλω να βάλω κουμπιά στη navbar
+
+  <div class="button-row">
+    <span class="nav-tool-items">
+<<<<<<< HEAD
+=======
+        <a mat-raised-button routerLink="dashboard" routerLinkActive="active">dashboard</a>
+>>>>>>> vasilis_development
+        <a mat-raised-button routerLink="login" routerLinkActive="active">Log in</a>
+        <a mat-raised-button routerLink="register" routerLinkActive="active" >Register</a>
+    </span>
+  </div> 
+  -->
+
+</mat-toolbar> 
+
+<router-outlet></router-outlet>
+  
