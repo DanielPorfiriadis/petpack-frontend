@@ -24,13 +24,9 @@ import { RegisterStep2Component } from './components/register/register-step2/reg
 import { RegisterStep3Component } from './components/register/register-step3/register-step3.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { CookieService } from 'ngx-cookie-service';
+import { CookieService } from 'ngx-cookie-service'; /* npm install ngx-cookie-service --save */
 
 /* Feed*/
-import { FeedFormComponent } from './components/feed-form/feed-form.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { FeedComponent } from './components/feed/feed.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AfterloginComponent } from './components/afterlogin/afterlogin.component';
 
 
@@ -46,10 +42,6 @@ import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time';
     RegisterStep2Component,
     RegisterStep3Component,
     LandingPageComponent,
-    FeedFormComponent,
-    DashboardComponent,
-    FeedComponent,
-    PageNotFoundComponent,
     AfterloginComponent,
   ],
   imports: [
