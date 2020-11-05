@@ -24,6 +24,7 @@ import { RegisterStep2Component } from './components/register/register-step2/reg
 import { RegisterStep3Component } from './components/register/register-step3/register-step3.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 /* Feed*/
 import { FeedFormComponent } from './components/feed-form/feed-form.component';
@@ -63,7 +64,7 @@ import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time';
     AngularCountdownDateTimeModule,
   ],
 
-  providers: [],
+  providers: [ CookieService ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

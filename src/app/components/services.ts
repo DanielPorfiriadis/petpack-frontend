@@ -1,8 +1,10 @@
 import { Injectable, Input } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
 import { Login } from './login/login';
 import { FormControl } from '@angular/forms';
+import { pipe } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -27,12 +29,12 @@ export class Service{
 //the method that commynicate with the backend and send the post request
   loginService(loginForm: FormGroup): any {
     
-//here we create the request body in order to be readable by the backend
+      //here we create the request body in order to be readable by the backend
     const body = new HttpParams()
       .set('userName', loginForm.get('Username').value) //we create the userName parameter
       .set('password', loginForm.get('Password').value);//we create the password parameter
-
-        return this.http.post(this.loginUrl, body, this.httpOptions);
+      
+      return this.http.post(this.loginUrl, body, this.httpOptions);
     }
 
   registerService(regForm: FormGroup): any {

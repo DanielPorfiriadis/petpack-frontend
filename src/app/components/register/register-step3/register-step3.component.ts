@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Service } from '../../services';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-register-step3',
@@ -9,7 +10,7 @@ import { Service } from '../../services';
 })
 export class RegisterStep3Component implements OnInit {
 
-  constructor(public service: Service) { }
+  constructor(public service: Service, private router: Router) { }
 
   @Input() regForm: FormGroup;
   @Input() persDetails;
@@ -19,18 +20,20 @@ export class RegisterStep3Component implements OnInit {
   ngOnInit() {
   }
 
-  submit() {
+  submit(): void{
     /*console.log('submitted');
     console.log(this.regForm.value);*/
     this.formSubmitted = true;
+    let _this=this;
 
-    console.log(this.regForm.value);
-    const respondMessages = this.service.registerService(this.regForm).subscribe();
-    console.log(respondMessages);
-    setTimeout(() => { }, 6000);
-
+    this.service.registerService(this.regForm).subscribe({
+      next:x=>{
+        console.log(x);
+        _this.router.navigateByUrl('/afterlogin');
+      },
+      error:error=>{
+        _this.regForm.hasError(error);   
+      }   
+    });
   }
-
 }
-
-
