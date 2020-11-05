@@ -1,6 +1,10 @@
 mat-toolbar {
     position: absolute;
     z-index: 1;
+<<<<<<< HEAD
+=======
+    
+>>>>>>> vasilis_development
     background-color: transparent;
   }
 .head {
@@ -13,6 +17,7 @@ mat-toolbar {
     padding: auto;
     margin: 5px;
 }
+<<<<<<< HEAD
 .title h1 {
   color: #5777ba;
   font-family: "Poppins", sans-serif;
@@ -20,6 +25,8 @@ mat-toolbar {
   font-size: 30px;
   font-weight: 800;
 }
+=======
+>>>>>>> vasilis_development
 
 .button-row {
   display: table-cell;

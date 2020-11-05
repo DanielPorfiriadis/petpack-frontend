@@ -27,6 +27,10 @@ export class RegisterStep3Component implements OnInit {
     console.log(this.regForm.value);
     const respondMessages = this.service.registerService(this.regForm).subscribe();
     console.log(respondMessages);
+<<<<<<< HEAD
+=======
+    
+>>>>>>> vasilis_development
 
   }
 
