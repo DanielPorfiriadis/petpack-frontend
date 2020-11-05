@@ -33,9 +33,13 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    padding: 20px;
+    margin: 20px;
+    background-color: lightslategray;
+    
 }
 
 hr {
-    margin: auto;
-    width: 40%;
+    margin: 110px;
+    width: 100px;
 }

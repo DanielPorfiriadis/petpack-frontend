@@ -1,7 +1,7 @@
 <div *ngIf="formSubmitted">
   <h4>Details submitted successfully</h4> 
+  <!-- <a href="afterlogin">Wellcome</a> -->  
 </div>
-
 <div class=reg3 *ngIf="!formSubmitted">
   <h4><i>Following details submitted, please confirm and hit submit</i></h4>
   <br />Name: {{regForm.get('personalDetails').get('firstname').value}}
