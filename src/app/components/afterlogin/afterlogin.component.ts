@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AfterloginComponent implements OnInit {
 
+  endTime  = '2020-11-20T17:30:00';
+
   constructor() { }
 
   ngOnInit(): void {

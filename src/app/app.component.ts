@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
   })
   export class AppComponent {
-  title = 'petpack-frontend';
-}
+    
+    title = 'petpack-frontend';
+  }

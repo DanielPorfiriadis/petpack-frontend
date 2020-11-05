@@ -1,6 +1,7 @@
 body {
   font-family: "Open Sans", sans-serif;
-  
+  color: #585a61;
+  height: 100%;
 }
 
 a {
@@ -12,11 +13,8 @@ a {
     text-decoration: none;
   }
 
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
-}
-#main {
-  margin-top: 75px;
 }
 
 /*--------------------------------------------------------------
@@ -24,6 +22,7 @@ h1, h2, h3, h4, h5, h6, p {
 --------------------------------------------------------------*/
 #landing {
   width: 100%;
+  height: 100%;
   position: relative;
   overflow: hidden;
   padding: 140px 0 100px 0;
@@ -57,6 +56,7 @@ h1, h2, h3, h4, h5, h6, p {
     font-size: 20px;
   }
 
+  /* buttons*/
   #landing .download-btn {
     font-family: "Raleway", sans-serif;
     font-weight: 500;
@@ -108,7 +108,7 @@ h1, h2, h3, h4, h5, h6, p {
     margin-bottom: 30px;
   }
 
-  #landing .landingo-img img {
+  #landing .landing-img img {
     width: 70%;
   }
 }
@@ -120,98 +120,38 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 /*--------------------------------------------------------------
-# Sections General
---------------------------------------------------------------*/
-section {
-  padding: 80px 0;
-  overflow: hidden;
-}
-
-.section-bg {
-  background-color: #f2f5fa;
-}
-
-.section-title {
-  text-align: center;
-  padding-bottom: 30px;
-}
-
-.section-title h2 {
-  font-size: 32px;
-  font-weight: 400;
-  margin-bottom: 20px;
-  padding-bottom: 0;
-  color: #5777ba;
-  font-family: "Poppins", sans-serif;
-}
-
-.section-title p {
-  margin-bottom: 0px;
-  color: #515f7d;
-  font-size: 16px;
-}
-
-/*--------------------------------------------------------------
-# App Features
---------------------------------------------------------------*/
-.features .content .content {
-  padding-top: 30px;
-}
-
-.features .content h3 {
-  font-weight: 700;
-  font-size: 32px;
-  color: #47536e;
-}
-
-.features .content ul {
-  list-style: none;
-  padding: 0;
-}
-
-.features .content ul li {
-  padding-bottom: 10px;
-  color: #515f7d;
-  font-size: 16px;
-}
-
-.features .content ul i {
-  font-size: 20px;
-  padding-right: 4px;
-  color: #5777ba;
-}
-
-.features .content p {
-  margin-bottom: 0;
-  font-size: 20px;
-  padding-right: 4px;
-  color: #5777ba;
-}
-
-@media (max-width: 991px) {
-  .features .image {
-    text-align: center;
-  }
-  .features .image img {
-    max-width: 80%;
-  }
-}
-
-@media (max-width: 667px) {
-  .features .image img {
-    max-width: 100%;
-  }
-}
-
-/*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  padding: 30px 0 30px 0;
+  background: #fff;
+  padding: 2%;
   color: #47536e;
   font-size: 14px;
   background: #eff2f8;
+  position: bottom;
 }
+
+  #footer .footer-top {
+    padding-top: auto;
+    margin: auto;
+    background: #fff;
+  }
+
+      #footer .footer-top .footer-contact p {
+        font-size: 14px;
+        line-height: 24px;
+        margin-bottom: 0;
+        font-family: "Raleway", sans-serif;
+        color: #8a8c95;
+      }
+
+    #footer .footer-top h4 {
+      font-size: 16px;
+      font-weight: bold;
+      color: #47536e;
+      position: bottom;
+      padding-bottom: 12px;
+    }
 
   #footer .copyright {
     text-align: center;
