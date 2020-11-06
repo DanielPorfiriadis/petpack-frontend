@@ -36,6 +36,7 @@ import { FeedviewComponent } from './components/feed-page/feedview/feedview.comp
 
 /* npm install angular-countdown-date-time */
 import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time';
+import { FirstNavbarComponent } from './components/first-navbar/first-navbar.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time';
     FeedPageComponent,
     NavbarComponent,
     FeedviewComponent,
+    FirstNavbarComponent,
   ],
   imports: [
     BrowserModule,
