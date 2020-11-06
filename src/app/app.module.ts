@@ -24,6 +24,7 @@ import { RegisterStep2Component } from './components/register/register-step2/reg
 import { RegisterStep3Component } from './components/register/register-step3/register-step3.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FirstNavbarComponent } from './components/first-navbar/first-navbar.component';
 
 /*npm install ngx - cookie - service--save*/
 import { CookieService } from 'ngx-cookie-service'; 
@@ -36,6 +37,7 @@ import { FeedviewComponent } from './components/feed-page/feedview/feedview.comp
 
 /* npm install angular-countdown-date-time */
 import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time';
+
 
 
 @NgModule({
@@ -51,6 +53,7 @@ import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time';
     FeedPageComponent,
     NavbarComponent,
     FeedviewComponent,
+    FirstNavbarComponent,
   ],
   imports: [
     BrowserModule,
