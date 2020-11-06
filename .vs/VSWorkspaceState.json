@@ -7,6 +7,6 @@
     "\\src\\app\\components\\login",
     "\\src\\app\\components\\register"
   ],
-  "SelectedNode": "\\src\\app\\components\\services.ts",
+  "SelectedNode": "\\src\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }

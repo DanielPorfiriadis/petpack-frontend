@@ -7,6 +7,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { AfterloginComponent } from './components/afterlogin/afterlogin.component';
 
+import { FeedPageComponent } from './components/feed-page/feed-page.component';
+
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'landing-page' },
@@ -14,6 +16,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'landing-page', component: LandingPageComponent },
   { path: 'afterlogin', component: AfterloginComponent },
+  { path: 'feed-page', component: FeedPageComponent },
 
 ];
 

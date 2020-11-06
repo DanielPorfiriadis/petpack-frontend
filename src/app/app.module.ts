@@ -24,14 +24,19 @@ import { RegisterStep2Component } from './components/register/register-step2/reg
 import { RegisterStep3Component } from './components/register/register-step3/register-step3.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { CookieService } from 'ngx-cookie-service';
+
+/*npm install ngx - cookie - service--save*/
+import { CookieService } from 'ngx-cookie-service'; 
 
 /* Feed*/
 import { AfterloginComponent } from './components/afterlogin/afterlogin.component';
-
+import { FeedPageComponent } from './components/feed-page/feed-page.component'
+import { NavbarComponent } from './components/feed-page/navbar/navbar.component';
+import { FeedviewComponent } from './components/feed-page/feedview/feedview.component';
 
 /* npm install angular-countdown-date-time */
 import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time';
+
 
 @NgModule({
   declarations: [
@@ -43,6 +48,9 @@ import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time';
     RegisterStep3Component,
     LandingPageComponent,
     AfterloginComponent,
+    FeedPageComponent,
+    NavbarComponent,
+    FeedviewComponent,
   ],
   imports: [
     BrowserModule,
