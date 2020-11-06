@@ -24,7 +24,11 @@ import { RegisterStep2Component } from './components/register/register-step2/reg
 import { RegisterStep3Component } from './components/register/register-step3/register-step3.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+<<<<<<< HEAD
 import { CookieService } from 'ngx-cookie-service'; /* npm install ngx-cookie-service --save */
+=======
+import { CookieService } from 'ngx-cookie-service';
+>>>>>>> origin/gilia_development
 
 /* Feed*/
 import { AfterloginComponent } from './components/afterlogin/afterlogin.component';

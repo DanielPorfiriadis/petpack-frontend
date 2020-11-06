@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "petpack-frontend"
+  "defaultProject": "petpack-frontend",
+  "cli": {
+    "analytics": false
+  }
 }
