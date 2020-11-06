@@ -6,10 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { AfterloginComponent } from './components/afterlogin/afterlogin.component';
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/gilia_development
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'landing-page' },
