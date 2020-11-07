@@ -1,0 +1,21 @@
+<div class="col-12">
+    <div class="post-container">
+      <div class="post-header">
+        <div class="user-id">
+            User ID: {{postInfo.userId}}
+        </div>
+        <div class="post-id">
+            Post Id: {{postInfo.id}}
+        </div>
+      </div>
+  
+      <div class="post-body">
+        <div class="title">
+          <h3 (click)="showmePostIndetails()">{{postInfo.title}}</h3>
+        </div>
+        <!-- <div class="text">
+          <p>{{postInfo.body}}</p>
+        </div> -->
+      </div>
+    </div>
+  </div>

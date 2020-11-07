@@ -1,0 +1,9 @@
+.my-navbar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.my-navbar li {
+    display: inline-block;
+    padding: 10px;
+}

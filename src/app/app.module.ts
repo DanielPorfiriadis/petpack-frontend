@@ -35,6 +35,9 @@ import { AfterloginComponent } from './components/afterlogin/afterlogin.componen
 import { FeedPageComponent } from './components/feed-page/feed-page.component'
 import { NavbarComponent } from './components/feed-page/navbar/navbar.component';
 import { FeedviewComponent } from './components/feed-page/feedview/feedview.component';
+import { PostindetailsComponent } from './components/feed-page/postindetails/postindetails.component';
+import { PostsComponent } from './components/feed-page/posts/posts.component';
+import { AllpostsComponent } from './components/feed-page/allposts/allposts.component';
 
 
 
@@ -55,6 +58,9 @@ import { FeedviewComponent } from './components/feed-page/feedview/feedview.comp
     FeedPageComponent,
     NavbarComponent,
     FeedviewComponent,
+    PostindetailsComponent,
+    PostsComponent,
+    AllpostsComponent,
   ],
   imports: [
     BrowserModule,

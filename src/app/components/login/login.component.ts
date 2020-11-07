@@ -4,7 +4,7 @@ import {CookieService} from 'ngx-cookie-service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import {Login} from './login';
-import {Service} from '../services';
+import {Service} from '../../services/services';
 
 @Component({
   selector: 'app-login',

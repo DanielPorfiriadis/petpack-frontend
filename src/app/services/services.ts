@@ -1,7 +1,7 @@
 import { Injectable, Input } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
-import { Login } from './login/login';
+import { Login } from '../components/login/login';
 import { FormControl } from '@angular/forms';
 import { pipe } from 'rxjs';
 import { map } from 'rxjs/operators';

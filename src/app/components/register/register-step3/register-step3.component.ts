@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Service } from '../../services';
+import { Service } from '../../../services/services';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
