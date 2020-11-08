@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkTreeModule } from '@angular/cdk/tree';
 import { PortalModule } from '@angular/cdk/portal';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -73,7 +74,8 @@ const materialModules = [
   MatTooltipModule,
   MatStepperModule,
   FormsModule,
-  ReactiveFormsModule
+  ReactiveFormsModule,
+  ScrollingModule
 ];
 
 @NgModule({

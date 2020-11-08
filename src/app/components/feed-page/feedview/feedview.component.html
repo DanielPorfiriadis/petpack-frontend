@@ -1,1 +1,26 @@
 <p>feedview works!</p>
+
+<!--<mat-list role="list">
+  <mat-list-item *ngFor="let i of items">
+    <div>
+      <mat-card class="mat-cards">
+        card example {{i}} <br />
+        card example {{i}} <br /> 
+        card example {{i}} <br />
+        card example {{i}} <br />
+        card example {{i}} <br />
+      </mat-card>
+    </div>
+  </mat-list-item>
+  
+</mat-list>-->
+<div fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+  <!--https://tburleson-layouts-demos.firebaseapp.com/#/docs-->
+  <mat-card *ngFor="let i of items">
+
+    card example {{i}}
+
+  </mat-card>
+
+  </div>
+
