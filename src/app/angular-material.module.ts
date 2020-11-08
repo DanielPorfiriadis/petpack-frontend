@@ -75,7 +75,7 @@ const materialModules = [
   MatStepperModule,
   FormsModule,
   ReactiveFormsModule,
-  ScrollingModule
+  ScrollingModule,
 ];
 
 @NgModule({

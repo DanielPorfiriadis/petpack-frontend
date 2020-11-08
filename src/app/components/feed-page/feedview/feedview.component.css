@@ -1,0 +1,53 @@
+/* mat-grid-tile  {
+    background-color: rgb(180, 180, 243);
+}
+.right{
+    background-color: rgb(165, 73, 116);
+} */
+
+body {
+  background-color: #eeeeee;
+}
+
+.h7 {
+  font-size: 0.8rem;
+}
+
+.gedf-wrapper {
+  margin-top: 0.97rem;
+}
+
+@media (min-width: 992px) {
+  .gedf-main {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  .gedf-card {
+    margin-bottom: 2.77rem;
+  }
+}
+
+/**Reset Bootstrap*/
+.dropdown-toggle::after {
+  content: none;
+  display: none;
+}
+
+.post-format {
+  width: 100%;
+  text-align: center;
+  height:inherit;
+}
+
+.post-content {
+  width: 95%;
+  overflow-wrap:break-word;
+}
+
+.deleteIcon {
+  margin-left: 95%;
+  position: absolute;
+  top: 8px;
+  right: 15px;
+}
