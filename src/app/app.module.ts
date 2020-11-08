@@ -12,6 +12,9 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 /* FormsModule */
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+/* SearchBar */
+import { NgMatSearchBarModule } from 'ng-mat-search-bar';
+
 /* Angular Flex Layout */
 import { FlexLayoutModule } from "@angular/flex-layout";
 
@@ -24,6 +27,7 @@ import { RegisterStep2Component } from './components/register/register-step2/reg
 import { RegisterStep3Component } from './components/register/register-step3/register-step3.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FirstNavbarComponent } from './components/first-navbar/first-navbar.component';
 
 /*npm install ngx - cookie - service--save*/
 import { CookieService } from 'ngx-cookie-service'; 
@@ -36,7 +40,7 @@ import { FeedviewComponent } from './components/feed-page/feedview/feedview.comp
 
 /* npm install angular-countdown-date-time */
 import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time';
-import { FirstNavbarComponent } from './components/first-navbar/first-navbar.component';
+
 
 
 @NgModule({
@@ -64,6 +68,7 @@ import { FirstNavbarComponent } from './components/first-navbar/first-navbar.com
     FlexLayoutModule,
     HttpClientModule,
     AngularCountdownDateTimeModule,
+    NgMatSearchBarModule
   ],
 
   providers: [ CookieService ],
