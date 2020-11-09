@@ -39,6 +39,13 @@ import { FeedviewComponent } from './components/feed-page/feedview/feedview.comp
 import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time';
 
 
+import { ProfileComponent } from './components/feed-page/profile/profile.component';
+
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { MiniprofComponent } from './components/feed-page/miniprof/miniprof.component';
+
+
 
 @NgModule({
   declarations: [
@@ -54,6 +61,10 @@ import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time';
     NavbarComponent,
     FeedviewComponent,
     FirstNavbarComponent,
+    ProfileComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+    MiniprofComponent,
   ],
   imports: [
     BrowserModule,
