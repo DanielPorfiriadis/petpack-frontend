@@ -23,13 +23,8 @@ import { RegisterStep1Component } from './components/register/register-step1/reg
 import { RegisterStep2Component } from './components/register/register-step2/register-step2.component';
 import { RegisterStep3Component } from './components/register/register-step3/register-step3.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
-<<<<<<< HEAD
 import { HttpClientModule } from '@angular/common/http';
 
-=======
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FirstNavbarComponent } from './components/first-navbar/first-navbar.component';
->>>>>>> origin/vasilis_development
 
 /*npm install ngx - cookie - service--save*/
 import { CookieService } from 'ngx-cookie-service'; 
@@ -47,7 +42,6 @@ import { FeedviewComponent } from './components/feed-page/feedview/feedview.comp
 //import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +55,6 @@ import { FeedviewComponent } from './components/feed-page/feedview/feedview.comp
     FeedPageComponent,
     NavbarComponent,
     FeedviewComponent,
-    FirstNavbarComponent,
   ],
   imports: [
     BrowserModule,
