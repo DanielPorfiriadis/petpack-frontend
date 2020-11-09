@@ -41,13 +41,34 @@ body {
 }
 
 .post-content {
-  width: 95%;
+  width: 100%;
   overflow-wrap:break-word;
 }
 
-.deleteIcon {
-  margin-left: 95%;
-  position: absolute;
+/*.deleteIcon {*/
+/*margin-left: 95%;*/
+/*position: absolute;
   top: 8px;
   right: 15px;
+}*/
+.post-feed {
+  max-height: 600px;
+  overflow-y: scroll;
 }
+::-webkit-scrollbar {
+  width: 5px;
+  background-color:transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color:lightgray;
+  border-radius:50px;
+  border: 0.5px solid lightgray;
+}
+
+/*.justify-content-between{
+    padding-left:50%;
+}*/
+.share-btn {
+  margin-right:70%;
+}
+
