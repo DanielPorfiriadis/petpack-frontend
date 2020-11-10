@@ -13,19 +13,17 @@
 
 </mat-list>-->
 <!--<div fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="15px">-->
-  <!--https://tburleson-layouts-demos.firebaseapp.com/#/docs-->
-  <!--<mat-card *ngFor="let i of items">
+<!--https://tburleson-layouts-demos.firebaseapp.com/#/docs-->
+<!--<mat-card *ngFor="let i of items">
 
     card example {{i}}
 
   </mat-card>
 
 </div>-->
-
-
 <!--<div fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="15px">-->
-  <!-- https://tburleson-layouts-demos.firebaseapp.com/#/docs-->
-  <!--<mat-card class="karta">
+<!-- https://tburleson-layouts-demos.firebaseapp.com/#/docs-->
+<!--<mat-card class="karta">
     <mat-card-content *ngFor="let post of posts">
 
       card example {{post}}
@@ -34,10 +32,10 @@
   </mat-card>
 </div>-->
 
-
+<!--<button (click)="createNewPost()" type="submit" class="btn btn-primary">Share</button>-->
+<!--<button (click)="showFile()">Button1</button>-->
 
 <!------------------------------------------------------------------------------------------>
-
 <!--container all-->
 <div class="container-fluid gedf-wrapper">
 
@@ -100,10 +98,21 @@
             </div>
             <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
               <div class="form-group">
-                <div class="custom-file">
+
+                <!--=========Image Upload==========-->
+                <div style="text-align:center">
+                  <div [innerHtml]='msg' *ngIf="msg" style="color: red;"></div>
+                  <div><img class="image-upload" [src]="url" *ngIf="url"></div>
+                  <p>
+                    <input #takeInput type="file" (change)="selectFile($event)">
+                  </p>
+                </div>
+
+                <!--<div class="custom-file">
                   <input type="file" class="custom-file-input" id="customFile">
                   <label class="custom-file-label" for="customFile">Upload image</label>
-                </div>
+                </div>-->
+
               </div>
               <div class="py-4"></div>
             </div>
@@ -126,15 +135,15 @@
           </div>
         </div>
       </div> <!--- end of "new Post card"-->
-
       <!--- \\\\\\\Post-->
       <!----------------New Post from user---------------->
       <div class="post-feed">
+      
         <mat-card class="card gedf-card" *ngFor="let post of posts; index as i">
           <mat-card-content class="post-content">
 
             <!--post user details-->
-            <div class="card-header flektor">
+            <div class="card-header">
               <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="mr-2">
@@ -158,14 +167,52 @@
             <!---------User New Post Content-------->
             <div class="card-body">
               <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>10 min ago</div>
-              <p class="card-text">
-                {{post}}
-              </p>
+              <div *ngIf="urls[i]!=''"><img class="image-upload" [src]="urls[i]"></div>
+              <div>
+                <p class="card-text">
+                  {{post}}
+                </p>
+              </div>
             </div>
           </mat-card-content>
-          
-        </mat-card>
 
+        </mat-card>
+        <!-- </div>-->
+        <!--<div *ngIf="url">
+    <mat-card class="card gedf-card" *ngFor="let src of urls; index as j">
+      <mat-card-content class="post-content">-->
+        <!--post user details-->
+        <!--<div class="card-header">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="mr-2">
+          <img class="rounded-circle" width="45" src="https://picsum.photos/50/50" alt="">
+        </div>
+        <div class="ml-2">
+          <div class="h5 m-0">@nameOfUser</div>
+          <div class="h7 text-muted">Miracles Lee Cross</div>
+        </div>
+      </div>-->
+        <!-----------Delete post button------------>
+        <!--<div>
+        <button (click)="deletePost(i)" id="deleteIcon" type="button" class="btn btn-link deleteIcon" aria-haspopup="true"
+                aria-expanded="false">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </div>
+    </div>
+  </div>-->
+        <!---------User New Post Content-------->
+        <!--<div class="card-body">
+          <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>10 min ago</div>
+          <p class="card-text">
+            <img class="image-upload" [src]="src" *ngIf="src">
+          </p>
+        </div>
+      </mat-card-content>
+
+    </mat-card>
+  </div>-->
         <!---------------Other Posts---------------->
         <mat-card class="card gedf-card">
           <mat-card-content>
@@ -216,7 +263,7 @@
               <a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>
               <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
             </div>
-            </mat-card-content>
+          </mat-card-content>
         </mat-card>
       </div> <!-- end Post /////-->
 
@@ -258,4 +305,4 @@
 
   </div> <!--end row -->
 
-  </div>
+</div>
