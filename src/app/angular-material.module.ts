@@ -36,6 +36,11 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'
 
+import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time'; /* npm install angular-countdown-date-time */
+
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 const materialModules = [
@@ -73,7 +78,10 @@ const materialModules = [
   MatTooltipModule,
   MatStepperModule,
   FormsModule,
-  ReactiveFormsModule
+  ReactiveFormsModule,
+  AngularCountdownDateTimeModule,
+  FlexLayoutModule,
+  BrowserAnimationsModule
 ];
 
 @NgModule({

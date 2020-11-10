@@ -5,7 +5,7 @@ import { NavigationEnd, Router } from '@angular/router';
 // import { AuthService } from 'auth';
 
 
-import { LoggingService, Config } from 'loggerservice';
+/*import { LoggingService, Config } from 'loggerservice';*/
 
 @Component({
   selector: 'app-navbar',
@@ -33,28 +33,28 @@ export class NavbarComponent {
 
   });
 
-}
-
-public onProfile() {
-
-  this.router.navigate(['users/profile']);
-}
-
-public logout() {
-
-  // this.authService.logout(this.returnUrl || '/');
-}
-
-public settings(){
-  // this.settings.....kati
-}
-
-  ngOnInit(): void {
   }
 
-  display = false;
-  onPress() {
-    this.display = true;
-}
+  public onProfile() {
+
+    this.router.navigate(['users/profile']);
+  }
+
+  public logout() {
+
+    // this.authService.logout(this.returnUrl || '/');
+  }
+
+  public settings(){
+    // this.settings.....kati
+  }
+
+    ngOnInit(): void {
+    }
+
+    display = false;
+    onPress() {
+      this.display = true;
+  }
 
 }
