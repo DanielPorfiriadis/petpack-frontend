@@ -10,7 +10,7 @@ import { AfterloginComponent } from './components/afterlogin/afterlogin.componen
 import { FeedPageComponent } from './components/feed-page/feed-page.component';
 import { CommentsComponent } from './components/feed-page/comments/comments.component';
 
-import { ProfileComponent } from './components/feed-page/profile/profile.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { MiniprofComponent } from './components/feed-page/miniprof/miniprof.component';
 
 import { AboutUsComponent } from './components/about-us/about-us.component';
