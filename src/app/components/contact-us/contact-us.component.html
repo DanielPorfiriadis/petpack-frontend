@@ -1,126 +1,75 @@
-<!-- Help: https://bootsnipp.com/snippets/KBPvg -->
+<section class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">  
+      <h2 class="title">Contact Us!</h2>  
+    </div>
+  </div>
 
-<section id="contact" ng-app="app">  
-     <div class="container-fluid" ng-controller="appController">  
-      <div class="row">
-       <div class="col-sm-3 col-sm-offset-1"> 
-          <h2 class="top-title">Contact</h2>    
-       </div><!--/.col-sm-3 col-sm-offset-1-->        
-      </div><!--/.row-->        
-      <div class="row">         
-         <form id="kontakt-form" class="form-group" name="myForm" method="post" action="sendemail.php">          
-          <div class="col-sm-3 col-sm-offset-1"> 
-              <div class="form-group">
-                <div class="inner-addon right-addon">
-                  <i class="glyphicon glyphicon-ok" ng-show="myForm.text.$valid"></i>
-                  <i class="glyphicon glyphicon-remove" ng-show="myForm.text.$invalid && !myForm.text.$pristine"></i>          
-                <input placeholder="Name" type="text"
-                       name="text" ng-model="text" class="form-control" ng-model-options="{updateOn:'blur'}"
-                       required data-toggle="tooltip" data-placement="top" title="Name"/>
-                </div>
-                <div style="display:none;" class="error-message bg-danger" ng-show="myForm.text.$invalid && !myForm.text.$pristine">
-                <div class="arrow"></div>
-                <span ng-show="myForm.text.$invalid">Name is required.</span><br>    
-                </div>
-              </div><!--/form-group-->
-          </div><!--/.col-sm-3--> 
+</section>
 
-          
-          <div class="col-sm-3">   
-              <div class="form-group">                
-                <div class="inner-addon right-addon">
-                  <i class="glyphicon glyphicon-ok" ng-show="myForm.email.$valid"></i>
-                  <i class="glyphicon glyphicon-remove" ng-show="myForm.email.$invalid && !myForm.email.$pristine || myForm.email.$error.email"></i>          
-                <input placeholder="email@email.com" type="email"
-                       name="email" ng-model="email" class="form-control" ng-model-options="{updateOn:'blur'}"
-                       required data-toggle="tooltip" data-placement="top" title="E-Mail address"/>
-                </div>
-                <div style="display:none;" class="error-message bg-danger" ng-show="myForm.email.$invalid && !myForm.email.$pristine || myForm.email.$error.email">
-                <div class="arrow"></div>
-                <span ng-show="myForm.email.$invalid">E-Mail is required.</span><br>
-                <span ng-show="myForm.email.$error.email"> We need a valid e-mail address.</span>
-                </div>
-              </div><!--/form-group-->
-          </div><!--/.col-sm-3--> 
+<section class="section">
+  <div class="container">
 
-          <div class="col-sm-4"> 
-              <div class="form-group">
-                <div class="inner-addon right-addon">
-                  <i class="glyphicon glyphicon-ok" ng-show="myForm.betreff.$valid"></i>
-                  <i class="glyphicon glyphicon-remove" ng-show="myForm.betreff.$invalid && !myForm.betreff.$pristine"></i>          
-                <input placeholder="Thema" type="text"
-                       name="betreff" ng-model="betreff" class="form-control" ng-model-options="{updateOn:'blur'}"
-                       required data-toggle="tooltip" data-placement="top" title="Theme"/>
-                </div>
-                <div style="display:none;" class="error-message bg-danger" ng-show="myForm.betreff.$invalid && !myForm.betreff.$pristine">
-                <div class="arrow"></div>
-                <span ng-show="myForm.betreff.$invalid">Theme is required.</span><br>    
-                </div>
-              </div><!--/form-group-->
-          </div><!--/.col-sm-3-->     
+    <!-- form -->
+    <form (ngSubmit)="processForm()">
 
-          <div class="col-sm-10 col-sm-offset-1">   
-              <div class="form-group">               
-               <div class="inner-addon right-addon">
-                <i class="glyphicon glyphicon-ok" ng-show="myForm.nachricht.$valid"></i>
-                <i class="glyphicon glyphicon-remove" ng-show="myForm.nachricht.$invalid && !myForm.nachricht.$pristine"></i>
-              <textarea placeholder="Message" type="text"
-                     name="nachricht" ng-model="nachricht" class="form-control" ng-model-options="{updateOn:'blur'}"
-                     required pattern=".{2,}" data-toggle="tooltip" data-placement="top" title="Message"></textarea>
-               </div>                    
-              <div style="display:none;" class="error-message bg-danger"
-                   ng-show="myForm.nachricht.$invalid && !myForm.nachricht.$pristine">
-              <div class="arrow"></div>Message is required!
-              </div>           
-            </div><!--/form-group-->    
-             
-              <div class="form-group">
-               <button type="submit" class="btn btn-default submit" ng-disabled="myForm.$invalid" name="submit">Send</button>
-              </div> 
-          </div><!--/.col-sm-12--> 
-          <div class="col-sm-5 col-sm-offset-1">
-            <div class="error-message3" ng-show="myForm.$invalid">
-                <span> Please make sure all required fields are filled out correctly.</span>
-              </div>
-              <div class="success-message bg-success" ng-show="myForm.$valid">
-                <span>Now you can send your message.<i class="glyphicon glyphicon-ok"></i></span>
-              </div>
-          </div>
-        </form>        
-      </div><!--/.row-->       
-     </div><!--/.container-->
-    </section><!--/#article-content-->  
+      <!-- name -->
+      <div class="field">
+        <input 
+          type="text" 
+          name="name" 
+          class="input" 
+          placeholder="Your Name" 
+          [(ngModel)]="name"
+          required
+          minlength="3"
+          #nameInput="ngModel">
 
-    <footer id="footer">
-     <p>Team A</p>
-    </footer>
-   
-    
-    <script>
-        var app = angular.module('app', []);
+        <div class="help is-error" *ngIf="nameInput.invalid && nameInput.dirty">
+          Name is required and needs to be at least 3 characters long.
+        </div>
 
+      </div>
 
-// Controller 
+      <!-- email -->
+      <div class="field">          
+        <input 
+          type="email" 
+          name="email" 
+          class="input" 
+          placeholder="Your Email" 
+          [(ngModel)]="email"
+          required
+          email
+          #emailInput="ngModel">
 
-app.controller('appController', function($scope){    
-                 
-});
+        <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+          Needs to be a valid email.
+        </div>
 
-// Validation 
+      </div>
 
-app.directive('validFile',function(){
-  return {
-    require:'ngModel',
-    link:function(scope,el,attrs,ngModel){
-      el.bind('change',function(){
-        scope.$apply(function(){
-          ngModel.$setViewValue(el.val());
-           ngModel.$render();
-        });
-      });
-    }
-  }
-});
+      <!-- message -->
+      <div class="field">
+        <textarea 
+          class="textarea" 
+          name="message" 
+          placeholder="What's on your mind?" 
+          [(ngModel)]="message"
+          required
+          #messageInput="ngModel">
+        </textarea>
 
+        <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+          Your message is required!
+        </div>
 
-</script>
+      </div>
+
+      <button type="submit" class="button">Submit</button>
+
+    </form>
+
+  </div>
+</section>
+

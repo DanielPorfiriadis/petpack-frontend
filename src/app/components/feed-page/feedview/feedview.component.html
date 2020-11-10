@@ -40,6 +40,7 @@
           <form [formGroup]="form" (submit)="onSavePost()" *ngIf ="!isLoading">
             
             <mat-form-field>
+
               <textarea 
                   matInput 
                   rows="4"
@@ -47,19 +48,20 @@
                   name="content" 
                   placeholder="Post Content">
               </textarea>
-              <mat-error 
-                  *ngIf="form.get('content').invalid">
+
+              <mat-error *ngIf="form.get('content').invalid">
                   Please enter content
               </mat-error>
+
             </mat-form-field>
 
             <div>
                 <button mat-stroked-button type="button" class="imagePicker" (click)= "filePicker.click()">Upload Image</button>
                 <input type="file" #filePicker (change)="onImagePicked($event)">
             </div>
-
+   
             <div class="image-preview" *ngIf= "imagePreview !== '' && imagePreview && form.get('image').valid ">
-                <img [src]= "imagePreview" [alt]= "form.value.content">
+              <img [src]= "imagePreview" [alt]= "form.value.content">
             </div>
 
             <button mat-raised-button
@@ -87,7 +89,6 @@
         </div>
 
     </div>
-
 
     <!--===== right box - profile ========-->
 
