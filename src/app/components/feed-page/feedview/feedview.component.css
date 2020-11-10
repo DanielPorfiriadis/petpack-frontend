@@ -27,6 +27,10 @@ input[type="file"] {
 }
 
 .header-image {
+<<<<<<< HEAD
+=======
+    background-image: url('C:\Users\danis\source\repos\petpack-frontend\src\assets\img\avatar.png');
+>>>>>>> c83bf69b17d59a54afec835655aa6d161cdba727
     background-size: cover;
     background-position: center;
 }
