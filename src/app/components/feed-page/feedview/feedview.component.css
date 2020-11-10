@@ -1,36 +1,32 @@
-/* mat-grid-tile  {
-    background-color: rgb(180, 180, 243);
+
+.mat-card{
+    width: 90%;
 }
 
-.right{
-    background-color: rgb(165, 73, 116);
-
-} */
-
-body {
-    background-color: #eeeeee;
+mat-form-field,
+.textarea{
+    border: 2px solid black;
+    width: 90%;
 }
 
-.h7 {
-    font-size: 0.8rem;
+input[type="file"] {
+    visibility: hidden;
 }
 
-.gedf-wrapper {
-    margin-top: 0.97rem;
+.imagePicker{
+    margin: 5px;
 }
 
-@media (min-width: 992px) {
-    .gedf-main {
-        padding-left: 4rem;
-        padding-right: 4rem;
-    }
-    .gedf-card {
-        margin-bottom: 2.77rem;
-    }
+.image-preview {
+    height: 5rem;
+    margin: 1rem 0; 
 }
 
-/**Reset Bootstrap*/
-.dropdown-toggle::after {
-    content: none;
-    display: none;
+.image-preview img {
+    height: 100%;
+}
+
+.header-image {
+    background-size: cover;
+    background-position: center;
 }
