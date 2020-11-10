@@ -1,18 +1,18 @@
 <div class="container-fluid gedf-wrapper">
   <div class="row">
 
-<<<<<<< HEAD
-
     <!--===== left box ========-->
 
       <div class="col-md-3">
         <div class="card">
+
           <div class="card-body">
             <div class="h4">Pet Pack Universe</div>
             <div class="h4">
               <a href="about_us" class="ml-2">About Us</a> 
             </div>
           </div>
+
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <div class="h6 text-muted">Followers</div>
@@ -29,47 +29,16 @@
               she first appeared in the comic book Ms. Marvel #16 (April 1978).</i>
               </li>
           </ul>
+
         </div>
       </div>
 
     <!--===== center box - feedview ========-->
 
-      <div class="col-md-6 gedf-main">
-=======
-    <!--left box -->
-
-    <div class="col-md-3">
-      <div class="card">
-        <div class="card-body">
-          <div class="h4">Pet Pack Universe</div>
-          <div class="h4">
-            <a href="about_us" class="ml-2">About Us</a> 
-          </div>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <div class="h6 text-muted">Followers</div>
-            <div class="h5">Does it Really Matter to You?</div>
-          </li>
-          <li class="list-group-item">
-            <div class="h6 text-muted">Following</div>
-            <div class="h5">Those who should..</div>
-          </li>
-          <li class="list-group-item"> <i><b>Mystique Team:</b></i><br>
-            <i>Mystique (Raven Darkhölme) is a fictional character appearing in 
-            American comic books published by Marvel Comics, commonly in association 
-            with the X-Men. Created by artist David Cockrum and writer Chris Claremont, 
-            she first appeared in the comic book Ms. Marvel #16 (April 1978).</i>
-            </li>
-        </ul>
-      </div>
-    </div>
-
-
     <div class="col-md-6 gedf-main">
->>>>>>> c83bf69b17d59a54afec835655aa6d161cdba727
         <mat-card class="createPost">
           <form [formGroup]="form" (submit)="onSavePost()" *ngIf ="!isLoading">
+            
             <mat-form-field>
               <textarea 
                   matInput 
@@ -82,41 +51,45 @@
                   *ngIf="form.get('content').invalid">
                   Please enter content
               </mat-error>
-          </mat-form-field>
+            </mat-form-field>
+
             <div>
                 <button mat-stroked-button type="button" class="imagePicker" (click)= "filePicker.click()">Upload Image</button>
                 <input type="file" #filePicker (change)="onImagePicked($event)">
             </div>
+
             <div class="image-preview" *ngIf= "imagePreview !== '' && imagePreview && form.get('image').valid ">
                 <img [src]= "imagePreview" [alt]= "form.value.content">
             </div>
+
             <button mat-raised-button
                 color='primary'
-<<<<<<< HEAD
                 type="submit">Post
-=======
-                type="submit">Save Post
->>>>>>> c83bf69b17d59a54afec835655aa6d161cdba727
             </button>
-          </form>
+
+          </form> 
         </mat-card>
+        
         <div>
           <mat-card>
+            
             <mat-card-header>
               <img mat-card-avatar src="../assets/img/avatar.png">
               <mat-card-title>User 1</mat-card-title>
               <mat-card-subtitle>10h</mat-card-subtitle>
             </mat-card-header>
+            
             <mat-card-content>
-             <p> {{post.content}} </p>
+              <p> {{post.content}} </p>
             </mat-card-content>
+
           </mat-card>
-<<<<<<< HEAD
         </div>
-      </div>
+
+    </div>
 
 
-    <!--===== center box - feedview ========-->
+    <!--===== right box - profile ========-->
 
       <div class="col-md-3">
           <mat-card>
@@ -125,21 +98,7 @@
           </mat-card>        
       </div>
 
-
     <!--===== END ========-->
 
   </div>
 </div>
-=======
-          </div>
-    </div>
-
-
-
-
-  <div class="col-md-3">
-      <mat-card>
-        <mat-card-header> oap</mat-card-header>
-      </mat-card>        
-  </div>
->>>>>>> c83bf69b17d59a54afec835655aa6d161cdba727
