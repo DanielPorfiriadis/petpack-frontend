@@ -51,19 +51,21 @@ export class PostService{
         postData.append("image", image);
         this.http.post<{ message: string; post: Post}>( "http://localhost:3000/api/posts/",postData )
          .subscribe(responseData => {
-             console.log(responseData);
-             this.router.navigate(["/"]);
+            this.router.routeReuseStrategy.shouldReuseRoute = function () {
+                return false;
+            }
+            this.router.onSameUrlNavigation = 'reload';
+            this.router.navigate(["/feed-page"]);
          })
     }
 
-    updatePost(id: string, title: string, content: string, image: File | string) {
+    updatePost(id: string, content: string, image: File | string) {
         let postData: Post | FormData;
         if (typeof image === "object") {
           postData = new FormData();
           postData.append("id", id);
-          postData.append("title", title);
           postData.append("content", content);
-          postData.append("image", image, title);
+          postData.append("image", image);
         } else {
           postData = {
             id: id,
