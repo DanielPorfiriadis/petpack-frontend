@@ -53,7 +53,7 @@
                 <input type="file" #filePicker (change)="onImagePicked($event)">
             </div>
             <div class="image-preview" *ngIf= "imagePreview !== '' && imagePreview && form.get('image').valid ">
-                <img [src]= "imagePreview">
+                <img [src]= "imagePreview" [alt]= "form.value.content">
             </div>
             <button mat-raised-button
                 color='primary'
@@ -73,7 +73,7 @@
              <p> {{post.content}} </p>
             </mat-card-content>
           </mat-card>
-        </mat-accordion>
+          </div>
     </div>
 
 

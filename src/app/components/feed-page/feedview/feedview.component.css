@@ -33,7 +33,6 @@ input[type="file"] {
 }
 
 .header-image {
-    background-image: url('C:\Users\danis\source\repos\petpack-frontend\src\assets\img\avatar.png');
     background-size: cover;
     background-position: center;
 }
