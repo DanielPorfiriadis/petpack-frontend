@@ -53,7 +53,7 @@
                 <input type="file" #filePicker (change)="onImagePicked($event)">
             </div>
             <div class="image-preview" *ngIf= "imagePreview !== '' && imagePreview && form.get('image').valid ">
-                <img [src]= "imagePreview" [alt]= "form.value.content">
+                <img [src]= "imagePreview">
             </div>
             <button mat-raised-button
                 color='primary'
@@ -61,18 +61,19 @@
             </button>
           </form>
         </mat-card>
-        <div>
-          <mat-card>
+        <mat-accordion multi="true" *ngIf="posts.length >0">
+          <mat-card class="post" *ngFor="let post of posts">
             <mat-card-header>
               <img mat-card-avatar src="../assets/img/avatar.png">
-              <mat-card-title>User 1</mat-card-title>
+              <mat-card-title>{{post.creator}}</mat-card-title>
               <mat-card-subtitle>10h</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
+                <img class="imagepost" [src]="post.imagePath">
              <p> {{post.content}} </p>
             </mat-card-content>
           </mat-card>
-          </div>
+        </mat-accordion>
     </div>
 
 

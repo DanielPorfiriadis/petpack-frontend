@@ -2,10 +2,16 @@
 .mat-card{
     width: 90%;
 }
-
+.post{
+    width: 90%;
+    margin-top: 15px;
+}
+.imagepost{
+    width: 60%;
+}
 mat-form-field,
 .textarea{
-    border: 2px solid black;
+    border: 0.05px solid lightgray;
     width: 90%;
 }
 

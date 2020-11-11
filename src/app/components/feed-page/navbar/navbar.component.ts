@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { AuthService } from '../../auth/auth.services';
 
 
 // import { AuthService } from 'auth';
@@ -18,9 +19,7 @@ export class NavbarComponent {
 
   private returnUrl = '/';
 
-  constructor(
-              private router: Router,
-              ) {
+  constructor( private router: Router, private authService: AuthService) {
 
   this.router.events.subscribe((event) => {
 
@@ -42,7 +41,8 @@ export class NavbarComponent {
 
   public logout() {
 
-    // this.authService.logout(this.returnUrl || '/');
+      this.authService.logout();
+
   }
 
   public settings(){
