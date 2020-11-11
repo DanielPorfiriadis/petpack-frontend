@@ -36,11 +36,11 @@ import { FirstNavbarComponent } from './components/first-navbar/first-navbar.com
 /* Feed*/
 import { AfterloginComponent } from './components/afterlogin/afterlogin.component';
 import { FeedPageComponent } from './components/feed-page/feed-page.component'
-import { NavbarComponent } from './components/feed-page/navbar/navbar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { FeedviewComponent } from './components/feed-page/feedview/feedview.component';
 import { CommentsComponent } from './components/feed-page/comments/comments.component';
 
-import { ProfileComponent } from './components/feed-page/profile/profile.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { MiniprofComponent } from './components/feed-page/miniprof/miniprof.component';
 
 import { AboutUsComponent } from './components/about-us/about-us.component';

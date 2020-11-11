@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Post } from '../post.model';
-import { mimeType } from "./mime-type.validator";
+import { Post } from '../feed-page/post.model';
+import { mimeType } from "../feed-page/feedview/mime-type.validator";
 
 @Component({
-  selector: 'app-feedview',
-  templateUrl: './feedview.component.html',
-  styleUrls: ['./feedview.component.css'],
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
-export class FeedviewComponent implements OnInit {
-
+export class ProfileComponent implements OnInit {
+  
   form: FormGroup;
-  message: string = "123";
+  message: string = "";
   image:any;
   imagePreview: string;
   isLoading = false;
@@ -19,6 +19,7 @@ export class FeedviewComponent implements OnInit {
   items: number[] = [];
   posts: Post[] =[];
   post: Post;
+
   constructor() {
     for (let i = 0; i < 5; i++) {
       this.items.push(i);
@@ -45,8 +46,8 @@ export class FeedviewComponent implements OnInit {
   }
 
   onSavePost() {
+  }
 
-}
   onImagePicked(event: Event) {
     const file = (event.target as HTMLInputElement).files[0];
     this.form.patchValue({image: file});
@@ -56,11 +57,35 @@ export class FeedviewComponent implements OnInit {
         this.imagePreview = (reader.result as string);
     };
     reader.readAsDataURL(file);
-}
+  }
 
 
   deletePost(i: number): void {
     this.posts.splice(i,1)
   }
+
+  // User posts check, έλεγχος των ποστ για να μπουν στο προφιλ
+  // https://www.codementor.io/@jimohhadi/angular-validators-with-conditional-validation-in-reactive-forms-pj5z7gsq5
+
+  // this.setUserCategoryValidators();
+ 
+  //-----------------------------------
+
+  // setUserCategoryValidators() {
+  //   const institutionControl = this.form.get('institution');
+
+  //   this.form.get('userName').valueChanges
+  //     .subscribe(userCategory => {
+
+  //       if (userCategory === 'user.UserName') {
+  //         institutionControl.setValidators([Validators.required]);
+  //       }
+
+  //       institutionControl.updateValueAndValidity();
+
+  //     });
+  // }
+ 
+
 
 }

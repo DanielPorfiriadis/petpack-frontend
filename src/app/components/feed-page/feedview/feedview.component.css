@@ -1,74 +1,32 @@
-/* mat-grid-tile  {
-    background-color: rgb(180, 180, 243);
-}
-.right{
-    background-color: rgb(165, 73, 116);
-} */
 
-body {
-  background-color: #eeeeee;
+.mat-card{
+    width: 90%;
 }
 
-.h7 {
-  font-size: 0.8rem;
+mat-form-field,
+.textarea{
+    border: 2px solid black;
+    width: 90%;
 }
 
-.gedf-wrapper {
-  margin-top: 0.97rem;
+input[type="file"] {
+    visibility: hidden;
 }
 
-@media (min-width: 992px) {
-  .gedf-main {
-    padding-left: 4rem;
-    padding-right: 4rem;
-  }
-
-  .gedf-card {
-    margin-bottom: 2.77rem;
-  }
+.imagePicker{
+    margin: 5px;
 }
 
-/**Reset Bootstrap*/
-.dropdown-toggle::after {
-  content: none;
-  display: none;
+.image-preview {
+    height: 5rem;
+    margin: 1rem 0; 
 }
 
-.post-format {
-  width: 100%;
-  text-align: center;
-  height:inherit;
+.image-preview img {
+    height: 100%;
 }
 
-.post-content {
-  width: 100%;
-  overflow-wrap:break-word;
+.header-image {
+    background-size: cover;
+    background-position: center;
 }
-
-/*.deleteIcon {*/
-/*margin-left: 95%;*/
-/*position: absolute;
-  top: 8px;
-  right: 15px;
-}*/
-.post-feed {
-  max-height: 600px;
-  overflow-y: scroll;
-}
-::-webkit-scrollbar {
-  width: 5px;
-  background-color:transparent;
-}
-::-webkit-scrollbar-thumb {
-  background-color:lightgray;
-  border-radius:50px;
-  border: 0.5px solid lightgray;
-}
-
-/*.justify-content-between{
-    padding-left:50%;
-}*/
-.share-btn {
-  margin-right:70%;
-}
-
