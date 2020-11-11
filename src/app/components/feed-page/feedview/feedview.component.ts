@@ -30,6 +30,7 @@ export class FeedviewComponent implements OnInit {
   currentPage=1;
 
   ngOnInit(): void {
+
     this.form = new FormGroup ({
       content: new FormControl(null, {
         validators: [Validators.required],
@@ -54,7 +55,7 @@ export class FeedviewComponent implements OnInit {
                 this.form.setValue({
                     content: this.post.content,
                     image: this.post.imagePath
-                 });
+                });
             });
     } else{
         this.mode = 'create';
@@ -75,11 +76,18 @@ export class FeedviewComponent implements OnInit {
             return;
     }
     this.isLoading = true;
-
-    this.postsService.addPost( this.form.value.content, this.form.value.image);
-
-    this.form.reset();
-  }
+    if (this.mode === 'create'){
+        this.postsService.addPost(
+            this.form.value.content,
+            this.form.value.image);
+    } else {
+        this.postsService.updatePost(
+            this.postId, 
+            this.form.value.content,
+            this.form.value.image
+            );
+    }
+}
 
   onImagePicked(event: Event) {
     const file = (event.target as HTMLInputElement).files[0];
