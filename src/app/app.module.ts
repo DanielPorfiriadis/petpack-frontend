@@ -23,11 +23,11 @@ import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time';
 
 /* Components */
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './components/register/register.component'
-import { LoginComponent } from './components/login/login.component';
-import { RegisterStep1Component } from './components/register/register-step1/register-step1.component';
-import { RegisterStep2Component } from './components/register/register-step2/register-step2.component';
-import { RegisterStep3Component } from './components/register/register-step3/register-step3.component';
+import { RegisterComponent } from './components/auth/register/register.component'
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterStep1Component } from './components/auth/register/register-step1/register-step1.component';
+import { RegisterStep2Component } from './components/auth/register/register-step2/register-step2.component';
+import { RegisterStep3Component } from './components/auth/register/register-step3/register-step3.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FirstNavbarComponent } from './components/first-navbar/first-navbar.component';
