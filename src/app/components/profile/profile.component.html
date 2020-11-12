@@ -1,0 +1,87 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid gedf-wrapper">
+
+  
+      <!--===== left box ========-->
+  
+        <div class="col-md-3 gedf-main">
+          <div class="card">
+  
+            <h2 style="text-align:center">User Profile Card</h2>
+
+            <div class="card">
+              <img src="../../../assets/img/avatar.png" alt="Name" style="width:100%">
+              <h1>User Name</h1>
+              <p class="title">Example</p>
+              <p>Pet Name</p>
+              <p><button class="buttonLeft">Setting</button></p>
+            </div>
+            
+ 
+          </div>
+        </div>
+  
+        <!--===== Right box - profile feedview ========-->
+
+        <div class="col-md-6 gedf-main">
+            <mat-card class="createPost">
+              <form [formGroup]="form" (submit)="onSavePost()" *ngIf ="!isLoading">
+                
+                <mat-form-field>
+    
+                  <textarea 
+                      matInput 
+                      rows="4"
+                      formControlName ="content"
+                      name="content" 
+                      placeholder="Post Content">
+                  </textarea>
+    
+                  <mat-error *ngIf="form.get('content').invalid">
+                      Please enter content
+                  </mat-error>
+    
+                </mat-form-field>
+    
+                <div>
+                    <button mat-stroked-button type="button" class="imagePicker" (click)= "filePicker.click()">Upload Image</button>
+                    <input type="file" #filePicker (change)="onImagePicked($event)">
+                </div>
+       
+                <div class="image-preview" *ngIf= "imagePreview !== '' && imagePreview && form.get('image').valid ">
+                  <img [src]= "imagePreview" [alt]= "form.value.content">
+                </div>
+    
+                <button mat-raised-button
+                    color='primary'
+                    type="submit">Post
+                </button>
+    
+              </form> 
+            </mat-card>
+            
+            <div>
+              <mat-card>
+                
+                <mat-card-header>
+                  <img mat-card-avatar src="../assets/img/avatar.png">
+                  <mat-card-title>User 1</mat-card-title>
+                  <mat-card-subtitle>10h</mat-card-subtitle>
+                </mat-card-header>
+                
+                <mat-card-content>
+                  <p> {{post.content}} </p>
+                </mat-card-content>
+    
+              </mat-card>
+            </div>
+    
+        </div>
+  
+        
+
+        <!--===== END ========-->
+
+  
+</div>

@@ -1,79 +1,144 @@
-/* mat-grid-tile  {
-    background-color: rgb(180, 180, 243);
-}
-.right{
-    background-color: rgb(165, 73, 116);
-} */
 
-body {
-  background-color: #eeeeee;
-}
-
-.h7 {
-  font-size: 0.8rem;
-}
-
-.gedf-wrapper {
-  margin-top: 0.97rem;
-}
-
-@media (min-width: 992px) {
-  .gedf-main {
-    padding-left: 4rem;
-    padding-right: 4rem;
+/*--------------------------------------------------------------
+# feedpage
+--------------------------------------------------------------*/
+.section-bg {
+    background-color:  #F4F4F4;
+  }
+  .wrapper {
+    background: #F4F4F4;
+    display: inline-block;
+    width: 100%;
+  }
+  .feedpage .box {
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    margin: 10px  0 10px 0;
+    background: #fff;
+    box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
+    transition: all 0.3s ease-in-out;
+    border-radius: 15px;
+    text-align: center;
+    border-bottom: 3px solid #fff;
+    border-color: #e1dddd;
+  }
+  
+  .feedpage .box-main {
+    position: relative;
+    overflow: hidden;
+    margin: 10px 20px 0 20px;
+    background: #fff;
+    box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
+    transition: all 0.3s ease-in-out;
+    border-radius: 15px;
+    border-bottom: 3px solid #fff;
+    border-color: #e1dddd;
+  }
+  .feedpage .title {
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+  
+  .feedpage .title a {
+    color: #111;
+  }
+  
+  .feedpage .description {
+    font-size: 15px;
+    line-height: 28px;
+    margin-bottom: 0;
+  }
+  .mat-card{
+    width: 100%;
+  }
+  
+  /* ==================== create a post ================== */
+  
+  mat-form-field, .textarea{
+    border: 1px solid rgb(192, 191, 191);
+    width: 100%;
+  }
+  .p-text-area, .p-text-area:focus {
+    border: none;
+    font-weight: 300;
+    box-shadow: none;
+    color: #827e7e;
+    font-size: 16px;
+    padding-left: 10px;
+  }
+  
+  
+  input[type="file"] {
+    visibility: hidden;
   }
 
-  .gedf-card {
-    margin-bottom: 2.77rem;
+.postButton {
+    margin-left:350px;
+    float:right;
+}
+
+@media (max-width: 1700px) {
+  .postButton {
+    margin-left: 60px;
+    float: right;
   }
 }
+  .imagePicker {
+    /*    margin-top: 10px;
+    margin-bottom:10px;
+    margin-left:5px;*/
+    /*padding:20px;*/
+    color: dimgray;
+    font-size: 24px;
+    border: hidden;
+    background-color: transparent;
+    padding-top:5px;
+  }
 
-/**Reset Bootstrap*/
-.dropdown-toggle::after {
-  content: none;
-  display: none;
-}
+  .image-preview {
+    height: 5rem;
+    margin: 1rem 0;
+  }
 
-.post-format {
-  width: 100%;
-  text-align: center;
-  height:inherit;
-}
+    .image-preview img {
+      height: 100%;
+    }
 
-.post-content {
-  width: 100%;
-  overflow-wrap:break-word;
-}
+  .textarea-footer {
+    background-color: #f8f7f5;
+    display: block;
+  }
 
-/*.deleteIcon {*/
-/*margin-left: 95%;*/
-/*position: absolute;
-  top: 8px;
-  right: 15px;
-}*/
-.post-feed {
-  max-height: 600px;
-  overflow-y: scroll;
-}
-::-webkit-scrollbar {
-  width: 5px;
-  background-color:transparent;
-}
-::-webkit-scrollbar-thumb {
-  background-color:lightgray;
-  border-radius:50px;
-  border: 0.5px solid lightgray;
-}
+    .textarea-footer ul {
+      margin: 5px 5px;
+      text-align: left;
+    }
 
-/*.justify-content-between{
-    padding-left:50%;
-}*/
-.share-btn {
-  margin-right:70%;
-}
+      .textarea-footer ul li {
+        margin: 5px 5px;
+        text-align: center;
+      }
 
-.image-upload{
-    width:100px;
-    height:100px;
-}
+  /* ============ posts ============= */
+  .card {
+    display: flex;
+  }
+
+  .card-avatar-image {
+    background-image: url('/assets/img/avatar.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .post {
+    width: 100%;
+  }
+
+  .imagepost {
+    width: 60%;
+    margin: 5px;
+  }
+
 

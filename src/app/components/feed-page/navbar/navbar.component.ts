@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { AuthService } from '../../auth/auth.services';
 
 
 // import { AuthService } from 'auth';
@@ -18,9 +19,7 @@ export class NavbarComponent {
 
   private returnUrl = '/';
 
-  constructor(
-              private router: Router,
-              ) {
+  constructor( private router: Router, private authService: AuthService) {
 
   this.router.events.subscribe((event) => {
 
@@ -33,28 +32,29 @@ export class NavbarComponent {
 
   });
 
-}
-
-public onProfile() {
-
-  this.router.navigate(['users/profile']);
-}
-
-public logout() {
-
-  // this.authService.logout(this.returnUrl || '/');
-}
-
-public settings(){
-  // this.settings.....kati
-}
-
-  ngOnInit(): void {
   }
 
-  display = false;
-  onPress() {
-    this.display = true;
-}
+  public onProfile() {
+
+    this.router.navigate(['users/profile']);
+  }
+
+  public logout() {
+
+      this.authService.logout();
+
+  }
+
+  public settings(){
+    // this.settings.....kati
+  }
+
+    ngOnInit(): void {
+    }
+
+    display = false;
+    onPress() {
+      this.display = true;
+  }
 
 }

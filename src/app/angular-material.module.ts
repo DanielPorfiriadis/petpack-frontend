@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkTreeModule } from '@angular/cdk/tree';
 import { PortalModule } from '@angular/cdk/portal';
-import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -36,6 +35,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'
+
+import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time'; /* npm install angular-countdown-date-time */
+
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -75,7 +79,9 @@ const materialModules = [
   MatStepperModule,
   FormsModule,
   ReactiveFormsModule,
-  ScrollingModule,
+  AngularCountdownDateTimeModule,
+  FlexLayoutModule,
+  BrowserAnimationsModule
 ];
 
 @NgModule({
