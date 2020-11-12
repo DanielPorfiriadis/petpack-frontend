@@ -1,0 +1,45 @@
+body{
+    height: 100%;
+    margin: 0;
+    text-decoration-color: black; 
+}
+
+.bgimg {
+    /* background-image: url('/src/assets/img/Start_Page.png'); */
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    color: black;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 30px;
+}
+
+.topleft {
+    position: absolute;
+    top: 0;
+    left: 20px;
+  }
+
+.bottomleft {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+  }
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    background-color: lightslategray;
+    
+}
+
+hr {
+    margin: 110px;
+    width: 100px;
+}
