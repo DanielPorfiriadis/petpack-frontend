@@ -73,6 +73,7 @@
   input[type="file"] {
     visibility: hidden;
   }
+<<<<<<< HEAD
   
   .imagePicker{
     margin: 0px;
@@ -98,17 +99,72 @@
     
   }
   
+=======
+
+.postButton {
+    margin-left:350px;
+    float:right;
+}
+
+@media (max-width: 1700px) {
+  .postButton {
+    margin-left: 60px;
+    float: right;
+  }
+}
+  .imagePicker {
+    /*    margin-top: 10px;
+    margin-bottom:10px;
+    margin-left:5px;*/
+    /*padding:20px;*/
+    color: dimgray;
+    font-size: 24px;
+    border: hidden;
+    background-color: transparent;
+    padding-top:5px;
+  }
+
+  .image-preview {
+    height: 5rem;
+    margin: 1rem 0;
+  }
+
+    .image-preview img {
+      height: 100%;
+    }
+
+  .textarea-footer {
+    background-color: #f8f7f5;
+    display: block;
+  }
+
+    .textarea-footer ul {
+      margin: 5px 5px;
+      text-align: left;
+    }
+
+      .textarea-footer ul li {
+        margin: 5px 5px;
+        text-align: center;
+      }
+
+>>>>>>> origin/vasilis_development
   /* ============ posts ============= */
   .card {
     display: flex;
   }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> origin/vasilis_development
   .card-avatar-image {
     background-image: url('/assets/img/avatar.png');
     background-size: cover;
     background-position: center;
   }
 
+<<<<<<< HEAD
   .post{
     width: 100%;
     
@@ -117,3 +173,15 @@
     width: 60%;
     margin: 5px;
   }
+=======
+  .post {
+    width: 100%;
+  }
+
+  .imagepost {
+    width: 60%;
+    margin: 5px;
+  }
+
+
+>>>>>>> origin/vasilis_development
