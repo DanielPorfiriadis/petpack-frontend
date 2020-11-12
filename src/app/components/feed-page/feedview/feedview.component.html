@@ -1,105 +1,123 @@
-<div class="container-fluid gedf-wrapper">
-  <div class="row">
-
-    <!--===== left box ========-->
-
-      <div class="col-md-3">
-        <div class="card">
-
-          <div class="card-body">
-            <div class="h4">Pet Pack Universe</div>
-            <div class="h4">
-              <a href="about_us" class="ml-2">About Us</a> 
+<section id="feedpage" class="feedpage section-bg">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- ====== left ====== -->
+      <div class="col-md-3 col-lg-3 d-flex align-items-stretch">
+        <div class="wrapper">
+          <div class="box">
+            <div class="card">
+              <div class="card-body">
+                <div class="h4">Pet Pack Universe</div>
+                <div class="h4">
+                  <a href="about_us" class="ml-2">About Us</a> 
+                </div>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <div class="h6 text-muted">Followers</div>
+                  <div class="h5">Does it Really Matter to You?</div>
+                </li>
+                <li class="list-group-item">
+                  <div class="h6 text-muted">Following</div>
+                  <div class="h5">Those who should..</div>
+                </li>
+              </ul>
+    
             </div>
           </div>
 
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <div class="h6 text-muted">Followers</div>
-              <div class="h5">Does it Really Matter to You?</div>
-            </li>
-            <li class="list-group-item">
-              <div class="h6 text-muted">Following</div>
-              <div class="h5">Those who should..</div>
-            </li>
+          <div class="box">
             <li class="list-group-item"> <i><b>Mystique Team:</b></i><br>
               <i>Mystique (Raven Darkhölme) is a fictional character appearing in 
               American comic books published by Marvel Comics, commonly in association 
               with the X-Men. Created by artist David Cockrum and writer Chris Claremont, 
               she first appeared in the comic book Ms. Marvel #16 (April 1978).</i>
-              </li>
-          </ul>
-
-        </div>
+            </li>
+          </div>
+      </div> 
       </div>
 
-    <!--===== center box - feedview ========-->
 
-    <div class="col-md-6 gedf-main">
-        <mat-card class="createPost">
-          <form [formGroup]="form" (submit)="onSavePost()" *ngIf ="!isLoading">
-            
-            <mat-form-field>
-
-              <textarea 
-                  matInput 
-                  rows="4"
-                  formControlName ="content"
-                  name="content" 
-                  placeholder="Post Content">
-              </textarea>
-
-              <mat-error *ngIf="form.get('content').invalid">
-                  Please enter content
-              </mat-error>
-
+     <!-- ====== center - feedview ====== -->
+     <div class="col-md-6 col-lg-6 d-flex">
+      <div class="wrapper">
+        <div class="box-main">
+          <mat-card class="createPost">
+            <form [formGroup]="form" (submit)="onSavePost()" *ngIf ="!isLoading">
+              <mat-form-field>
+                <textarea 
+                    matInput 
+                    rows="4"
+                    formControlName ="content"
+                    name="content" 
+                    placeholder="Whats in your mind today?"
+                    class="form-control input-lg p-text-area">
+                </textarea>
+                <mat-error 
+                    *ngIf="form.get('content').invalid">
+                    Please enter content
+                </mat-error>
             </mat-form-field>
-
-            <div>
-                <button mat-stroked-button type="button" class="imagePicker" (click)= "filePicker.click()">Upload Image</button>
-                <input type="file" #filePicker (change)="onImagePicked($event)">
-            </div>
-   
-            <div class="image-preview" *ngIf= "imagePreview !== '' && imagePreview && form.get('image').valid ">
-              <img [src]= "imagePreview" [alt]= "form.value.content">
-            </div>
-
-            <button mat-raised-button
-                color='primary'
-                type="submit">Post
-            </button>
-
-          </form> 
-        </mat-card>
-        
-        <div>
-          <mat-card>
-            
-            <mat-card-header>
-              <img mat-card-avatar src="../assets/img/avatar.png">
-              <mat-card-title>User 1</mat-card-title>
-              <mat-card-subtitle>10h</mat-card-subtitle>
-            </mat-card-header>
-            
-            <mat-card-content>
-              <p> {{post.content}} </p>
-            </mat-card-content>
-
+            <footer class="textarea-footer">
+              <ul class="nav nav-pills">
+                <li>
+                    <button mat-stroked-button type="button" class="imagePicker" (click)= "filePicker.click()">Upload Image</button>
+                    <input type="file" #filePicker (change)="onImagePicked($event)">
+                </li>
+                <li><button mat-raised-button
+                    color='primary'
+                    type="submit">Save Post
+                </button></li>
+                
+                <li class="image-preview" *ngIf= "imagePreview !== '' && imagePreview && form.get('image').valid ">
+                    <img [src]= "imagePreview" [alt]= "form.value.content">
+                </li>
+              </ul>
+            </footer>
+            </form>
           </mat-card>
+          </div>
+          <div class="box-main">
+            <mat-accordion multi="true" *ngIf="posts.length >0">
+              <mat-card class="post" *ngFor="let post of posts">
+                <mat-card-header>
+                  <img mat-card-avatar class="card-avatar-image">
+                  <mat-card-title>{{post.creator}}</mat-card-title>
+                  <mat-card-subtitle>10h</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <img class="imagepost" [src]="post.imagePath">
+                  <p> {{post.content}} </p>
+                </mat-card-content>
+                <!-- <mat-card-actions>
+                  <button mat-button>LIKE</button>
+                  <button mat-button>SHARE</button>
+                </mat-card-actions> -->
+              </mat-card>
+            </mat-accordion>
         </div>
 
+      </div>
     </div>
 
-    <!--===== right box - profile ========-->
 
-      <div class="col-md-3">
-          <mat-card>
-            <mat-card-header></mat-card-header>
-            <app-miniprof></app-miniprof>
-          </mat-card>        
-      </div>
 
-    <!--===== END ========-->
-
+ <!-- ====== right ====== -->
+ <div class="col-md-3 col-lg-3 d-flex align-items-stretch">
+  <div class="wrapper">
+  <div class="box">
+    
+    <mat-card>
+      <mat-card-header></mat-card-header>
+      <app-miniprof></app-miniprof>
+    </mat-card>
   </div>
 </div>
+</div>
+
+
+
+</div>
+
+</div>
+</section><!-- End feedpage Section -->

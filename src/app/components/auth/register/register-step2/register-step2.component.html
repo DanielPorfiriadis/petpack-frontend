@@ -1,0 +1,49 @@
+<div class="row"> <!--form row-->
+
+  <div id="contact-details" [formGroup]="regForm">
+
+    <!--Pet Name-->
+    <mat-form-field class="form-group col-md-4" formGroupName="petDetails" appearance="outline">
+      <mat-label>Pet Name</mat-label>
+      <input type="text" formControlName="petName" matInput>
+      <mat-error *ngIf="regForm.get('petDetails').get('petName').invalid">{{getPetnameErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <!-- <br /> -->
+
+    <!--Species-->
+    <mat-form-field class="form-group col-md-4" formGroupName="petDetails" appearance="outline">
+      <mat-label>Select</mat-label>
+      <mat-select formControlName="species">
+        <mat-option value="cat">Cat</mat-option>
+        <mat-option value="cat">Dog</mat-option>
+        <mat-option value="cat">Other</mat-option> <!--gia to other prepei na mpei epilogh na bazei o xrhsths-->
+      </mat-select>
+      <mat-error *ngIf="regForm.get('petDetails').get('species').invalid">{{getSpeciesErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <!-- <br /> -->
+
+    <!--Gender-->
+    <div class="form-group col-md-4" formGroupName="petDetails">
+      <mat-radio-group formControlName="gender" aria-label="Select Gender">
+        <br />
+        <mat-radio-button value="1">Male</mat-radio-button>
+        &nbsp;
+        <mat-radio-button value="2">Female</mat-radio-button>
+      </mat-radio-group>
+      <mat-error *ngIf="regForm.get('petDetails').get('gender').invalid && this.regForm.get('petDetails').get('gender').touched">{{getGenderErrorMessage()}}</mat-error>
+    </div>
+
+  </div>
+
+</div>
+
+<br />
+
+<!--button new row-->
+<div class="row_button"> 
+
+  <button type="button" class="download-btn" matStepperPrevious>Back</button>
+  &nbsp;
+  <button type="button" class="download-btn" matStepperNext (click)="step2Submitted()">Next</button>
+
+</div>
