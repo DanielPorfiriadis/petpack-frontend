@@ -162,6 +162,12 @@
     background-image: url('/assets/img/avatar.png');
     background-size: cover;
     background-position: center;
+<<<<<<< HEAD
+}
+.spacer {
+    flex: 1 1 auto;
+}
+=======
   }
 
 <<<<<<< HEAD
@@ -185,3 +191,4 @@
 
 
 >>>>>>> origin/vasilis_development
+>>>>>>> e0f02ddeb20675b4c4a567e0ae28c8302abca12a

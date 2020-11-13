@@ -118,6 +118,7 @@
     </div>
 
 
+<<<<<<< HEAD
     <div class="col-md-6 gedf-main">
         <mat-card class="createPost">
           <form [formGroup]="form" (submit)="onSavePost()" *ngIf ="!isLoading">
@@ -151,8 +152,30 @@
           <mat-card class="post" *ngFor="let post of posts">
             <mat-card-header>
               <img mat-card-avatar src="../assets/img/avatar.png">
-              <mat-card-title>{{post.creator}}</mat-card-title>
+              <mat-card-title>{{post.creatorUsername}}</mat-card-title>
               <mat-card-subtitle>10h</mat-card-subtitle>
+              <span class="spacer"></span>  
+              <button mat-icon-button [matMenuTriggerFor]="cardOptionsMenu" aria-label="Example icon-button with a menu" #cardOptions>
+                <mat-icon>more_vert</mat-icon>
+              </button>              
+              <mat-menu #cardOptionsMenu="matMenu" >
+                <button mat-menu-item *ngIf ="userIsAuthenticated && userId == post.creator">
+                  <mat-icon>edit</mat-icon>
+                  <span>Edit</span>
+                </button>
+                <button mat-menu-item disabled *ngIf ="!userIsAuthenticated || userId !== post.creator">
+                  <mat-icon>edit</mat-icon>
+                  <span>Edit</span>
+                </button>
+                <button mat-menu-item *ngIf ="userIsAuthenticated && userId == post.creator" (click)="deletePost()">
+                  <mat-icon>delete</mat-icon>
+                  <span>Delete</span>
+                </button>
+                <button mat-menu-item disabled *ngIf ="!userIsAuthenticated || userId !== post.creator">
+                  <mat-icon>delete</mat-icon>
+                  <span>Delete</span>
+                </button>
+              </mat-menu>
             </mat-card-header>
             <mat-card-content>
                 <img class="imagepost" [src]="post.imagePath">
@@ -162,10 +185,30 @@
         </mat-accordion>
     </div>
 
+    <div class="col-md-3">
+        <mat-card>
+          <mat-card-header> oap</mat-card-header>
+        </mat-card>        
+    </div>
+=======
+
+ <!-- ====== right ====== -->
+ <div class="col-md-3 col-lg-3 d-flex align-items-stretch">
+  <div class="wrapper">
+  <div class="box">
+    
+    <mat-card>
+      <mat-card-header></mat-card-header>
+      <app-miniprof></app-miniprof>
+    </mat-card>
+  </div>
+</div>
+</div>
 
 
 
 </div>
+>>>>>>> e0f02ddeb20675b4c4a567e0ae28c8302abca12a
 
 </div>
 </section><!-- End feedpage Section -->
