@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { AuthService } from '../../auth/auth.services';
+import { AuthService } from '../../auth/auth.service';
 
 
 // import { AuthService } from 'auth';

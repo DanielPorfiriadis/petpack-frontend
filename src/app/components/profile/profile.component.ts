@@ -41,7 +41,8 @@ export class ProfileComponent implements OnInit {
       id: null,
       content: this.message,
       imagePath: null,
-      creator: null
+      creator: null,
+      creatorUsername: null
     });
   }
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import {AuthService} from '../auth.services';
+import {AuthService} from '../auth.service';
 
 @Component({
   selector: 'app-login',

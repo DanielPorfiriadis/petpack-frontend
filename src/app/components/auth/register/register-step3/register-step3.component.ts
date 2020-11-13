@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { Form, FormGroup } from '@angular/forms';
-import { AuthService } from '../../auth.services';
+import { AuthService } from '../../auth.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
@@ -23,6 +23,7 @@ export class RegisterStep3Component {
     this.authService.createUser(this.regForm.get('personalDetails').get('firstname').value,
     this.regForm.get('personalDetails').get('lastname').value,
     this.regForm.get('personalDetails').get('username').value,
+    this.regForm.get('personalDetails').get('email').value,
     this.regForm.get('personalDetails').get('password').value)
   }
   // submit(): void{

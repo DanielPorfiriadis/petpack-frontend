@@ -36,3 +36,6 @@ input[type="file"] {
     background-size: cover;
     background-position: center;
 }
+.spacer {
+    flex: 1 1 auto;
+}
