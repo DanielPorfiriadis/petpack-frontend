@@ -73,30 +73,6 @@
   input[type="file"] {
     visibility: hidden;
   }
-  
-  .imagePicker{
-    margin: 0px;
-  }
-  
-  .image-preview {
-    height: 5rem;
-    margin: 1rem 0; 
-  }
-  
-  .image-preview img {
-    height: 100%;
-  }
-  
-  .textarea-footer {
-    background-color:#f8f7f5 ;
-    
-  }
-  
-  .textarea-footer ul li {
-    margin: 5px 5px 0;
-    text-align: center;
-    
-  }
 
 .postButton {
     margin-left:350px;
@@ -145,15 +121,25 @@
         text-align: center;
       }
 
+
   /* ============ posts ============= */
   .card {
     display: flex;
   }
+
+
   .card-avatar-image {
     background-image: url('/assets/img/avatar.png');
     background-size: cover;
     background-position: center;
+
+}
+.spacer {
+    flex: 1 1 auto;
+}
+
   }
+
 
   .post{
     width: 100%;
@@ -163,3 +149,15 @@
     width: 60%;
     margin: 5px;
   }
+
+  .post {
+    width: 100%;
+  }
+
+  .imagepost {
+    width: 60%;
+    margin: 5px;
+  }
+
+
+

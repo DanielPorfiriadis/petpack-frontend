@@ -8,7 +8,6 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 
 import { AfterloginComponent } from './components/afterlogin/afterlogin.component';
 import { FeedPageComponent } from './components/feed-page/feed-page.component';
-import { CommentsComponent } from './components/feed-page/comments/comments.component';
 
 import { ProfileComponent } from './components/profile/profile.component';
 import { MiniprofComponent } from './components/feed-page/miniprof/miniprof.component';
@@ -25,7 +24,6 @@ const routes: Routes = [
   { path: 'afterlogin', component: AfterloginComponent },
 
   { path: 'feed-page', component: FeedPageComponent },
-  { path: 'comments', component: CommentsComponent },
 
   { path: 'about_us', component: AboutUsComponent },
   { path: 'contact_us', component: ContactUsComponent },
