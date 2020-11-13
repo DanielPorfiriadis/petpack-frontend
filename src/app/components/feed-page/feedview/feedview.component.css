@@ -73,7 +73,6 @@
   input[type="file"] {
     visibility: hidden;
   }
-<<<<<<< HEAD
   
   .imagePicker{
     margin: 0px;
@@ -98,8 +97,6 @@
     text-align: center;
     
   }
-  
-=======
 
 .postButton {
     margin-left:350px;
@@ -148,23 +145,16 @@
         text-align: center;
       }
 
->>>>>>> origin/vasilis_development
   /* ============ posts ============= */
   .card {
     display: flex;
   }
-<<<<<<< HEAD
-  
-=======
-
->>>>>>> origin/vasilis_development
   .card-avatar-image {
     background-image: url('/assets/img/avatar.png');
     background-size: cover;
     background-position: center;
   }
 
-<<<<<<< HEAD
   .post{
     width: 100%;
     
@@ -173,15 +163,3 @@
     width: 60%;
     margin: 5px;
   }
-=======
-  .post {
-    width: 100%;
-  }
-
-  .imagepost {
-    width: 60%;
-    margin: 5px;
-  }
-
-
->>>>>>> origin/vasilis_development

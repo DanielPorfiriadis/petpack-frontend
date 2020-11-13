@@ -61,18 +61,6 @@
             <footer class="textarea-footer">
               <ul class="nav nav-pills">
                 <li>
-<<<<<<< HEAD
-                    <button mat-stroked-button type="button" class="imagePicker" (click)= "filePicker.click()">Upload Image</button>
-                    <input type="file" #filePicker (change)="onImagePicked($event)">
-                </li>
-                <li><button mat-raised-button
-                    color='primary'
-                    type="submit">Save Post
-                </button></li>
-                
-                <li class="image-preview" *ngIf= "imagePreview !== '' && imagePreview && form.get('image').valid ">
-                    <img [src]= "imagePreview" [alt]= "form.value.content">
-=======
                   <button mat-stroke-button (click)="filePicker.click()" class="fas fa-images imagePicker"></button>
                   <!--<button mat-stroked-button type="button" class="imagePicker" (click)= "filePicker.click()">Upload Image</button>-->
                 </li>
@@ -87,7 +75,6 @@
 
                 <li class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid ">
                   <img [src]="imagePreview" [alt]="form.value.content">
->>>>>>> origin/vasilis_development
                 </li>
               </ul>
             </footer>

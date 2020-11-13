@@ -61,18 +61,6 @@
             <footer class="textarea-footer">
               <ul class="nav nav-pills">
                 <li>
-<<<<<<< HEAD
-                    <button mat-stroked-button type="button" class="imagePicker" (click)= "filePicker.click()">Upload Image</button>
-                    <input type="file" #filePicker (change)="onImagePicked($event)">
-                </li>
-                <li><button mat-raised-button
-                    color='primary'
-                    type="submit">Save Post
-                </button></li>
-                
-                <li class="image-preview" *ngIf= "imagePreview !== '' && imagePreview && form.get('image').valid ">
-                    <img [src]= "imagePreview" [alt]= "form.value.content">
-=======
                   <button mat-stroke-button (click)="filePicker.click()" class="fas fa-images imagePicker"></button>
                   <!--<button mat-stroked-button type="button" class="imagePicker" (click)= "filePicker.click()">Upload Image</button>-->
                 </li>
@@ -87,7 +75,6 @@
 
                 <li class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid ">
                   <img [src]="imagePreview" [alt]="form.value.content">
->>>>>>> origin/vasilis_development
                 </li>
               </ul>
             </footer>
@@ -117,50 +104,6 @@
       </div>
     </div>
 
-
-    <div class="col-md-6 gedf-main">
-        <mat-card class="createPost">
-          <form [formGroup]="form" (submit)="onSavePost()" *ngIf ="!isLoading">
-            <mat-form-field>
-              <textarea 
-                  matInput 
-                  rows="4"
-                  formControlName ="content"
-                  name="content" 
-                  placeholder="Post Content">
-              </textarea>
-              <mat-error 
-                  *ngIf="form.get('content').invalid">
-                  Please enter content
-              </mat-error>
-          </mat-form-field>
-            <div>
-                <button mat-stroked-button type="button" class="imagePicker" (click)= "filePicker.click()">Upload Image</button>
-                <input type="file" #filePicker (change)="onImagePicked($event)">
-            </div>
-            <div class="image-preview" *ngIf= "imagePreview !== '' && imagePreview && form.get('image').valid ">
-                <img [src]= "imagePreview" [alt]= "form.value.content">
-            </div>
-            <button mat-raised-button
-                color='primary'
-                type="submit">Save Post
-            </button>
-          </form>
-        </mat-card>
-        <mat-accordion multi="true" *ngIf="posts.length >0">
-          <mat-card class="post" *ngFor="let post of posts">
-            <mat-card-header>
-              <img mat-card-avatar src="../assets/img/avatar.png">
-              <mat-card-title>{{post.creator}}</mat-card-title>
-              <mat-card-subtitle>10h</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <img class="imagepost" [src]="post.imagePath">
-             <p> {{post.content}} </p>
-            </mat-card-content>
-          </mat-card>
-        </mat-accordion>
-    </div>
 
 
 
