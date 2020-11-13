@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 // import { AuthService } from 'auth';
 
@@ -40,9 +41,9 @@ export class NavbarComponent {
   @Output() toggleSidenav = new EventEmitter<void>();
 
   private returnUrl = '/';
-    authService: any;
+    
 
-  constructor(private router: Router,) {
+  constructor(private router: Router, private authService: AuthService) {
 
     this.router.events.subscribe( (event) => {
 
