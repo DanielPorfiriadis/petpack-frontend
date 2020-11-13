@@ -61,16 +61,20 @@
             <footer class="textarea-footer">
               <ul class="nav nav-pills">
                 <li>
-                    <button mat-stroked-button type="button" class="imagePicker" (click)= "filePicker.click()">Upload Image</button>
-                    <input type="file" #filePicker (change)="onImagePicked($event)">
+                  <button mat-stroke-button (click)="filePicker.click()" class="fas fa-images imagePicker"></button>
+                  <!--<button mat-stroked-button type="button" class="imagePicker" (click)= "filePicker.click()">Upload Image</button>-->
                 </li>
-                <li><button mat-raised-button
-                    color='primary'
-                    type="submit">Save Post
-                </button></li>
-                
-                <li class="image-preview" *ngIf= "imagePreview !== '' && imagePreview && form.get('image').valid ">
-                    <img [src]= "imagePreview" [alt]= "form.value.content">
+                <input type="file" #filePicker (change)="onImagePicked($event)">
+                <li>
+                  <button mat-raised-button class="postButton"
+                          color='primary'
+                          type="submit">
+                    Save Post
+                  </button>
+                </li>
+
+                <li class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid ">
+                  <img [src]="imagePreview" [alt]="form.value.content">
                 </li>
               </ul>
             </footer>
@@ -90,8 +94,10 @@
                   <p> {{post.content}} </p>
                 </mat-card-content>
                 <!-- <mat-card-actions>
-                  <button mat-button>LIKE</button>
-                  <button mat-button>SHARE</button>
+                  <ul class="actions">
+                    <li><mat-icon>pets</mat-icon></li>
+                    <li><mat-icon> comment</mat-icon></li>
+                </ul>
                 </mat-card-actions> -->
               </mat-card>
             </mat-accordion>
