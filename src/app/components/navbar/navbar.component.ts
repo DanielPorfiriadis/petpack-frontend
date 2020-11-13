@@ -40,6 +40,7 @@ export class NavbarComponent {
   @Output() toggleSidenav = new EventEmitter<void>();
 
   private returnUrl = '/';
+    authService: any;
 
   constructor(private router: Router,) {
 
@@ -63,7 +64,7 @@ export class NavbarComponent {
 
   public logout() {
 
-    // this.authService.logout(this.returnUrl || '/');
+    this.authService.logout();
   }
 
   public settings(){

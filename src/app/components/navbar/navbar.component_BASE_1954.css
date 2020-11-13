@@ -1,4 +1,3 @@
-
 .example-spacer {
     flex: 1 1 auto;
   }
@@ -8,7 +7,6 @@
     position: -webkit-sticky; /* For macOS/iOS Safari */
     top: 0; /* Sets the sticky toolbar to be on top */
     z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
-    margin: 0px;
 }
 
 .navigation-items {
@@ -39,22 +37,12 @@ background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
   border: 1px solid #ccc;
   margin-top: 5px;
 }
-
-mat-form-field{
-    /*background-color:red;*/
-    top:-15px;
-}
-
-.left-icons {
-  padding-top: 25px;
-}
-
 .search-form .form-group input.form-control {
   padding-right: 20px;
   border: 0 none;
   background: transparent;
   box-shadow: none;
-  display: block;
+  display:block;
 }
 .search-form .form-group input.form-control::-webkit-input-placeholder {
   display: none;
