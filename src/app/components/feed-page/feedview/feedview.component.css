@@ -28,7 +28,7 @@
     position: relative;
     overflow: hidden;
     margin: 10px 20px 0 20px;
-    background: #fff;
+    background: transparent;
     box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
     transition: all 0.3s ease-in-out;
     border-radius: 15px;
@@ -58,8 +58,17 @@
   
   mat-form-field, .textarea{
     border: 1px solid rgb(192, 191, 191);
-    width: 100%;
+    width: 90%;
+    margin-left:10px;
   }
+
+@media (max-width: 1700px) {
+  mat-form-field, .textarea {
+    border: 1px solid rgb(192, 191, 191);
+    width: 85%;
+    margin-left: 10px;
+  }
+}
   .p-text-area, .p-text-area:focus {
     border: none;
     font-weight: 300;
@@ -77,6 +86,7 @@
 .postButton {
     margin-left:350px;
     float:right;
+    outline:none !important;
 }
 
 @media (max-width: 1700px) {
@@ -85,17 +95,18 @@
     float: right;
   }
 }
-  .imagePicker {
-    /*    margin-top: 10px;
+.imagePicker {
+  /*    margin-top: 10px;
     margin-bottom:10px;
     margin-left:5px;*/
-    /*padding:20px;*/
-    color: dimgray;
-    font-size: 24px;
-    border: hidden;
-    background-color: transparent;
-    padding-top:5px;
-  }
+  /*padding:20px;*/
+  color: dimgray;
+  font-size: 24px;
+  border: hidden;
+  background-color: transparent;
+  padding-top: 5px;
+  outline: none !important;
+}
 
   .image-preview {
     height: 5rem;
@@ -134,11 +145,12 @@
 
   .post {
     width: 100%;
+    margin-bottom:10px;
   }
 
-  .imagepost {
-    width: 60%;
-    margin: 5px;
-  }
+.imagepost {
+  width: 60%;
+  margin: 5px;
+}
 
 

@@ -40,6 +40,7 @@ import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time'; /*
 
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ScrollingModule } from '@angular/cdk/scrolling'; /*npm install @angular/cdk*/
 
 
 
@@ -81,7 +82,8 @@ const materialModules = [
   ReactiveFormsModule,
   AngularCountdownDateTimeModule,
   FlexLayoutModule,
-  BrowserAnimationsModule
+  BrowserAnimationsModule,
+  ScrollingModule
 ];
 
 @NgModule({
