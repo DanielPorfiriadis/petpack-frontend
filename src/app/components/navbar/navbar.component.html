@@ -24,6 +24,7 @@
   </li>
           <!-- notifications -->
           <li fxHide.xs>
+<<<<<<< HEAD
             <button mat-icon-button>
               <mat-icon>notifications</mat-icon>
             </button>
@@ -35,6 +36,28 @@
             </button>
             <mat-menu #auth="matMenu">
               <button mat-menu-item (click)="onProfile()">
+=======
+          <mat-form-field class="search-form searchbar">
+              <mat-label>Search</mat-label>
+              <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+              <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                  {{option.username}}
+                </mat-option>
+              </mat-autocomplete>
+              <span class="glyphicon glyphicon-search form-control-feedback"></span>
+          </mat-form-field>
+    </li>
+            <!-- notifications -->
+            <li fxHide.xs>
+              <button mat-icon-button>
+                <mat-icon>notifications</mat-icon>
+              </button>
+            </li>
+            <li>
+              <!-- person -->
+              <button mat-icon-button [matMenuTriggerFor]="auth" class="dropdown-toggle" data-toggle="dropdown">
+>>>>>>> 63434a7a600e307f6ea54713441ef9ebbe26386f
                 <mat-icon> person </mat-icon>
                 <span> {{ 'My Profile' }} </span>
               </button>
