@@ -1,4 +1,4 @@
-.field {
+/* .field {
     padding: 2px;
     margin: 2px;
 }
@@ -6,4 +6,73 @@
 .button{
     padding: 2px;
     margin: 2px;
-}
+} */
+
+/* ======================= */
+
+section {
+    padding: 40px 0;
+    overflow: hidden;
+  }
+  
+  .section-bg {
+    background: #eff2f8;
+  }
+  
+  .section-title {
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  
+  .section-title h2 {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+    color: #5777ba;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .contact .email-form {
+    width: 70%;
+    border-top: 3px solid #5777ba;
+    border-bottom: 3px solid #5777ba;
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+    
+    margin: auto;
+  }
+  
+  .contact .email-form .form-group {
+    padding-bottom: 8px;
+  }
+  
+  .contact .email-form input, .contact .email-form textarea {
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+  }
+  
+  .contact .email-form input {
+    height: 44px;
+  }
+  
+  .contact .email-form textarea {
+    padding: 10px 12px;
+  }
+  
+  .contact .email-form button[type="submit"] {
+    background: #47536e;
+    border: 0;
+    padding: 10px 24px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 4px;
+  }
+  
+  .contact .email-form button[type="submit"]:hover {
+    background: #5777ba;
+  }
+
+
