@@ -5,13 +5,16 @@ import { Subject } from "rxjs";
 
 import { LoginData } from "./login-data.model";
 import { RegisterData } from "./register-data.model";
-
+export interface Username {
+  username: string;
+}
 @Injectable({ providedIn: "root" })
 export class AuthService {
   private isAuthenticated = false;
   private token: string;
   private userId: string;
   private userName: string;
+  private fetchedUsernames: String[] =[];
   private tokenTimer: any;
   private authStatusListener = new Subject<boolean>();
 
@@ -36,6 +39,20 @@ export class AuthService {
 
   getUserName(){
     return this.userName;
+  }
+
+  getUsernames(){
+
+    let usernames: Username[]=[];
+    this.http.get<{message: string, usernameArray: string[]}>("http://localhost:3000/api/user/retrieve")
+    .subscribe(users =>{
+      let usernamesArray = users.usernameArray;
+      usernamesArray.forEach(element => {
+        console.log(element);
+        usernames.push({username: element});
+      });
+    })
+    return usernames;
   }
 
   createUser(firstName: string, lastName: string, userName: string, email: string, password: string) {
