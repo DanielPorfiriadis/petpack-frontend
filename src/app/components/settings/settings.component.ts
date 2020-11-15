@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { mimeType } from "../feed-page/feedview/mime-type.validator";
+import {CookieService} from 'ngx-cookie-service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-settings',
@@ -9,20 +11,9 @@ import { mimeType } from "../feed-page/feedview/mime-type.validator";
 })
 export class SettingsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authService: AuthService) { }
+  public username='';
 
-  form: FormGroup;
-  enteredContent= '';
-
-  ngOnInit(): void {
-
-    this.form = new FormGroup({
-      content : new FormControl(null, {
-          validators: [Validators.required], 
-          updateOn: "change"}),
-          image: new FormControl(null, {validators: [Validators.required], asyncValidators: [mimeType]
-          })
-    });
-
-  }
+  ngOnInit(): void {}
+  
 }
