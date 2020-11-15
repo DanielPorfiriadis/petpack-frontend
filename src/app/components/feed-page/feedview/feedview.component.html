@@ -84,9 +84,31 @@
             <mat-accordion multi="true" *ngIf="posts.length >0">
               <mat-card class="post" *ngFor="let post of posts">
                 <mat-card-header>
-                  <img mat-card-avatar class="card-avatar-image">
-                  <mat-card-title>{{post.creatorUsername}}</mat-card-title>
-                  <mat-card-subtitle>10h</mat-card-subtitle>
+                <img mat-card-avatar class="card-avatar-image">
+                <mat-card-title>{{post.creatorUsername}}</mat-card-title>
+                <span class="spacer"></span> 
+                  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item *ngIf ="userIsAuthenticated && userId == post.creator">
+                      <mat-icon>edit</mat-icon>
+                      <span>Edit</span>
+                    </button>
+                    <button mat-menu-item disabled *ngIf ="userId != post.creator">
+                      <mat-icon>edit</mat-icon>
+                      <span>Edit</span>
+                    </button>
+                    <button mat-menu-item *ngIf ="userIsAuthenticated && userId == post.creator" (click)="deletePost(post.id)">
+                      <mat-icon>delete</mat-icon>
+                      <span>Delete</span>
+                    </button>
+                    <button mat-menu-item disabled *ngIf ="userId != post.creator" >
+                      <mat-icon>delete</mat-icon>
+                      <span>Delete</span>
+                    </button>
+                  </mat-menu>
+                <mat-card-subtitle>10h</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
                   <img class="imagepost" [src]="post.imagePath">

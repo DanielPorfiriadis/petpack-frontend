@@ -123,9 +123,7 @@ export class FeedviewComponent implements OnInit, OnDestroy {
 
   deletePost(postId: string): void {
     this.isLoading = true;
-    this.postsService.deletePost(postId).subscribe( () => {
-        this.postsService.getPosts(this.postsPerPage, this.currentPage);
-    });
+    this.postsService.deletePost(postId);
   }
 
   ngOnDestroy(){

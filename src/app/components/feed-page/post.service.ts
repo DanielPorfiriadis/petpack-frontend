@@ -84,14 +84,25 @@ export class PostService{
         }
         this.http
           .put("http://localhost:3000/api/posts/" + id, postData)
-          .subscribe(response => {
-            this.router.navigate(["/"]);
-          });
+          .subscribe(responseData => {
+            this.router.routeReuseStrategy.shouldReuseRoute = function () {
+                return false;
+            }
+            this.router.onSameUrlNavigation = 'reload';
+            this.router.navigate(["/feed-page"]);
+         })
       }
 
       deletePost(postId: string) {
         return this.http
-          .delete("http://localhost:3000/api/posts/" + postId);
+          .delete("http://localhost:3000/api/posts/" + postId)
+          .subscribe(response => {
+            this.router.routeReuseStrategy.shouldReuseRoute = function () {
+                return false;
+            }
+            this.router.onSameUrlNavigation = 'reload';
+            this.router.navigate(["/feed-page"]);
+          })
       }
 
 }
