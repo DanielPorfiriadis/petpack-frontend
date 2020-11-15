@@ -24,6 +24,7 @@ const routes: Routes = [
   { path: 'afterlogin', component: AfterloginComponent },
 
   { path: 'feed-page', component: FeedPageComponent },
+  { path: 'feed-page/:username', component: FeedPageComponent },
 
   { path: 'about_us', component: AboutUsComponent },
   { path: 'contact_us', component: ContactUsComponent },

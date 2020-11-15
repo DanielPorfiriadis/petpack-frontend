@@ -14,8 +14,8 @@
         <mat-form-field class="search-form searchbar">
             <mat-label>Search</mat-label>
             <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" >
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option" [routerLink]="['/feed-page' , option.username]">
                 {{option.username}}
               </mat-option>
             </mat-autocomplete>

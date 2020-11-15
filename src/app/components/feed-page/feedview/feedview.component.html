@@ -82,10 +82,10 @@
           </div>
           <div class="box-main" (scroll)="onWindowScroll()">
             <mat-accordion multi="true" *ngIf="posts.length >0">
-              <mat-card class="post" *ngFor="let post of posts">
+              <mat-card class="post" *ngFor="let post of posts" >
                 <mat-card-header>
                 <img mat-card-avatar class="card-avatar-image">
-                <mat-card-title>{{post.creatorUsername}}</mat-card-title>
+                <mat-card-title><a class="userLink" href="http://localhost:4200/feed-page">{{post.creatorUsername}}</a></mat-card-title>
                 <span class="spacer"></span> 
                   <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
                     <mat-icon>more_vert</mat-icon>
@@ -110,11 +110,11 @@
                   </mat-menu>
                 <mat-card-subtitle>10h</mat-card-subtitle>
                 </mat-card-header>
+                <hr />
+                <img class="imagepost" [src]="post.imagePath">
+                <hr />
                 <mat-card-content>
-                  <hr />
-                  <img class="imagepost" [src]="post.imagePath">
-                  <hr />
-                  <p> {{post.content}} </p>
+                  <p>  <b><a class="userLink" href="http://localhost:4200/feed-page">{{post.creatorUsername}}:</a></b> {{post.content}} </p>
                 </mat-card-content>
                 <!-- <mat-card-actions>
       <button mat-button>LIKE</button>
@@ -123,7 +123,7 @@
               </mat-card>
             </mat-accordion>
         </div>
-
+        <mat-spinner *ngIf = "isLoading"></mat-spinner>
       </div>
     </div>
 
