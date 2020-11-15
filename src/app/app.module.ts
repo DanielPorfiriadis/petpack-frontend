@@ -45,7 +45,6 @@ import { MiniprofComponent } from './components/feed-page/miniprof/miniprof.comp
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { AuthInterceptor } from './components/auth/auth-interceptor';
-import { SettingsComponent } from './components/settings/settings.component';
 
 
 
@@ -69,7 +68,6 @@ import { SettingsComponent } from './components/settings/settings.component';
     AboutUsComponent,
     ContactUsComponent,
     MiniprofComponent,
-    SettingsComponent,
   ],
   imports: [
     BrowserModule,

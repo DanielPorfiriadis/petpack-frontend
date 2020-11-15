@@ -1,9 +1,7 @@
 <section id="feedpage" class="feedpage section-bg">
   <div class="container-fluid">
     <div class="row">
-
       <!-- ====== left ====== -->
-
       <div class="col-md-3 col-lg-3 d-flex align-items-stretch">
         <div class="wrapper">
           <div class="box">
@@ -36,40 +34,36 @@
               she first appeared in the comic book Ms. Marvel #16 (April 1978).</i>
             </li>
           </div>
-        </div> 
-    </div>
-    
+      </div> 
+      </div>
+
+
      <!-- ====== center - feedview ====== -->
-      <div class="col-md-6 col-lg-6 d-flex">
-        <div class="wrapper">
-          <div class="box-main">
-            <mat-card class="createPost">
-
-              <form [formGroup]="form" (submit)="onSavePost()" *ngIf="!isLoading">
-                
-                <img mat-card-avatar class="card-avatar-image">
-                  <mat-form-field>
-                    <textarea matInput
-                      rows="4"
-                      formControlName="content"
-                      name="content"
-                      placeholder="Whats in your mind today?"
-                      class="form-control input-lg p-text-area">
-                    </textarea>
-
-                    <mat-error *ngIf="form.get('content').invalid">
-                      Please enter content
-                    </mat-error>
-
-                  </mat-form-field>
-
-                  <footer class="textarea-footer">
-                    <ul class="nav nav-pills">
-                    <li>
-                      <button mat-stroke-button (click)="filePicker.click()" class="fas fa-images imagePicker"></button>
-                      <!--<button mat-stroked-button type="button" class="imagePicker" (click)= "filePicker.click()">Upload Image</button>-->
-                    </li>
-                    <input type="file" #filePicker (change)="onImagePicked($event)">
+     <div class="col-md-6 col-lg-6 d-flex">
+      <div class="wrapper">
+        <div class="box-main">
+          <mat-card class="createPost">
+            <form [formGroup]="form" (submit)="onSavePost()" *ngIf="!isLoading">
+              <img mat-card-avatar class="card-avatar-image">
+              <mat-form-field>
+                <textarea matInput
+                          rows="4"
+                          formControlName="content"
+                          name="content"
+                          placeholder="Whats in your mind today?"
+                          class="form-control input-lg p-text-area">
+                </textarea>
+                <mat-error *ngIf="form.get('content').invalid">
+                  Please enter content
+                </mat-error>
+              </mat-form-field>
+              <footer class="textarea-footer">
+                <ul class="nav nav-pills">
+                  <li>
+                    <button mat-stroke-button (click)="filePicker.click()" class="fas fa-images imagePicker"></button>
+                    <!--<button mat-stroked-button type="button" class="imagePicker" (click)= "filePicker.click()">Upload Image</button>-->
+                  </li>
+                  <input type="file" #filePicker (change)="onImagePicked($event)">
                   <li>
                     <button mat-raised-button class="postButton"
                             color='primary'
@@ -79,43 +73,77 @@
                   </li>
 
                   <li class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid ">
-                                <img [src]="imagePreview" [alt]="form.value.content">
-                              </li>
-                            </ul>
-                          </footer>
-                        </form>
-                      </mat-card>
-                      </div>
-                      <div class="box-main">
-                        <mat-accordion multi="true" *ngIf="posts.length >0">
-                          <mat-card class="post" *ngFor="let post of posts">
-                            <mat-card-header>
-                              <img mat-card-avatar class="card-avatar-image">
-                              <mat-card-title>{{post.creatorUsername}}</mat-card-title>
-                              <mat-card-subtitle>10h</mat-card-subtitle>
-                            </mat-card-header>
-                            <mat-card-content>
-                              <img class="imagepost" [src]="post.imagePath">
-                              <p> {{post.content}} </p>
-                            </mat-card-content>
-                              <!-- <mat-card-actions>
-                    <button mat-button>LIKE</button>
-                    <button mat-button>SHARE</button>
-                  </mat-card-actions> -->
+                    <img [src]="imagePreview" [alt]="form.value.content">
+                  </li>
+                </ul>
+              </footer>
+            </form>
+          </mat-card>
+          </div>
+          <div class="box-main" (scroll)="onWindowScroll()">
+            <mat-accordion multi="true" *ngIf="posts.length >0">
+              <mat-card class="post" *ngFor="let post of posts" >
+                <mat-card-header>
+                <img mat-card-avatar class="card-avatar-image">
+                <mat-card-title><a class="userLink" href="http://localhost:4200/feed-page">{{post.creatorUsername}}</a></mat-card-title>
+                <span class="spacer"></span> 
+                  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item *ngIf ="userIsAuthenticated && userId == post.creator">
+                      <mat-icon>edit</mat-icon>
+                      <span>Edit</span>
+                    </button>
+                    <button mat-menu-item disabled *ngIf ="userId != post.creator">
+                      <mat-icon>edit</mat-icon>
+                      <span>Edit</span>
+                    </button>
+                    <button mat-menu-item *ngIf ="userIsAuthenticated && userId == post.creator" (click)="deletePost(post.id)">
+                      <mat-icon>delete</mat-icon>
+                      <span>Delete</span>
+                    </button>
+                    <button mat-menu-item disabled *ngIf ="userId != post.creator" >
+                      <mat-icon>delete</mat-icon>
+                      <span>Delete</span>
+                    </button>
+                  </mat-menu>
+                <mat-card-subtitle>10h</mat-card-subtitle>
+                </mat-card-header>
+                <hr />
+                <img class="imagepost" [src]="post.imagePath">
+                <hr />
+                <mat-card-content>
+                  <p>  <b><a class="userLink" href="http://localhost:4200/feed-page">{{post.creatorUsername}}:</a></b> {{post.content}} </p>
+                </mat-card-content>
+                <!-- <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions> -->
               </mat-card>
             </mat-accordion>
         </div>
-        
+        <mat-spinner *ngIf = "isLoading"></mat-spinner>
       </div>
-      
-     
-
     </div>
 
-    <app-miniprof></app-miniprof>
+     <!-- ====== right ====== -->
+ <div class="col-md-3 col-lg-3 d-flex align-items-stretch">
+  <div class="wrapper">
+  <div class="box">
+    
+    <mat-card>
+      <mat-card-header></mat-card-header>
+      <app-miniprof></app-miniprof>
+    </mat-card>
+  </div>
+</div>
+</div>
+
 
 
 </div>
+
 
 </div>
 </section><!-- End feedpage Section -->

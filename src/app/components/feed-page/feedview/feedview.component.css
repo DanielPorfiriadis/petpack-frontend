@@ -156,5 +156,15 @@ input[type="file"] {
 
 .imagepost {
   width: 60%;
-  margin: 5px;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+.userLink{
+    color: #000000;
+    text-decoration: none;
+}
+
+mat-spinner{
+  margin: auto;
 }

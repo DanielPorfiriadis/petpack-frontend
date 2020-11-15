@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, HostListener } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -27,7 +27,8 @@ export class FeedviewComponent implements OnInit, OnDestroy {
   post: Post;
   private postsSub: Subscription;
   posts: Post [] = [];
-  postsPerPage = 200;
+  postsPerPage = 5;
+  private searchedUsername
   currentPage=1;
   userId: string;
   userIsAuthenticated = false;
@@ -37,13 +38,6 @@ export class FeedviewComponent implements OnInit, OnDestroy {
 
         this.isLoading = true;
         this.userId = this.authService.getUserId();
-        this.postsService.getPosts(this.postsPerPage, this.currentPage);
-        this.postsSub = this.postsService.getPostUpdateListener()
-            .subscribe((postsData: {posts: Post[], postCount: number}) =>{
-                this.isLoading = false;
-                this.posts = postsData.posts;
-                this.totalPosts = postsData.postCount;
-            });
         this.userIsAuthenticated = this.authService.getIsAuth();
         this.authStatusSub =this.authService
         .getAuthStatusListener()
@@ -60,6 +54,24 @@ export class FeedviewComponent implements OnInit, OnDestroy {
           })
     });
     this.route.paramMap.subscribe((paraMap: ParamMap) =>{
+      if(paraMap.has('username')){
+        this.searchedUsername= paraMap.get('username');
+        this.postsService.getPostsByUsername(this.postsPerPage, this.currentPage, this.searchedUsername);
+        this.postsSub = this.postsService.getPostUpdateListener()
+            .subscribe((postsData: {posts: Post[], postCount: number}) =>{
+                this.isLoading = false;
+                this.posts = postsData.posts;
+                this.totalPosts = postsData.postCount;
+            });
+      } else{
+        this.postsService.getPosts(this.postsPerPage, this.currentPage);
+        this.postsSub = this.postsService.getPostUpdateListener()
+            .subscribe((postsData: {posts: Post[], postCount: number}) =>{
+                this.isLoading = false;
+                this.posts = postsData.posts;
+                this.totalPosts = postsData.postCount;
+            });
+      }
       if (paraMap.has('postId')){
           this.mode = 'edit';
           this.postId = paraMap.get('postId');
@@ -123,13 +135,30 @@ export class FeedviewComponent implements OnInit, OnDestroy {
 
   deletePost(postId: string): void {
     this.isLoading = true;
-    this.postsService.deletePost(postId).subscribe( () => {
-        this.postsService.getPosts(this.postsPerPage, this.currentPage);
-    });
+    this.postsService.deletePost(postId);
   }
 
   ngOnDestroy(){
     this.postsSub.unsubscribe();
     this.authStatusSub.unsubscribe();
+  }
+
+  @HostListener("window:scroll", ["$event"])
+
+  onWindowScroll() {
+    //In chrome and some browser scroll is given to body tag
+    let pos = (document.documentElement.scrollTop || document.body.scrollTop) + document.documentElement.offsetHeight;
+    let max = document.documentElement.scrollHeight;
+    let current = document.documentElement.scrollTop;
+    // pos/max will give you the distance between scroll bottom and and bottom of screen in percentage.
+    if (pos == max) {
+      console.log("total posts:"+this.totalPosts +" & postPerPage:" + this.postsPerPage);
+      if (this.totalPosts > this.postsPerPage) {
+        this.isLoading= true;
+        this.postsPerPage += 5;
+        this.ngOnInit();
+        document.documentElement.scrollTop = current;
+      }
+    }
   }
 }

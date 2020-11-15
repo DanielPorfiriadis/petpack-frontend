@@ -14,7 +14,6 @@ import { MiniprofComponent } from './components/feed-page/miniprof/miniprof.comp
 
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
-import { SettingsComponent } from './components/settings/settings.component';
 
 
 const routes: Routes = [
@@ -25,12 +24,12 @@ const routes: Routes = [
   { path: 'afterlogin', component: AfterloginComponent },
 
   { path: 'feed-page', component: FeedPageComponent },
+  { path: 'feed-page/:username', component: FeedPageComponent },
 
   { path: 'about_us', component: AboutUsComponent },
   { path: 'contact_us', component: ContactUsComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'miniprof', component: MiniprofComponent },
-  { path: 'settings', component: SettingsComponent}
 
 ];
 
