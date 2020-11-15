@@ -40,7 +40,7 @@ import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time'; /*
 
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ScrollingModule } from '@angular/cdk/scrolling'; /*npm install @angular/cdk*/
+import { ScrollingModule } from '@angular/cdk/scrolling'; /*npm i @angular/cdk@10.2.5*/  
 
 
 
