@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, HostListener } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -27,7 +27,7 @@ export class FeedviewComponent implements OnInit, OnDestroy {
   post: Post;
   private postsSub: Subscription;
   posts: Post [] = [];
-  postsPerPage = 200;
+  postsPerPage = 5;
   currentPage=1;
   userId: string;
   userIsAuthenticated = false;
@@ -129,5 +129,22 @@ export class FeedviewComponent implements OnInit, OnDestroy {
   ngOnDestroy(){
     this.postsSub.unsubscribe();
     this.authStatusSub.unsubscribe();
+  }
+
+  @HostListener("window:scroll", ["$event"])
+
+  onWindowScroll() {
+    //In chrome and some browser scroll is given to body tag
+    let pos = (document.documentElement.scrollTop || document.body.scrollTop) + document.documentElement.offsetHeight;
+    let max = document.documentElement.scrollHeight;
+    let current = document.documentElement.scrollTop;
+    // pos/max will give you the distance between scroll bottom and and bottom of screen in percentage.
+    if (pos == max) {
+      if (this.totalPosts > this.postsPerPage) {
+        this.postsPerPage += 5;
+        this.ngOnInit();
+        document.documentElement.scrollTop = current;
+      }
+    }
   }
 }

@@ -80,7 +80,7 @@
             </form>
           </mat-card>
           </div>
-          <div class="box-main">
+          <div class="box-main" (scroll)="onWindowScroll()">
             <mat-accordion multi="true" *ngIf="posts.length >0">
               <mat-card class="post" *ngFor="let post of posts">
                 <mat-card-header>
@@ -111,7 +111,9 @@
                 <mat-card-subtitle>10h</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
+                  <hr />
                   <img class="imagepost" [src]="post.imagePath">
+                  <hr />
                   <p> {{post.content}} </p>
                 </mat-card-content>
                 <!-- <mat-card-actions>
