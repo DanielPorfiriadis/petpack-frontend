@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { AuthService } from '../../auth/auth.service';
+
 
 
 @Component({
@@ -12,9 +14,11 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class MiniprofComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authService: AuthService) { }
+  public username='';
 
   ngOnInit(): void {
+    this.username =  this.authService.getUserName();
   }
 
 }
