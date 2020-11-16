@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 // import { AuthService } from 'auth';
 
@@ -11,9 +12,10 @@ import { NavigationEnd, Router } from '@angular/router';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { element } from 'protractor';
 
-export interface User {
-  name: string;
+export interface Username {
+  username: string;
 }
 //End Search Bar
 
@@ -25,23 +27,15 @@ export interface User {
 export class NavbarComponent {
 
   //Search Bar {{option.name}}
-  myControl = new FormControl();
-  options: User[] = [   //User.ts
-    {name: 'Bill'},
-    {name: 'Gillia'},
-    {name: 'Pap'},
-    {name: 'Daniel'},
-    {name: 'Boletos'},
-    {name: 'Naya'}
-  ];
-  filteredOptions: Observable<User[]>;
+
   //End Search Bar
 
   @Output() toggleSidenav = new EventEmitter<void>();
 
   private returnUrl = '/';
+    
 
-  constructor(private router: Router,) {
+  constructor(private router: Router, private authService: AuthService) {
 
     this.router.events.subscribe( (event) => {
 
@@ -55,6 +49,9 @@ export class NavbarComponent {
     } );
 
   }
+  myControl = new FormControl();
+  options: Username[] = this.authService.getUsernames();
+  filteredOptions: Observable<Username[]>;
 
   public onProfile() {
 
@@ -63,7 +60,7 @@ export class NavbarComponent {
 
   public logout() {
 
-    // this.authService.logout(this.returnUrl || '/');
+    this.authService.logout();
   }
 
   public settings(){
@@ -85,14 +82,14 @@ export class NavbarComponent {
     );
   }
 
-  displayFn(user: User): string {
-    return user && user.name ? user.name : ''; //User.ts
+  displayFn(user: Username): string {
+    return user && user.username ? user.username : ''; //User.ts
   }
 
-  private _filter(name: string): User[] {
+  private _filter(name: string): Username[] {
     const filterValue = name.toLowerCase();
 
-    return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+    return this.options.filter(option => option.username.toLowerCase().indexOf(filterValue) === 0);
   }
   //End Search Bar
 

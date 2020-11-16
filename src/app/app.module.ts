@@ -29,7 +29,7 @@ import { RegisterStep1Component } from './components/auth/register/register-step
 import { RegisterStep2Component } from './components/auth/register/register-step2/register-step2.component';
 import { RegisterStep3Component } from './components/auth/register/register-step3/register-step3.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FirstNavbarComponent } from './components/first-navbar/first-navbar.component';
 
 
@@ -38,13 +38,16 @@ import { AfterloginComponent } from './components/afterlogin/afterlogin.componen
 import { FeedPageComponent } from './components/feed-page/feed-page.component'
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FeedviewComponent } from './components/feed-page/feedview/feedview.component';
-import { CommentsComponent } from './components/feed-page/comments/comments.component';
 
 import { ProfileComponent } from './components/profile/profile.component';
 import { MiniprofComponent } from './components/feed-page/miniprof/miniprof.component';
 
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { AuthInterceptor } from './components/auth/auth-interceptor';
+import { SettingsComponent} from './components/settings/settings.component';
+import { LikesComponent } from './components/feed-page/likes/likes.component';
+import { PetminiComponent } from './components/feed-page/petmini/petmini.component'
 
 
 
@@ -68,7 +71,10 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
     AboutUsComponent,
     ContactUsComponent,
     MiniprofComponent,
-    CommentsComponent,
+    ProfileComponent,
+    SettingsComponent,
+    LikesComponent,
+    PetminiComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +88,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
     AngularCountdownDateTimeModule,
   ],
 
-  providers: [ CookieService ],
+  providers: [ {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true} ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

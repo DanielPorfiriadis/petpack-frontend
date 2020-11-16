@@ -8,13 +8,13 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 
 import { AfterloginComponent } from './components/afterlogin/afterlogin.component';
 import { FeedPageComponent } from './components/feed-page/feed-page.component';
-import { CommentsComponent } from './components/feed-page/comments/comments.component';
 
 import { ProfileComponent } from './components/profile/profile.component';
 import { MiniprofComponent } from './components/feed-page/miniprof/miniprof.component';
 
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { SettingsComponent} from './components/settings/settings.component'
 
 
 const routes: Routes = [
@@ -25,12 +25,13 @@ const routes: Routes = [
   { path: 'afterlogin', component: AfterloginComponent },
 
   { path: 'feed-page', component: FeedPageComponent },
-  { path: 'comments', component: CommentsComponent },
+  { path: 'feed-page/:username', component: FeedPageComponent },
 
   { path: 'about_us', component: AboutUsComponent },
   { path: 'contact_us', component: ContactUsComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'miniprof', component: MiniprofComponent },
+  { path: 'settings', component: SettingsComponent} 
 
 ];
 
