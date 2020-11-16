@@ -1,18 +1,57 @@
-// import { Injectable } from "@angular/core";
-// import { HttpClient } from "@angular/common/http";
-// import { Router } from "@angular/router";
-// import { Subject } from "rxjs";
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Router } from "@angular/router";
+import { Subject } from "rxjs";
 
-// import { PetData } from "./pet.model";
+import { PetData } from "./pet.model";
+import { map } from 'rxjs/operators';
 
-// export interface Pet {
-//     petName: string;
-//     species: string;
-//     gender: string;
-// }
+@Injectable({ providedIn: "root" })
+export class PetService {
+    constructor(private http: HttpClient, private router: Router) {}
 
-// @Injectable({ providedIn: "root" })
-// export class PetService {
+    private pets: PetData[]=[];
+    private petsCount: number;
+    private petsUpdated = new Subject<{ pets: PetData[]; petCount: number }>();
+
+    createPet(petName: string, species: string, gender: string, ownerUsername: string) {
+        const petData: PetData = { petName: petName, species: species, gender: gender, ownerUsername: null, id:null};
+        console.log(petData);
+        this.http
+          .post("http://localhost:3000/api/pet/add/"+ownerUsername, petData).subscribe(res =>{
+              console.log(res);
+          });
+    }
+    getUserPets(username: string){
+        this.http.get<{ message: string; pets: any; petsCount: number; }>(
+            "http://localhost:3000/api/pet/get/" + username )
+            .pipe(
+                map(responseData=> {
+                    return{
+                        pets: responseData.pets.map(pet =>{
+                            return{
+                                petName: responseData.pets.petName,
+                                ownerUsername: responseData.pets.ownerUsername,
+                                gender: responseData.pets.gender,
+                                species: responseData.pets.species,
+                                id: responseData.pets._id,
+                            };
+                        }),
+                        petsCount: responseData.petsCount
+                    };
+                })              
+            )
+            .subscribe(transformedPostData =>{
+                
+                this.pets = transformedPostData.pets;
+                this.petsUpdated.next({
+                    pets: [...this.pets],
+                    petCount: transformedPostData.petsCount
+                });
+            });
+    }
+}
+  
 //   private isAuthenticated = false;
 //   private token: string;
 //   private userId: string;
