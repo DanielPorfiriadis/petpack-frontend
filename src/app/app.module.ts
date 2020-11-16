@@ -45,6 +45,9 @@ import { MiniprofComponent } from './components/feed-page/miniprof/miniprof.comp
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { AuthInterceptor } from './components/auth/auth-interceptor';
+import { SettingsComponent} from './components/settings/settings.component';
+import { LikesComponent } from './components/feed-page/likes/likes.component';
+import { PetminiComponent } from './components/feed-page/petmini/petmini.component'
 
 
 
@@ -68,6 +71,10 @@ import { AuthInterceptor } from './components/auth/auth-interceptor';
     AboutUsComponent,
     ContactUsComponent,
     MiniprofComponent,
+    ProfileComponent,
+    SettingsComponent,
+    LikesComponent,
+    PetminiComponent
   ],
   imports: [
     BrowserModule,

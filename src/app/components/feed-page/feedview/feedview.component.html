@@ -9,7 +9,7 @@
               <div class="card-body">
                 <div class="h4">Pet Pack Universe</div>
                 <div class="h4">
-                  <a href="about_us" class="ml-2">About Us</a> 
+                  <p> Α social network for pet owners. PetPack is a social network service website launched on 20 November, 2020 by @Mystique. The following is a list of technology features that can be found on the PetPack website and mobile app and are available to users of the social media site.</p>
                 </div>
               </div>
               <ul class="list-group list-group-flush">
@@ -117,33 +117,37 @@
                   <p>  <b><a class="userLink" href="http://localhost:4200/feed-page">{{post.creatorUsername}}:</a></b> {{post.content}} </p>
                 </mat-card-content>
                 <!-- <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions> -->
-              </mat-card>
-            </mat-accordion>
+                <button mat-button>LIKE</button>
+                <button mat-button>SHARE</button>
+                </mat-card-actions> -->
+                </mat-card>
+              </mat-accordion>
+          </div>
+          <mat-spinner *ngIf = "isLoading"></mat-spinner>
         </div>
-        <mat-spinner *ngIf = "isLoading"></mat-spinner>
       </div>
+
+      <!-- ====== right ====== -->
+      <div class="col-md-3 col-lg-3 d-flex align-items-stretch">
+        <div class="wrapper">
+
+          <div class="box">
+            <mat-card>
+              <mat-card-header></mat-card-header>
+                <app-miniprof></app-miniprof>
+            </mat-card>
+          </div>
+
+          <div class="box">
+            <mat-card>
+              <mat-card-header></mat-card-header>
+              <app-petmini></app-petmini>
+            </mat-card>
+          </div>
+        
+        </div>
+      </div>
+
     </div>
-
-     <!-- ====== right ====== -->
- <div class="col-md-3 col-lg-3 d-flex align-items-stretch">
-  <div class="wrapper">
-  <div class="box">
-    
-    <mat-card>
-      <mat-card-header></mat-card-header>
-      <app-miniprof></app-miniprof>
-    </mat-card>
   </div>
-</div>
-</div>
-
-
-
-</div>
-
-
-</div>
 </section><!-- End feedpage Section -->

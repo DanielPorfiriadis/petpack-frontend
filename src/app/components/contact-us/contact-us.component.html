@@ -53,10 +53,11 @@
           placeholder="What's on your mind?" 
           [(ngModel)]="message"
           required
+          minlength="3"
           #messageInput="ngModel">
         </textarea>
 
-        <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+        <div class="help is-error" *ngIf="messageInput.invalid && messageInput.dirty">
           Your message is required!
         </div>
           </div>
