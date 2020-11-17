@@ -2,40 +2,47 @@
 /*--------------------------------------------------------------
 # feedpage
 --------------------------------------------------------------*/
+a {
+  color: #5777ba;
+}
+
+  a:hover {
+    color: #7b94c9;
+    text-decoration: none;
+  }
 .section-bg {
-  background-color: #F4F4F4;
+  background-color: #f2f5fa;
 }
 
 .wrapper {
-  background: #F4F4F4;
+  background-color: #f2f5fa;
   display: inline-block;
   width: 100%;
 }
 
 .feedpage .box {
-  padding: 20px;
+  padding: 0px;
   position: relative;
   overflow: hidden;
   margin: 10px 0 10px 0;
   background: #fff;
   box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
   transition: all 0.3s ease-in-out;
-  border-radius: 15px;
+  border-radius: 10px;
   text-align: center;
   border-bottom: 3px solid #fff;
   border-color: #e1dddd;
 }
 
 .feedpage .box-main {
+  padding: 0px;
   position: relative;
   overflow: hidden;
   margin: 10px 20px 0 20px;
-  background: transparent;
   box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
   transition: all 0.3s ease-in-out;
-  border-radius: 15px;
-  border-bottom: 3px solid #fff;
-  border-color: #e1dddd;
+  border-radius: 10px;
+  background-color: #f2f5fa;
 }
 
 .feedpage .title {
@@ -45,7 +52,7 @@
 }
 
   .feedpage .title a {
-    color: #111;
+    color: rgb(39, 38, 38);
   }
 
 .feedpage .description {
@@ -57,86 +64,6 @@
 .mat-card {
   width: 100%;
 }
-
-/* ==================== create a post ================== */
-
-mat-form-field, .textarea {
-  border: 1px solid rgb(192, 191, 191);
-  width: 90%;
-  margin-left: 10px;
-}
-
-@media (max-width: 1700px) {
-  mat-form-field, .textarea {
-    border: 1px solid rgb(192, 191, 191);
-    width: 85%;
-    margin-left: 10px;
-  }
-}
-
-.p-text-area, .p-text-area:focus {
-  border: none;
-  font-weight: 300;
-  box-shadow: none;
-  color: #827e7e;
-  font-size: 16px;
-  padding-left: 10px;
-}
-
-
-input[type="file"] {
-  visibility: hidden;
-}
-
-.postButton {
-  margin-left: 350px;
-  float: right;
-  outline: none !important;
-}
-
-@media (max-width: 1700px) {
-  .postButton {
-    margin-left: 60px;
-    float: right;
-  }
-}
-
-.imagePicker {
-  /*    margin-top: 10px;
-    margin-bottom:10px;
-    margin-left:5px;*/
-  /*padding:20px;*/
-  color: dimgray;
-  font-size: 24px;
-  border: hidden;
-  background-color: transparent;
-  padding-top: 5px;
-  outline: none !important;
-}
-
-.image-preview {
-  height: 5rem;
-  margin: 1rem 0;
-}
-
-  .image-preview img {
-    height: 100%;
-  }
-
-.textarea-footer {
-  background-color: #f8f7f5;
-  display: block;
-}
-
-  .textarea-footer ul {
-    margin: 5px 5px;
-    text-align: left;
-  }
-
-    .textarea-footer ul li {
-      margin: 5px 5px;
-      text-align: center;
-    }
 
 /* ============ posts ============= */
 .card {
@@ -165,11 +92,90 @@ input[type="file"] {
 .spacer {
   flex: 1 1 auto;
 }
+
 .userLink{
-    color: #000000;
+    color: #181818;
     text-decoration: none;
+    font-family: "Raleway", sans-serif;
 }
 
 mat-spinner{
   margin: auto;
 }
+
+.p-text-area, .p-text-area:focus {
+  border: none;
+  font-weight: 300;
+  box-shadow: none;
+  color: #c3c3c3;
+  font-size: 16px;
+}
+/* ==================== create a post ================== */
+
+.panel {
+  padding: 0px;
+  position: relative;
+  overflow: hidden;
+  margin: 10px 20px 0 20px;
+  box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.panel-footer {
+  background-color:#f2f5fa;
+  border-top: 1px solid #e7ebee;
+}
+
+.panel-footer ul li a {
+  color: #47536e;
+  cursor: pointer;
+}
+.panel-footer ul li a:hover {
+  background-color: #e6edf8;
+  cursor: pointer;
+}
+
+mat-form-field, .textarea {
+  width: 100%;
+  padding-left: 5px;
+}
+input[type="file"] {
+  visibility: hidden;
+}
+
+.imagePicker {
+  color: #47536e;
+  font-size: 20px;
+  border: hidden;
+  background-color: transparent;
+  outline: none !important;
+}
+
+.image-preview {
+  height: 5rem;
+  margin: 1rem 0;
+}
+
+  .image-preview img {
+    height: 100%;
+  }
+
+  .btn {
+    color: #fff;
+    background: #4d5e85;
+  }
+    .btn:hover {
+      background: #5777ba;
+    }
+
+    .p-text-area, .p-text-area:focus {
+      border: none;
+      font-weight: 300;
+      box-shadow: none;
+      color: #827e7e;
+      font-size: 16px;
+      padding-left: 10px;
+    }
+    
