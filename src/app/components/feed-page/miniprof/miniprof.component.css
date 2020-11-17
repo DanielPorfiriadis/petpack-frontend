@@ -88,3 +88,16 @@ body {
     background: #fff;
     min-height: 460px;
   }
+  .box {
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    margin: 10px 0 10px 0;
+    background: #fff;
+    box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
+    transition: all 0.3s ease-in-out;
+    border-radius: 15px;
+    text-align: center;
+    border-bottom: 3px solid #fff;
+    border-color: #e1dddd;
+  }
