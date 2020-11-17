@@ -1,20 +1,24 @@
-<!-- User Pic -->
-<div class="profile-userpic">
-    <img src="../../../../assets/img/avatar.png" class="img-responsive" alt="">
-</div>
 
-<!-- User & Pet Name -->
-<div class="profile-usertitle">
-    <div class="profile-usertitle-name">
-       {{username}}
+
+<mat-card>
+    <!-- User Pic -->
+    <div class="profile-userpic">
+        <img mat-card-avatar [src]="user.imagePath" class="img-responsive" alt="">
     </div>
-    <div class="profile-usertitle-pet">
-        @{{username}}
+
+    <!-- User & Pet Name -->
+    <div class="profile-usertitle">
+        <div class="profile-usertitle-name">
+        {{username}}
+        </div>
+        <div class="profile-usertitle-pet">
+            @{{username}}
+        </div>
+        <div>
+            <a href="../../profile/">  <i class="glyphicon glyphicon-user"></i>  Profile </a>
+        </div>
+        <div>
+            <a href="../../settings/">  <i class="glyphicon glyphicon-cog"></i>  Account Settings </a>
+        </div>
     </div>
-    <div>
-        <a href="../../profile/">  <i class="glyphicon glyphicon-user"></i>  Profile </a>
-    </div>
-    <div>
-        <a href="../../settings/">  <i class="glyphicon glyphicon-cog"></i>  Account Settings </a>
-    </div>
-</div>
+</mat-card>

@@ -4,7 +4,9 @@ import { Router } from "@angular/router";
 import { Subject } from "rxjs";
 
 import { LoginData } from "./login-data.model";
+import { UserData } from "./user-data.model";
 import { RegisterData } from "./register-data.model";
+import { map } from 'rxjs/operators';
 export interface Username {
   username: string;
 }
@@ -17,6 +19,7 @@ export class AuthService {
   private fetchedUsernames: String[] =[];
   private tokenTimer: any;
   private authStatusListener = new Subject<boolean>();
+  private userUpdated= new Subject< { user: RegisterData} >();
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -33,6 +36,10 @@ export class AuthService {
     return this.authStatusListener.asObservable();
   }
 
+  getUserListener() {
+    return this.userUpdated.asObservable();
+  }
+
   getUserId() {
     return this.userId;
   }
@@ -40,6 +47,42 @@ export class AuthService {
   getUserName(){
     return this.userName;
   }
+
+  getUserInfo(id: string){
+    return this.http.get<{ 
+      _id: string; 
+      userName: string; 
+      firstName: string; 
+      email: string; 
+      lastname: string; 
+      imagePath: string; }>("http://localhost:3000/api/user/" +id);
+  }
+
+    //     this.http.get<{message: string, usersData: any}>(
+//       "http://localhost:3000/api/user/" +id
+//       ).pipe(
+//         map(fetchedUserData=>{
+//           return{
+//             userData: fetchedUserData.usersData.map(user=>{
+//               return{
+//                 id: user._id,
+//                 userName: user.userName,
+//                 firstName: user.firstName,
+//                 lastName: user.lastName,
+//                 email: user.email,
+//                 imagePath: user.imagePath,
+//               };
+//             })
+//           };
+//         })
+//       )
+//       .subscribe(transformedData =>{
+//         this.user = transformedData.userData;
+//         this.userUpdated.next({
+//           user:[this.user]
+//         });
+//       })
+// }
 
   getUsernames(){
 
@@ -55,8 +98,14 @@ export class AuthService {
     return usernames;
   }
 
-  createUser(firstName: string, lastName: string, userName: string, email: string, password: string) {
-    const regData: RegisterData = { firstName: firstName, lastName:lastName, userName: userName, password: password, email: email};
+  createUser(firstName: string, lastName: string, userName: string, email: string, password: string, image: File) {
+    const regData = new FormData();
+    regData.append("firstName", firstName);
+    regData.append("lastName", lastName);
+    regData.append("userName", userName);
+    regData.append("password", password);
+    regData.append("email", email);
+    regData.append("image", image);
     this.http
       .post("http://localhost:3000/api/user/signup", regData)
       .subscribe(response => {

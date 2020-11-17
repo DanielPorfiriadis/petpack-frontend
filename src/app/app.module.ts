@@ -16,14 +16,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
 /*npm install ngx - cookie - service--save*/
-import { CookieService } from 'ngx-cookie-service'; 
+import { CookieService } from 'ngx-cookie-service';
 
 /* npm install angular-countdown-date-time */
 import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time';
 
 /* Components */
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './components/auth/register/register.component'
+import { RegisterComponent } from './components/auth/register/register.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterStep1Component } from './components/auth/register/register-step1/register-step1.component';
 import { RegisterStep2Component } from './components/auth/register/register-step2/register-step2.component';
@@ -32,10 +32,9 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FirstNavbarComponent } from './components/first-navbar/first-navbar.component';
 
-
 /* Feed*/
 import { AfterloginComponent } from './components/afterlogin/afterlogin.component';
-import { FeedPageComponent } from './components/feed-page/feed-page.component'
+import { FeedPageComponent } from './components/feed-page/feed-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FeedviewComponent } from './components/feed-page/feedview/feedview.component';
 
@@ -45,13 +44,12 @@ import { MiniprofComponent } from './components/feed-page/miniprof/miniprof.comp
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { AuthInterceptor } from './components/auth/auth-interceptor';
-import { SettingsComponent} from './components/settings/settings.component';
+import { SettingsComponent } from './components/settings/settings.component';
 import { LikesComponent } from './components/feed-page/likes/likes.component';
-import { PetminiComponent } from './components/feed-page/petmini/petmini.component'
+import { PetminiComponent } from './components/feed-page/petmini/petmini.component';
+import { IgxAvatarModule } from 'igniteui-angular';
 
-
-
-
+//I keep the new line
 
 @NgModule({
   declarations: [
@@ -74,7 +72,7 @@ import { PetminiComponent } from './components/feed-page/petmini/petmini.compone
     ProfileComponent,
     SettingsComponent,
     LikesComponent,
-    PetminiComponent
+    PetminiComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,12 +83,14 @@ import { PetminiComponent } from './components/feed-page/petmini/petmini.compone
     FormsModule,
     FlexLayoutModule,
     HttpClientModule,
-    AngularCountdownDateTimeModule,
+    IgxAvatarModule,
+    AngularCountdownDateTimeModule
   ],
 
-  providers: [ {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true} ],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 
-export class AppModule { }
+export class AppModule {
+}
