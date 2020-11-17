@@ -20,7 +20,7 @@ export class MiniprofComponent implements OnInit {
   public username='';
   public user:UserData;
   userId:string;
-  picSource:any;
+  picSource ='';
 
   ngOnInit(): void {
     this.userId = this.authService.getUserId();
@@ -35,8 +35,8 @@ export class MiniprofComponent implements OnInit {
         imagePath: userData.imagePath,
         id: userData._id
       };
+      this.picSource=this.user.imagePath;
     })
-    this.picSource=this.user.imagePath;
   }
 
 }

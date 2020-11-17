@@ -64,7 +64,7 @@ export class FeedviewComponent implements OnInit, OnDestroy {
       content : new FormControl(null, {
         validators: [Validators.required], 
         updateOn: "change"}),
-        image: new FormControl(null, {validators: [Validators.required], asyncValidators: [mimeType]
+        image: new FormControl({ asyncValidators: [mimeType]
         })
     });
     this.route.paramMap.subscribe((paraMap: ParamMap) =>{
@@ -121,15 +121,14 @@ export class FeedviewComponent implements OnInit, OnDestroy {
             return;
     }
     this.isLoading = true;
-    if (this.mode === 'create'){
+    if ( this.form.value.image != null){
         this.postsService.addPost( 
             this.form.value.content,
             this.form.value.image);
     } else {
-        this.postsService.updatePost(
-            this.postId, 
-            this.form.value.image, 
-            this.form.value.content
+        this.postsService.addPost(
+          this.form.value.content, 
+          null
             );
     }
     this.form.reset();
