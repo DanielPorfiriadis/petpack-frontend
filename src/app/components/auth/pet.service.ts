@@ -12,7 +12,7 @@ export class PetService {
 
     private pets: PetData[]=[];
     private petsCount: number;
-    private petsUpdated = new Subject<{ pets: PetData[]; petCount: number }>();
+    private petsUpdated = new Subject<{ pets: PetData[]; petsCount: number }>();
 
     createPet(petName: string, species: string, gender: string, ownerUsername: string) {
         const petData: PetData = { petName: petName, species: species, gender: gender, ownerUsername: null, id:null};
@@ -26,29 +26,33 @@ export class PetService {
         this.http.get<{ message: string; pets: any; petsCount: number; }>(
             "http://localhost:3000/api/pet/get/" + username )
             .pipe(
-                map(responseData=> {
-                    return{
-                        pets: responseData.pets.map(pet =>{
+                map(petData=> {
+                    return {
+                        pets: petData.pets.map(pet => {
                             return{
-                                petName: responseData.pets.petName,
-                                ownerUsername: responseData.pets.ownerUsername,
-                                gender: responseData.pets.gender,
-                                species: responseData.pets.species,
-                                id: responseData.pets._id,
+                                petName: pet.petName,
+                                id: pet._id,
+                                ownerUsername: pet.ownerUsername,
+                                gender: pet.gender,
+                                species: pet.species
                             };
                         }),
-                        petsCount: responseData.petsCount
+                        totalPets: petData.petsCount
                     };
-                })              
+                })            
             )
-            .subscribe(transformedPostData =>{
+            .subscribe(transformedPetData =>{
                 
-                this.pets = transformedPostData.pets;
+                this.pets = transformedPetData.pets;
+                console.log(this.pets);
                 this.petsUpdated.next({
                     pets: [...this.pets],
-                    petCount: transformedPostData.petsCount
+                    petsCount: transformedPetData.totalPets
                 });
             });
+    }
+    getPetsUpdateListener(){
+        return this.petsUpdated.asObservable();
     }
 }
   

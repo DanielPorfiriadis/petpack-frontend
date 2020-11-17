@@ -1,10 +1,16 @@
 <!-- Pet Pic -->
-<div class="pet-pic">
-    <img src="../../../../assets/img/avatar.png" class="img-responsive" alt="">
-</div>
 
-<!-- Pet Name -->
-<div class="pet-name">
-    petname
-    <!-- {{petname}} -->
-</div>
+<div class="box">
+    <mat-card>
+      <mat-card-header></mat-card-header>
+        <div class="pet-pic">
+            <img src="../../../../assets/img/avatar.png" class="img-responsive" alt="">
+        </div>
+        <!-- Pet Name -->
+        <div class="pet-name" *ngFor= "let pet of pets">
+            {{pet.petName}}
+            <!-- {{petname}} -->
+        </div>
+    </mat-card>
+  </div>
+
