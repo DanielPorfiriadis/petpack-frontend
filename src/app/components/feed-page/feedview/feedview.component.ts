@@ -52,7 +52,7 @@ export class FeedviewComponent implements OnInit, OnDestroy {
     this.authService.getUserInfo(this.userId)
       .subscribe(userData=>{
         this.user = {
-          lastName: userData.lastName,
+          lastName: userData.lastname,
           email: userData.email,
           userName: userData.userName,
           firstName: userData.firstName,

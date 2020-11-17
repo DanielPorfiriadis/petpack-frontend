@@ -11,17 +11,17 @@ body {
   }
   
   .profile-nav, .profile-info{
-    margin-top:30px;   
+    margin-top:30px;
   }
-  
-  .profile-nav .user-heading {
-    background: #fbc02d;
-    color: #fff;
-    border-radius: 4px 4px 0 0;
-    -webkit-border-radius: 4px 4px 0 0;
-    padding: 30px;
-    text-align: center;
-  }
+
+.profile-nav .user-heading {
+  background: #fbc02d;
+  color: #fff;
+  border-radius: 4px 4px 0 0;
+  -webkit-border-radius: 4px 4px 0 0;
+  padding: 30px;
+  text-align: center;
+}
   
   .profile-nav .user-heading.round a  {
     border-radius: 50%;
@@ -374,3 +374,25 @@ body {
   .activity-desk .album a:last-child{
     margin-right: 0px;
   }
+
+button, mat-raised-button{
+    background-color:cornflowerblue;
+    color:cornsilk;
+    margin-left:6px;
+}
+
+.container {
+  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  margin-top: 10px;
+}
+
+.addButton{
+border-radius:100%;
+display:block;
+margin-left:20%;
+margin-bottom:5px;
+}
+
+.petField{
+    width:100%;
+}
