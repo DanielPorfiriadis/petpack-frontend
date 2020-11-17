@@ -155,7 +155,12 @@ input[type="file"] {
 }
 
 .imagepost {
-  width: 60%;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
 }
 .spacer {
   flex: 1 1 auto;
