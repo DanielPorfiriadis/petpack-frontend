@@ -49,7 +49,7 @@ import { SettingsComponent} from './components/settings/settings.component';
 import { LikesComponent } from './components/feed-page/likes/likes.component';
 import { PetminiComponent } from './components/feed-page/petmini/petmini.component'
 
-
+import { TimeComponent } from './components/time/time.component'
 
 
 
@@ -74,7 +74,8 @@ import { PetminiComponent } from './components/feed-page/petmini/petmini.compone
     ProfileComponent,
     SettingsComponent,
     LikesComponent,
-    PetminiComponent
+    PetminiComponent,
+    TimeComponent
   ],
   imports: [
     BrowserModule,
