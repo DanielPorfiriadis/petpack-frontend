@@ -23,3 +23,24 @@
     text-shadow: 1px 1px 1px gray;
     font-weight: bold;
   }
+
+  input[type="file"] {
+    visibility: hidden;
+  }
+  .imagePicker {
+    color: #47536e;
+    font-size: 24px;
+    border: hidden;
+    background-color: transparent;
+    padding-top: 5px;
+    outline: none !important;
+  }
+  
+  .image-preview {
+    height: 5rem;
+    margin: 1rem 0;
+  }
+  
+    .image-preview img {
+      height: 100%;
+    }

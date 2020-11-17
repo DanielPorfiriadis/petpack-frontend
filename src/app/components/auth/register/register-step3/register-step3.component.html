@@ -4,13 +4,12 @@
 </div>
 <div class=reg3 *ngIf="!formSubmitted">
   <form [formGroup]="form" (submit)="submit()">
-    <li>
-      <button mat-stroke-button (click)="filePicker.click()" class="fas fa-images imagePicker"></button>
-      <!--<button mat-stroked-button type="button" class="imagePicker" (click)= "filePicker.click()">Upload Image</button>-->
-    </li>
-    <li class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid ">
+    
+      <button mat-stroke-button (click)="filePicker.click()" class="fa fa-picture-o imagePicker"></button>
+
+    <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid ">
       <img [src]="imagePreview" >
-    </li>
+    </div>
     <input type="file" #filePicker (change)="onImagePicked($event)">
 
     <div class="row_button"> 
