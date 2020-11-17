@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../auth/auth.service';
+import { RegisterData } from '../../auth/register-data.model';
+import { UserData } from '../../auth/user-data.model';
 
 import { Post } from '../post.model';
 import { PostService } from '../post.service';
@@ -25,33 +27,45 @@ export class FeedviewComponent implements OnInit, OnDestroy {
   imagePreview: string;
   isLoading = false;
   post: Post;
+  user: UserData;
   private postsSub: Subscription;
   posts: Post [] = [];
   postsPerPage = 5;
   private searchedUsername
   currentPage=1;
+  userPicture='';
   userId: string;
   userIsAuthenticated = false;
   private authStatusSub: Subscription;
 
   ngOnInit(): void {
 
-        this.isLoading = true;
-        this.userId = this.authService.getUserId();
-        this.userIsAuthenticated = this.authService.getIsAuth();
-        this.authStatusSub =this.authService
-        .getAuthStatusListener()
-        .subscribe(isAuthenticated => {
-            this.userIsAuthenticated = isAuthenticated;
-            this.userId = this.authService.getUserId();
-        });
-
+    this.isLoading = true;
+    this.userId = this.authService.getUserId();
+    this.userIsAuthenticated = this.authService.getIsAuth();
+    this.authStatusSub =this.authService
+      .getAuthStatusListener()
+      .subscribe(isAuthenticated => {
+          this.userIsAuthenticated = isAuthenticated;
+          this.userId = this.authService.getUserId();
+      });
+    this.authService.getUserInfo(this.userId)
+      .subscribe(userData=>{
+        this.user = {
+          lastName: userData.lastName,
+          email: userData.email,
+          userName: userData.userName,
+          firstName: userData.firstName,
+          imagePath: userData.imagePath,
+          id: userData._id
+        };
+      })
     this.form = new FormGroup({
       content : new FormControl(null, {
-          validators: [Validators.required], 
-          updateOn: "change"}),
-          image: new FormControl(null, {validators: [Validators.required], asyncValidators: [mimeType]
-          })
+        validators: [Validators.required], 
+        updateOn: "change"}),
+        image: new FormControl(null, {validators: [Validators.required], asyncValidators: [mimeType]
+        })
     });
     this.route.paramMap.subscribe((paraMap: ParamMap) =>{
       if(paraMap.has('username')){
@@ -62,39 +76,39 @@ export class FeedviewComponent implements OnInit, OnDestroy {
                 this.isLoading = false;
                 this.posts = postsData.posts;
                 this.totalPosts = postsData.postCount;
+      });
+    } else{
+      this.postsService.getPosts(this.postsPerPage, this.currentPage);
+      this.postsSub = this.postsService.getPostUpdateListener()
+          .subscribe((postsData: {posts: Post[], postCount: number}) =>{
+              this.isLoading = false;
+              this.posts = postsData.posts;
+              this.totalPosts = postsData.postCount;
+          });
+    }
+    if (paraMap.has('postId')){
+        this.mode = 'edit';
+        this.postId = paraMap.get('postId');
+        this.isLoading = true;
+        this.postsService.getPost(this.postId)
+            .subscribe(postData => {
+                this.isLoading = false;
+                this.post = { 
+                    id: postData._id,
+                    content: postData.content,
+                    imagePath: postData.imagePath,
+                    creator: postData.creator,
+                    creatorUsername: postData.creatorUsername
+                };
+                this.form.setValue({
+                    content: this.post.content,
+                    image: this.post.imagePath
+                  });
             });
       } else{
-        this.postsService.getPosts(this.postsPerPage, this.currentPage);
-        this.postsSub = this.postsService.getPostUpdateListener()
-            .subscribe((postsData: {posts: Post[], postCount: number}) =>{
-                this.isLoading = false;
-                this.posts = postsData.posts;
-                this.totalPosts = postsData.postCount;
-            });
+        this.mode = 'create';
+        this.postId = null;
       }
-      if (paraMap.has('postId')){
-          this.mode = 'edit';
-          this.postId = paraMap.get('postId');
-          this.isLoading = true;
-          this.postsService.getPost(this.postId)
-              .subscribe(postData => {
-                  this.isLoading = false;
-                  this.post = { 
-                      id: postData._id,
-                      content: postData.content,
-                      imagePath: postData.imagePath,
-                      creator: postData.creator,
-                      creatorUsername: postData.creatorUsername
-                  };
-                  this.form.setValue({
-                      content: this.post.content,
-                      image: this.post.imagePath
-                   });
-              });
-        } else{
-          this.mode = 'create';
-          this.postId = null;
-        }
     });
 
 
