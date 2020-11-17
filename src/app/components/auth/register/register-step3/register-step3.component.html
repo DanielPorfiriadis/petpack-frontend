@@ -3,17 +3,20 @@
   <!-- <a href="afterlogin">Wellcome</a> -->  
 </div>
 <div class=reg3 *ngIf="!formSubmitted">
-  <h4><i>Following details submitted, please confirm and hit submit</i></h4>
-  <br />Name: {{regForm.get('personalDetails').get('firstname').value}}
-  {{regForm.get('personalDetails').get('lastname').value}}
-  <br />Username : {{regForm.get('personalDetails').get('username').value}}
-  <br />Email : {{regForm.get('personalDetails').get('email').value}}
-  <br />Pet Name : {{regForm.get('petDetails').get('petName').value}}
-  <br />
-  <div class="row_button"> 
-    <button type="button" class="download-btn" matStepperPrevious>Back</button>
-    &nbsp;
-    <button type="button" class="download-btn" (click)="submit()">Submit </button>
+  <form [formGroup]="form" (submit)="submit()">
+    <li>
+      <button mat-stroke-button (click)="filePicker.click()" class="fas fa-images imagePicker"></button>
+      <!--<button mat-stroked-button type="button" class="imagePicker" (click)= "filePicker.click()">Upload Image</button>-->
+    </li>
+    <li class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid ">
+      <img [src]="imagePreview" >
+    </li>
+    <input type="file" #filePicker (change)="onImagePicked($event)">
 
-  </div>
+    <div class="row_button"> 
+      <button type="button" class="download-btn" matStepperPrevious>Back</button>
+      &nbsp;
+      <button type="button" type="submit" class="download-btn" (click)="submit()">Submit </button>
+    </div>
+  </form>
 </div>
