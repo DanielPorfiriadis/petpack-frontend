@@ -47,7 +47,6 @@ import { AuthInterceptor } from './components/auth/auth-interceptor';
 import { SettingsComponent } from './components/settings/settings.component';
 import { LikesComponent } from './components/feed-page/likes/likes.component';
 import { PetminiComponent } from './components/feed-page/petmini/petmini.component';
-import { IgxAvatarModule } from 'igniteui-angular';
 
 //I keep the new line
 
@@ -83,7 +82,6 @@ import { IgxAvatarModule } from 'igniteui-angular';
     FormsModule,
     FlexLayoutModule,
     HttpClientModule,
-    IgxAvatarModule,
     AngularCountdownDateTimeModule
   ],
 
