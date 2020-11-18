@@ -3,20 +3,19 @@
   <!-- <a href="afterlogin">Wellcome</a> -->  
 </div>
 <div class=reg3 *ngIf="!formSubmitted">
-  <form [formGroup]="form" >
-    <li>
-      <button mat-stroke-button (click)="filePicker.click()" class="fas fa-images imagePicker"></button>
-      <!--<button mat-stroked-button type="button" class="imagePicker" (click)= "filePicker.click()">Upload Image</button>-->
-    </li>
-    <li class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid ">
+  <form [formGroup]="form" (submit)="submit()">
+    
+      <button mat-stroke-button (click)="filePicker.click()" class="fa fa-picture-o imagePicker"></button>
+
+    <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid ">
       <img [src]="imagePreview" >
-    </li>
+    </div>
     <input type="file" #filePicker (change)="onImagePicked($event)">
-  </form>
+
     <div class="row_button"> 
       <button type="button" class="download-btn" matStepperPrevious>Back</button>
       &nbsp;
       <button type="button" type="submit" class="download-btn" (click)="submit()">Submit </button>
     </div>
-
+  </form>
 </div>
