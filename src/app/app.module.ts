@@ -50,6 +50,7 @@ import { LikesComponent } from './components/feed-page/likes/likes.component';
 import { PetminiComponent } from './components/feed-page/petmini/petmini.component'
 
 import { TimeComponent } from './components/time/time.component'
+import { DatePipe } from '@angular/common';
 
 
 
@@ -89,7 +90,7 @@ import { TimeComponent } from './components/time/time.component'
     AngularCountdownDateTimeModule,
   ],
 
-  providers: [ {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true} ],
+  providers: [ {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}, DatePipe ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

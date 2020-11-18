@@ -54,7 +54,7 @@ export class AuthService {
       userName: string; 
       firstName: string; 
       email: string; 
-      lastname: string; 
+      lastName: string; 
       imagePath: string; }>("http://localhost:3000/api/users/" +id);
   }
 

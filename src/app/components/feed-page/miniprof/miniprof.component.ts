@@ -28,7 +28,7 @@ export class MiniprofComponent implements OnInit {
     this.authService.getUserInfo(this.userId)
     .subscribe(userData=>{
       this.user = {
-        lastName: userData.lastname,
+        lastName: userData.lastName,
         email: userData.email,
         userName: userData.userName,
         firstName: userData.firstName,

@@ -1,7 +1,10 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnDestroy, OnInit, HostListener } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { timeStamp } from 'console';
 import { Subscription } from 'rxjs';
+import { timestamp } from 'rxjs/operators';
 import { AuthService } from '../../auth/auth.service';
 import { RegisterData } from '../../auth/register-data.model';
 import { UserData } from '../../auth/user-data.model';
@@ -17,7 +20,7 @@ import { mimeType } from "./mime-type.validator";
 })
 export class FeedviewComponent implements OnInit, OnDestroy {
 
-  constructor(public postsService: PostService, public route: ActivatedRoute, public authService: AuthService){}
+  constructor(public postsService: PostService, public route: ActivatedRoute, public authService: AuthService, private datePipe: DatePipe){}
   
   form: FormGroup;
   enteredContent= '';
@@ -37,9 +40,9 @@ export class FeedviewComponent implements OnInit, OnDestroy {
   userId: string;
   userIsAuthenticated = false;
   private authStatusSub: Subscription;
+  currentDate = new Date();
 
   ngOnInit(): void {
-
     this.isLoading = true;
     this.userId = this.authService.getUserId();
     this.userIsAuthenticated = this.authService.getIsAuth();
@@ -52,7 +55,7 @@ export class FeedviewComponent implements OnInit, OnDestroy {
     this.authService.getUserInfo(this.userId)
       .subscribe(userData=>{
         this.user = {
-          lastName: userData.lastname,
+          lastName: userData.lastName,
           email: userData.email,
           userName: userData.userName,
           firstName: userData.firstName,
@@ -98,7 +101,8 @@ export class FeedviewComponent implements OnInit, OnDestroy {
                     content: postData.content,
                     imagePath: postData.imagePath,
                     creator: postData.creator,
-                    creatorUsername: postData.creatorUsername
+                    creatorUsername: postData.creatorUsername,
+                    timeStamp: postData.timeStamp
                 };
                 this.form.setValue({
                     content: this.post.content,
@@ -120,15 +124,22 @@ export class FeedviewComponent implements OnInit, OnDestroy {
     if(this.form.invalid){
             return;
     }
+
+    let postCreateDate = new Date();
+
+
     this.isLoading = true;
     if ( this.form.value.image != null){
         this.postsService.addPost( 
             this.form.value.content,
-            this.form.value.image);
+            this.form.value.image,
+            postCreateDate
+            );
     } else {
         this.postsService.addPost(
           this.form.value.content, 
-          null
+          null,
+          postCreateDate
             );
     }
     this.form.reset();
@@ -150,6 +161,41 @@ export class FeedviewComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     this.postsService.deletePost(postId);
   }
+
+calculateTimeDifference(postString:string, currentTime:Date){
+  
+  var postTime = new Date(postString);
+  var difference = currentTime.getTime() -postTime.getTime();
+  var differenceInMinutes = difference/(1000*60);
+  var differenceInSeconds = difference/1000;
+
+
+  if(differenceInMinutes >= 1440){
+    if(Math.floor(difference/(1000*1440))===1){
+      return "Yesterday";
+    }
+    return Math.floor(difference/(1000*1440)) +" Days ago";
+  }
+  else if(differenceInMinutes < 1440 && differenceInMinutes >= 60){
+    if(Math.floor(difference/(1000*60*60)) === 1){
+      return Math.floor(difference/(1000*60*60)) + " Hour ago";
+    }
+      return Math.floor(difference/(1000*60*60)) + " Hours ago";
+  }
+  else if(differenceInSeconds >=  60 && differenceInMinutes <= 60){
+    if(Math.floor(difference/(1000*60))===1){
+      return Math.floor(difference/(1000*60)) + " Minute ago"
+    }
+    return Math.floor(difference/(1000*60)) + " Minutes ago"
+  }
+  else if(differenceInSeconds <  60 && differenceInSeconds >  5){
+    return Math.floor(difference/(1000)) + " Seconds ago"
+  }
+  else{
+    return "Post just added"
+  }
+}
+
 
   ngOnDestroy(){
     this.postsSub.unsubscribe();
