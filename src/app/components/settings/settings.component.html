@@ -1,55 +1,87 @@
 <app-navbar></app-navbar>
-<div class="container bootstrap snippets bootdey">
+  <div class="container bootstrap snippets bootdey">
     <div class="row">
-  
-        <div class="profile-nav col-md-3">
-            
-            <div class="panel">
-                <app-miniprof></app-miniprof>
-            </div>
-            <div class="panel">
-                <app-petmini></app-petmini>
-            </div>
 
+      <div class="profile-nav col-md-3">
+
+        <div class="panel">
+          <app-miniprof></app-miniprof>
         </div>
+        <div class="panel">
+          <app-petmini></app-petmini>
+        </div>
+      </div>
 
-        <!-- User Bio Graph -->
+      <!-- User Bio Graph -->
 
-        <div class="profile-nav col-md-8">
-            <div class="panel">
+      <div class="profile-nav col-md-8">
+        <div class="panel">
 
-                <div class="panel-body bio-graph-info">
-                    <h1>Bio Graph</h1>
-                    
-                    <div class="row">
+          <div class="panel-body bio-graph-info">
+            <h1>Bio Graph</h1>
 
-                    <div class="bio-row">
-                        <p><span>First Name </span>: @FName</p>
-                    </div>
-                    <div class="bio-row">
-                        <p><span>Last Name </span>: @LName</p>
-                    </div>
-                    <div class="bio-row">
-                        <p><span>Username </span>: {{username}} </p>
-                    </div>
-                    <div class="bio-row">
-                        <p><span>Pet Name </span>: @PetName</p>
-                    </div>
-                    <div class="bio-row">
-                        <p><span>Pet Sex</span>: @PetSex</p>
-                    </div>
-                    <div class="bio-row">
-                        <p><span>Email </span>: @email</p>
-                    </div>
+            <div class="row" [formGroup]="newDetails">
 
-                    <button> Change </button>
-                  
-
+              <div class="bio-row">
+                <mat-form-field floatLabel="always" appearance="outline">
+                  <mat-label>First Name</mat-label>
+                  <input matInput type="text" formControlName="newFirstName" placeholder="{{user.firstName}}">
+                </mat-form-field>
+                <!--<p><span>First Name </span>: @FName</p>-->
+              </div>
+              <div class="bio-row">
+                <mat-form-field floatLabel="always" appearance="outline">
+                  <mat-label>Last Name</mat-label>
+                  <input matInput type="text" formControlName="newLastName" placeholder="{{user.lastName}}">
+                </mat-form-field>
+                <!--<p><span>Last Name </span>: @LName</p>-->
+              </div>
+              <div class="bio-row">
+                <mat-form-field floatLabel="always" appearance="outline">
+                  <mat-label>Username</mat-label>
+                  <input matInput type="text" formControlName="newUsername" placeholder="{{user.userName}}">
+                </mat-form-field>
+                <!--<p><span>Username </span>: {{username}} </p>-->
+              </div>
+              <div class="bio-row">
+                <mat-form-field floatLabel="always" appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input matInput type="email" formControlName="newEmail" placeholder="{{user.email}}">
+                </mat-form-field>
+                <!--<p><span>Pet Name </span>: @PetName</p>-->
+              </div>
+              <div class="petField" *ngFor="let iters of iterations; let i = index">
+                <div class="bio-row">
+                  <mat-form-field floatLabel="always" appearance="outline">
+                    <mat-label>PetGender</mat-label>
+                    <mat-select formControlName="newGender" placeholder="@PetGender">
+                      <mat-option value="male">Male</mat-option>
+                      <mat-option value="female">Female</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <!-- <p><span>Pet Sex</span>: @PetSex</p>-->
                 </div>
+                <div class="bio-row">
+                  <mat-form-field floatLabel="always" appearance="outline">
+                    <mat-label>Pet Name</mat-label>
+                    <input matInput type="text" formControlName="newPetName" placeholder="@PetName">
+                  </mat-form-field>
+                  <!--<p><span>Email </span>: @email</p>-->
+                  <!--<br />-->
+                </div>
+              </div>
+              <div class="bio-row">
+                <button mat-raised-button (click)="submited()"> Change </button>
+                <button mat-raised-button (click)="cancel()"> Cancel </button>
+              </div>
+              <button class="addButton" (click)="addNewPet()" mat-raised-button><mat-icon>add</mat-icon></button>
             </div>
+          </div>
 
         </div>
         <!-- END User Bio Graph -->
 
+      </div>
     </div>
-</div>
+  </div>
+

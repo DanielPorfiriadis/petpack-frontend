@@ -74,6 +74,7 @@ export class NavbarComponent {
 
   //Search Bar
   ngOnInit(): void {
+    console.log(this.options);
     this.filteredOptions = this.myControl.valueChanges
     .pipe(
       startWith(''),

@@ -113,7 +113,7 @@
                       <span>Delete</span>
                     </button>
                   </mat-menu>
-                <mat-card-subtitle>10h</mat-card-subtitle>
+                <mat-card-subtitle>{{calculateTimeDifference(post.timeStamp,currentDate)}}</mat-card-subtitle>
                 </mat-card-header>
                 <hr />
                 <img class="imagepost" [src]="post.imagePath">

@@ -54,47 +54,20 @@ export class AuthService {
       userName: string; 
       firstName: string; 
       email: string; 
-      lastname: string; 
-      imagePath: string; }>("http://localhost:3000/api/user/" +id);
+      lastName: string; 
+      imagePath: string; }>("http://localhost:3000/api/users/" +id);
   }
 
-    //     this.http.get<{message: string, usersData: any}>(
-//       "http://localhost:3000/api/user/" +id
-//       ).pipe(
-//         map(fetchedUserData=>{
-//           return{
-//             userData: fetchedUserData.usersData.map(user=>{
-//               return{
-//                 id: user._id,
-//                 userName: user.userName,
-//                 firstName: user.firstName,
-//                 lastName: user.lastName,
-//                 email: user.email,
-//                 imagePath: user.imagePath,
-//               };
-//             })
-//           };
-//         })
-//       )
-//       .subscribe(transformedData =>{
-//         this.user = transformedData.userData;
-//         this.userUpdated.next({
-//           user:[this.user]
-//         });
-//       })
-// }
-
   getUsernames(){
-
     let usernames: Username[]=[];
-    this.http.get<{message: string, usernameArray: string[]}>("http://localhost:3000/api/user/retrieve")
+    this.http.get<{message: string, usernameArray: string[]}>("http://localhost:3000/api/users")
     .subscribe(users =>{
+      console.log(users);
       let usernamesArray = users.usernameArray;
       usernamesArray.forEach(element => {
-        console.log(element);
         usernames.push({username: element});
       });
-    })
+    });
     return usernames;
   }
 
@@ -107,7 +80,7 @@ export class AuthService {
     regData.append("email", email);
     regData.append("image", image);
     this.http
-      .post("http://localhost:3000/api/user/signup", regData)
+      .post("http://localhost:3000/api/users/signup", regData)
       .subscribe(response => {
         this.router.navigate(["/login"]);
       });
@@ -117,7 +90,7 @@ export class AuthService {
     const loginData: LoginData = { userName: username, password: password };
     this.http
       .post<{ token: string; expiresIn: number, userId: string, userName: string}>(
-        "http://localhost:3000/api/user/login",
+        "http://localhost:3000/api/users/login",
         loginData
       )
       .subscribe(response => {
