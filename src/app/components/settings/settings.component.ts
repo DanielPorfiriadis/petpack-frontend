@@ -5,6 +5,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { UserData } from '../auth/user-data.model';
 import { userInfo } from 'os';
+import { PetData } from '../auth/pet.model';
 
 @Component({
   selector: 'app-settings',
@@ -16,7 +17,7 @@ import { userInfo } from 'os';
 export class SettingsComponent implements OnInit {
   newDetails: FormGroup;
 
-  constructor( private router: Router,public authService: AuthService) { }
+  constructor(private router: Router, public authService: AuthService) { }
 
   public username = '';
   public user: UserData;
@@ -25,18 +26,21 @@ export class SettingsComponent implements OnInit {
   iterations: any[] = [this.x];
   petNames: string[] = [];
   petGenders: string[] = [];
+  pets: PetData;
+  petArray: any[] = [];
 
   ngOnInit(): void {
     this.userId = this.authService.getUserId();
     this.username = this.authService.getUserName();
     this.newDetails = new FormGroup({
-       /*key: new FormArray(this.iterations.map(data => new FormControl(data.key))),*/
       'newFirstName': new FormControl(null),
       'newLastName': new FormControl(null),
       'newUsername': new FormControl(null),
       'newPetName': new FormControl(null),
       'newGender': new FormControl(null),
-      'newEmail': new FormControl(null)
+      'newEmail': new FormControl(null),
+      'newSpecies': new FormControl(null),
+      'newPetSpecies': new FormControl(null)
     })
 
     this.authService.getUserInfo(this.userId)
@@ -50,7 +54,6 @@ export class SettingsComponent implements OnInit {
           id: userData._id
         };
       })
-    /*this.firstname = this.user.firstname;*/
 
   }
   cancel(): void {
@@ -58,22 +61,33 @@ export class SettingsComponent implements OnInit {
   }
 
   addNewPet(): void {
-    this.petNames.push(this.newDetails.get('newPetName').value);
-    this.petGenders.push(this.newDetails.get('newGender').value);
+    this.pets = {
+      id: '',
+      petName: this.newDetails.get('newPetName').value,
+      species: this.newDetails.get('newSpecies').value,
+      gender: this.newDetails.get('newGender').value,
+      ownerUsername: this.newDetails.get('newUsername').value
+    };
+    
+    this.petArray.push(this.pets);
+
     this.x += 1;
     this.iterations.push(this.x);
+
   }
 
   submited(): void {
-    this.petNames.push(this.newDetails.get('newPetName').value);
-    this.petGenders.push(this.newDetails.get('newGender').value);
+    this.pets = {
+      id: '',
+      petName: this.newDetails.get('newPetName').value,
+      species: this.newDetails.get('newSpecies').value,
+      gender: this.newDetails.get('newGender').value,
+      ownerUsername: this.newDetails.get('newUsername').value
+    };
 
-    console.log(this.newDetails.get('newFirstName').value);
-    console.log(this.newDetails.get('newLastName').value);
-    console.log(this.newDetails.get('newUsername').value);
-    console.log(this.newDetails.get('newEmail').value);
-    console.log(this.petNames);
-    console.log(this.petGenders);
+    this.petArray.push(this.pets);
+    console.log(this.petArray);
+
 /*    let _this = this;
 
     this.service.SettingsService(this.newDetails).subscribe({

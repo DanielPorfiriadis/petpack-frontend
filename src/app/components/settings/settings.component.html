@@ -66,8 +66,16 @@
                     <mat-label>Pet Name</mat-label>
                     <input matInput type="text" formControlName="newPetName" placeholder="@PetName">
                   </mat-form-field>
-                  <!--<p><span>Email </span>: @email</p>-->
-                  <!--<br />-->
+                </div>
+                <div class="bio-row">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Select</mat-label>
+                      <mat-select formControlName="newSpecies">
+                        <mat-option value="cat">Cat</mat-option>
+                        <mat-option value="dog">Dog</mat-option>
+                        <mat-option value="other">Other</mat-option>
+                      </mat-select>
+                  </mat-form-field>
                 </div>
               </div>
               <div class="bio-row">
