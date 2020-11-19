@@ -1,18 +1,15 @@
 
 
 <mat-card>
-    <!-- User Pic -->
+    <!-- User Avatar -->
     <div class="profile-userpic">
-        <img mat-card-avatar [src]="user.imagePath" class="img-responsive" alt="">
+        <img mat-card-avatar [src]="picSource" class="img-responsive" alt="">
     </div>
 
     <!-- User & Pet Name -->
     <div class="profile-usertitle">
         <div class="profile-usertitle-name">
         {{username}}
-        </div>
-        <div class="profile-usertitle-pet">
-            @{{username}}
         </div>
         <div>
             <a href="../../profile/">  <i class="glyphicon glyphicon-user"></i>  Profile </a>

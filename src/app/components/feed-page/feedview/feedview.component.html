@@ -1,152 +1,88 @@
+<!-- -------------------- --Create Post ---------------------------- -->
+<div class="boxb-main">
 
-<section id="feedpage" class="feedpage section-bg">
-  <div class="container-fluid">
-    <div class="row">
-      <!-- ====== left ====== -->
-      <div class="col-md-3 col-lg-3 d-flex align-items-stretch">
-        <div class="wrapper">
-          <div class="box">
-            <div class="card">
-              <div class="card-body">
-                <div class="h4">Pet Pack Universe</div>
-                <div class="list-group-item">
-                  <p> Α social network for pet owners. PetPack is a social network service website launched on 20 November, 2020 by @Mystique. The following is a list of technology features that can be found on the PetPack website and mobile app and are available to users of the social media site.</p>
-                </div>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                  <div class="h6 text-muted">Followers</div>
-                  <div class="h5">Does it Really Matter to You?</div>
-                </li>
-                <li class="list-group-item">
-                  <div class="h6 text-muted">Following</div>
-                  <div class="h5">Those who should..</div>
-                </li>
-              </ul>
+  <div class="panel">
+    <form [formGroup]="form" (submit)="onSavePost()" *ngIf="!isLoading">
+      
+      <mat-form-field>
+        <textarea matInput
+                  rows="4"
+                  formControlName="content"
+                  name="content"
+                  placeholder="Whats in your mind today?"
+                  class="form-control input-lg p-text-area">
+        </textarea>
+        <mat-error *ngIf="form.get('content').invalid" class="error">
+          Please enter content
+        </mat-error>
+      </mat-form-field>
     
-            </div>
-          </div>
-
-          <div class="box">
-            <li class="list-group-item"> <i><b>Mystique Team:</b></i><br>
-              <i>Mystique (Raven Darkhölme) is a fictional character appearing in 
-              American comic books published by Marvel Comics, commonly in association 
-              with the X-Men. Created by artist David Cockrum and writer Chris Claremont, 
-              she first appeared in the comic book Ms. Marvel #16 (April 1978).</i>
-            </li>
-          </div>
-      </div> 
-      </div>
-
-
-     <!-- ====== center - feedview ====== -->
-     <div class="col-md-6 col-lg-6 d-flex">
-      <div class="wrapper">
-        <!-- -------------------- --Create Post ---------------------------- -->
-        <div class="boxb-main">
-          
-
-          <div class="panel">
-            <form [formGroup]="form" (submit)="onSavePost()" *ngIf="!isLoading">
-              
-              <mat-form-field>
-                <textarea matInput
-                          rows="4"
-                          formControlName="content"
-                          name="content"
-                          placeholder="Whats in your mind today?"
-                          class="form-control input-lg p-text-area">
-                </textarea>
-                <mat-error *ngIf="form.get('content').invalid" class="error">
-                  Please enter content
-                </mat-error>
-              </mat-form-field>
-            
-            <footer class="panel-footer">
-                
-                <button class="btn pull-right postButton" type="submit">Post</button>
-                
-                <ul class="nav nav-pills">
-                   
-                    <li>
-                      <a (click)="filePicker.click()" class="fa fa-picture-o imagePicker" aria-hidden="true"></a>
-                    </li>
-                    <li>
-                      <input type="file" #filePicker (change)="onImagePicked($event)">
-                    </li>
-                    <li class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid ">
-                      <img [src]="imagePreview" [alt]="form.value.content">
-                    </li>
-                </ul>
-            </footer>
-          </form>
-        </div>
-          
-          </div>
-          <!-- ---------------- End Create Post -------------- -->
-          <!-- ---------------- Posts Feed ------------------- -->
-          <div class="box-main" (scroll)="onWindowScroll()">
-            <mat-accordion multi="true" *ngIf="posts.length >0">
-              <mat-card class="post" *ngFor="let post of posts" >
-                <mat-card-header>
-                <img mat-card-avatar class="card-avatar-image">
-                <mat-card-title><a class="userLink" href="http://localhost:4200/feed-page">{{post.creatorUsername}}</a></mat-card-title>
-                <span class="spacer"></span> 
-                  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                    <mat-icon>more_vert</mat-icon>
-                  </button>
-                  <mat-menu #menu="matMenu">
-                    <button mat-menu-item *ngIf ="userIsAuthenticated && userId == post.creator">
-                      <mat-icon>edit</mat-icon>
-                      <span>Edit</span>
-                    </button>
-                    <button mat-menu-item disabled *ngIf ="userId != post.creator">
-                      <mat-icon>edit</mat-icon>
-                      <span>Edit</span>
-                    </button>
-                    <button mat-menu-item *ngIf ="userIsAuthenticated && userId == post.creator" (click)="deletePost(post.id)">
-                      <mat-icon>delete</mat-icon>
-                      <span>Delete</span>
-                    </button>
-                    <button mat-menu-item disabled *ngIf ="userId != post.creator" >
-                      <mat-icon>delete</mat-icon>
-                      <span>Delete</span>
-                    </button>
-                  </mat-menu>
-                <mat-card-subtitle>10h</mat-card-subtitle>
-                </mat-card-header>
-                <hr />
-                <img class="imagepost" [src]="post.imagePath">
-                <hr />
-                <mat-card-content>
-                  <p>  <b><a class="userLink" href="http://localhost:4200/feed-page">{{post.creatorUsername}}:</a></b> {{post.content}} </p>
-                </mat-card-content>
-                <!-- <mat-card-actions>
-                <button mat-button>LIKE</button>
-                <button mat-button>SHARE</button>
-                </mat-card-actions> -->
-                </mat-card>
-              </mat-accordion>
-          </div>
-          <mat-spinner *ngIf = "isLoading"></mat-spinner>
-        </div>
-      </div>
-
-      <!-- ====== right ====== -->
-      <div class="col-md-3 col-lg-3 d-flex align-items-stretch">
-        <div class="wrapper">
-
-          <div class="box">
-            <app-miniprof></app-miniprof>
-          </div>
-
-          <div class="box">
-              <app-petmini></app-petmini>
-          </div>
+      <footer class="panel-footer">
         
-        </div>
-      </div>
-
-    </div>
+        <button class="btn pull-right postButton" type="submit">Post</button>
+        
+        <ul class="nav nav-pills">
+            
+            <li>
+              <a (click)="filePicker.click()" class="fa fa-picture-o imagePicker" aria-hidden="true"></a>
+            </li>
+            <li>
+              <input type="file" #filePicker (change)="onImagePicked($event)">
+            </li>
+            <li class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid ">
+              <img [src]="imagePreview" [alt]="form.value.content">
+            </li>
+        </ul>
+      </footer>
+    </form>
   </div>
-</section><!-- End feedpage Section -->
+  
+</div>
+
+<!-- ---------------- End Create Post -------------- -->
+<!-- ---------------- Posts Feed ------------------- -->
+<div class="box-main" (scroll)="onWindowScroll()">
+  <mat-accordion multi="true" *ngIf="posts.length >0">
+    <mat-card class="post" *ngFor="let post of posts" >
+      <mat-card-header>
+      <img mat-card-avatar class="card-avatar-image">
+      <mat-card-title><a class="userLink" href="http://localhost:4200/feed-page">{{post.creatorUsername}}</a></mat-card-title>
+      <span class="spacer"></span> 
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item *ngIf ="userIsAuthenticated && userId == post.creator">
+            <mat-icon>edit</mat-icon>
+            <span>Edit</span>
+          </button>
+          <button mat-menu-item disabled *ngIf ="userId != post.creator">
+            <mat-icon>edit</mat-icon>
+            <span>Edit</span>
+          </button>
+          <button mat-menu-item *ngIf ="userIsAuthenticated && userId == post.creator" (click)="deletePost(post.id)">
+            <mat-icon>delete</mat-icon>
+            <span>Delete</span>
+          </button>
+          <button mat-menu-item disabled *ngIf ="userId != post.creator" >
+            <mat-icon>delete</mat-icon>
+            <span>Delete</span>
+          </button>
+        </mat-menu>
+      <mat-card-subtitle>{{calculateTimeDifference(post.timeStamp,currentDate)}}</mat-card-subtitle>
+      </mat-card-header>
+      <hr />
+      <img class="imagepost" [src]="post.imagePath">
+      <hr />
+      <mat-card-content>
+        <p>  <b><a class="userLink" href="http://localhost:4200/feed-page">{{post.creatorUsername}}:</a></b> {{post.content}} </p>
+      </mat-card-content>
+      <!-- <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+      </mat-card-actions> -->
+      </mat-card>
+    </mat-accordion>
+</div>
+<mat-spinner *ngIf = "isLoading"></mat-spinner>
+  

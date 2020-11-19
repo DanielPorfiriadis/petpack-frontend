@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { map } from "rxjs/operators";
+import { map, timestamp } from "rxjs/operators";
 import { Post } from './post.model';
 import { Router } from "@angular/router";
+import { timeStamp } from 'console';
 
 @Injectable({providedIn: "root"})
 export class PostService{
@@ -27,7 +28,8 @@ export class PostService{
                                 id: post._id,
                                 imagePath: post.imagePath,
                                 creator: post.creator,
-                                creatorUsername: post.creatorUsername
+                                creatorUsername: post.creatorUsername,
+                                timeStamp: post.timeStamp
                             };
                         }),
                         maxPosts: postData.maxPosts
@@ -79,13 +81,14 @@ export class PostService{
     }
 
     getPost(id: string){
-        return this.http.get<{_id: string; content: string; imagePath: string; creator: string; creatorUsername: string}>("http://localhost:3000/api/posts/" +id);
+        return this.http.get<{_id: string; content: string; imagePath: string; creator: string; creatorUsername: string; timeStamp: Date;}>("http://localhost:3000/api/posts/" +id);
     }
 
-    addPost(content: string, image: File){
+    addPost(content: string, image: File, timeStamp: Date){
         const postData = new FormData();
         postData.append("content", content);
         postData.append("image", image);
+        postData.append("timeStamp", timeStamp.toISOString());
         this.http.post<{ message: string; post: Post}>( "http://localhost:3000/api/posts/", postData )
          .subscribe(responseData => {
             this.router.routeReuseStrategy.shouldReuseRoute = function () {
@@ -109,7 +112,8 @@ export class PostService{
             content: content,
             imagePath: image,
             creator: null,
-            creatorUsername: null
+            creatorUsername: null,
+            timeStamp: null
           };
         }
         this.http

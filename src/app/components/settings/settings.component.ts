@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators, FormArray } from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
-import { Service } from '../services';
 import { UserData } from '../auth/user-data.model';
 import { userInfo } from 'os';
 
@@ -17,7 +16,7 @@ import { userInfo } from 'os';
 export class SettingsComponent implements OnInit {
   newDetails: FormGroup;
 
-  constructor(public service: Service, private router: Router,public authService: AuthService) { }
+  constructor( private router: Router,public authService: AuthService) { }
 
   public username = '';
   public user: UserData;
