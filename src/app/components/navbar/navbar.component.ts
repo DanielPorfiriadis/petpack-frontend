@@ -2,13 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 
-// import { AuthService } from 'auth';
-
-
-/*import { LoggingService, Config } from 'loggerservice';*/
-
-
-//Search Bar
+// For search Bar
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
@@ -26,14 +20,9 @@ export interface Username {
 })
 export class NavbarComponent {
 
-  //Search Bar {{option.name}}
-
-  //End Search Bar
-
   @Output() toggleSidenav = new EventEmitter<void>();
 
   private returnUrl = '/';
-    
 
   constructor(private router: Router, private authService: AuthService) {
 
@@ -49,30 +38,43 @@ export class NavbarComponent {
     } );
 
   }
+
+  //Settings for Search Bar
   myControl = new FormControl();
   options: Username[] = this.authService.getUsernames();
   filteredOptions: Observable<Username[]>;
 
-  public onProfile() {
+  //Profile
+  public onHome() {
 
-    this.router.navigate(['users/profile']);
+    this.router.navigate(['../feed-page']);
   }
 
+  //Profile
+  public onProfile() {
+
+    this.router.navigate(['../profile']);
+  }
+
+  //Logout
   public logout() {
 
     this.authService.logout();
   }
 
+  //Settings
   public settings(){
-    // this.settings.....kati
+    this.router.navigate(['../settings']);
   }
+
+
+  //Search Bar
 
   display = false;
   onPress() {
     this.display = true;
   }
 
-  //Search Bar
   ngOnInit(): void {
     console.log(this.options);
     this.filteredOptions = this.myControl.valueChanges
