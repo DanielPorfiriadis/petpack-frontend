@@ -33,17 +33,6 @@ border-bottom: 3px solid #fff;
 border-color: #e1dddd;
 }
 
-.feedpage .box-main {
-padding: 0px;
-position: relative;
-overflow: hidden;
-margin: 10px 20px 0 20px;
-box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
-transition: all 0.3s ease-in-out;
-border-radius: 10px;
-background-color: #f2f5fa;
-}
-
 .feedpage .title {
 font-weight: 700;
 margin-bottom: 15px;
