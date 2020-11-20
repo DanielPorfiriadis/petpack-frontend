@@ -93,6 +93,7 @@ export class AuthService {
     regData.append("userName", userName);
     regData.append("password", password);
     regData.append("email", email);
+    
     regData.append("image", image);
     console.log(this.userId);
     this.http.put<{message: string, status: number}>("http://localhost:3000/api/users/update/"+this.userId, regData)
