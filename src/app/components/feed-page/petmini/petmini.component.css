@@ -21,13 +21,20 @@ body {
 .pet-name {
   text-align: center;
   margin-top: 20px;
-
   color: #5a7391;
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 7px;
 }
 
-.box {
-  margin: 5%;
+
+.pets {
+  width: 100%;
+  margin-bottom: 10px;
+  
+}
+.wrapper{
+  background-color: #e8ecf5;
+  display: inline-block;
+  width: 100%;
 }

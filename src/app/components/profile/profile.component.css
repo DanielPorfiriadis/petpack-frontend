@@ -1,9 +1,9 @@
 .section-bg {
-  background-color: #f2f5fa;
+  background-color: #e8ecf5;
 }
 
 .wrapper {
-  background-color: #f2f5fa;
+  background-color: #e8ecf5;
   display: inline-block;
   width: 100%;
   }
@@ -13,13 +13,17 @@
   position: relative;
   overflow: hidden;
   margin: 10px 0 10px 0;
-  background: #fff;
+  background-color: #e8ecf5;
   box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
   transition: all 0.3s ease-in-out;
   border-radius: 10px;
   text-align: center;
   border-bottom: 3px solid #fff;
   border-color: #e1dddd;
+}
+.box-pet{
+  margin: 20px 0 10px 0;
+  border-radius: 10px;
 }
 
 .prof{

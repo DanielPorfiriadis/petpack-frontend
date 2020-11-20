@@ -20,6 +20,7 @@ export class AuthService {
   private tokenTimer: any;
   private authStatusListener = new Subject<boolean>();
   private userUpdated= new Subject< { user: RegisterData} >();
+  private userUpdateDataSuccessfully=false;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -85,7 +86,30 @@ export class AuthService {
         this.router.navigate(["/login"]);
       });
   }
-
+  updateUser(firstName: string, lastName: string, userName: string, email: string, password: string, image: File) {
+    const regData = new FormData();
+    regData.append("firstName", firstName);
+    regData.append("lastName", lastName);
+    regData.append("userName", userName);
+    regData.append("password", password);
+    regData.append("email", email);
+    regData.append("image", image);
+    console.log(this.userId);
+    this.http.put<{message: string, status: number}>("http://localhost:3000/api/users/update/"+this.userId, regData)
+      .subscribe(response=>{
+        if(response.status==200){
+          this.userUpdateDataSuccessfully=true;
+        } else{
+          this.userUpdateDataSuccessfully=false;
+        }
+        this.router.routeReuseStrategy.shouldReuseRoute = function () {
+          return false;
+        }
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate(["/settings"]);
+      })
+  }
+  
   login(username: string, password: string) {
     const loginData: LoginData = { userName: username, password: password };
     this.http
