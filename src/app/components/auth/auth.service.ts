@@ -86,6 +86,7 @@ export class AuthService {
         this.router.navigate(["/login"]);
       });
   }
+  
   updateUser(firstName: string, lastName: string, userName: string, email: string, password: string, image: File) {
     const regData = new FormData();
     regData.append("firstName", firstName);
@@ -95,7 +96,6 @@ export class AuthService {
     regData.append("email", email);
     
     regData.append("image", image);
-    console.log(this.userId);
     this.http.put<{message: string, status: number}>("http://localhost:3000/api/users/update/"+this.userId, regData)
       .subscribe(response=>{
         if(response.status==200){

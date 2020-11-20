@@ -87,12 +87,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
         .subscribe((petsData: {pets : PetData[], petsCount: number}) => {
           this.userPets = petsData.pets;
           this.petsCount = petsData.petsCount;
-          for(let i=0; i<this.userPets.length -1; i++)
-          this.petNewDetails.patchValue({
-            newPetName : this.userPets[i].petName,
-            newGender : this.userPets[i].gender,
-            newSpecies : this.userPets[i].species
-          })
         })
   }
 
@@ -113,13 +107,26 @@ export class SettingsComponent implements OnInit, OnDestroy {
 
     this.x += 1;
     this.iterations.push(this.x);
-
   }
-  petSaveSubmited(){
 
+  petSaveSubmited(){
+    let pet: PetData = {
+      id: '',
+      petName: this.petNewDetails.get('newPetName').value,
+      species: this.petNewDetails.get('newSpecies').value,
+      gender: this.petNewDetails.get('newGender').value,
+      ownerUsername: this.username
+    }
+    this.petService.createPet(pet.petName, pet.species, pet.gender, pet.ownerUsername)
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    }
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate(["/settings"]);
   }
 
   petChangeSubmited(){
+
     let pet: PetData = {
       id: '',
       petName: this.petNewDetails.get('newPetName').value,
@@ -127,6 +134,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
       gender: this.petNewDetails.get('newGender').value,
       ownerUsername: this.username
     };
+    console.log(pet);
     this.petService.updatePet(pet.petName, pet.species, pet.gender, pet.ownerUsername);
   }
 

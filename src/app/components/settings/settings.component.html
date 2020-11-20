@@ -95,7 +95,7 @@
                     <div class="bio-row">
                       <mat-form-field floatLabel="always" appearance="outline">
                         <mat-label>PetGender</mat-label>
-                        <mat-select formControlName="newGender" placeholder="@PetGender">
+                        <mat-select formControlName="newGender" placeholder="{{pet.gender}}">
                           <mat-option value="male">Male</mat-option>
                           <mat-option value="female">Female</mat-option>
                         </mat-select>
@@ -105,7 +105,7 @@
                     <div class="bio-row">
                       <mat-form-field floatLabel="always" appearance="outline">
                         <mat-label>Pet Name</mat-label>
-                        <input matInput type="text" formControlName="newPetName" placeholder="@PetName">
+                        <input matInput type="text" formControlName="newPetName" placeholder="{{pet.petName}}">
                       </mat-form-field>
                     </div>
                     <div class="bio-row">
@@ -161,7 +161,6 @@
                     <button mat-raised-button (click)="petSaveSubmited()"> Change </button>
                     <button mat-raised-button (click)="cancel()"> Cancel </button>
                   </div>
-                  <button class="addButton" (click)="addNewPet() && petSaveSubmited()" mat-raised-button><mat-icon>add</mat-icon></button>
                 </div>
               </div>
             </div>
