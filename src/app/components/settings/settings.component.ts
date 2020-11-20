@@ -114,6 +114,20 @@ export class SettingsComponent implements OnInit {
     this.iterations.push(this.x);
 
   }
+  petSaveSubmited(){
+
+  }
+
+  petChangeSubmited(){
+    let pet: PetData = {
+      id: '',
+      petName: this.petNewDetails.get('newPetName').value,
+      species: this.petNewDetails.get('newSpecies').value,
+      gender: this.petNewDetails.get('newGender').value,
+      ownerUsername: this.username
+    };
+    this.petService.updatePet(pet.petName, pet.species, pet.gender, pet.ownerUsername);
+  }
 
   onImagePicked(event: Event) {
     const file = (event.target as HTMLInputElement).files[0];
