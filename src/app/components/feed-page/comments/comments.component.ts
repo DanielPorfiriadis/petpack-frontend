@@ -29,5 +29,4 @@ export class CommentsComponent implements OnInit {
     this.comment.splice(i,1)
   }
 
-
 }
