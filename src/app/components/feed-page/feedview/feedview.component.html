@@ -78,7 +78,7 @@
       <img class="imagepost" [src]="post.imagePath">
       <hr />
       
-
+      <app-reactions></app-reactions>
       <mat-card> <!-- Comments-->
         <app-comments></app-comments>
       </mat-card>
@@ -92,4 +92,3 @@
     </mat-accordion>
 </div>
 <mat-spinner *ngIf = "isLoading"></mat-spinner>
-  
