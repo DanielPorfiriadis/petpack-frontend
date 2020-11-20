@@ -16,6 +16,8 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { SettingsComponent} from './components/settings/settings.component';
 import { CommentsComponent } from './components/feed-page/comments/comments.component';
+import { InfoComponent } from './components/info/info.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -35,6 +37,8 @@ const routes: Routes = [
   { path: 'miniprof', component: MiniprofComponent },
   { path: 'settings', component: SettingsComponent},
   { path: 'comments', component: CommentsComponent }, 
+  { path: 'info', component: InfoComponent},
+  { path: 'footer', component: FooterComponent }, 
 
 ];
 
