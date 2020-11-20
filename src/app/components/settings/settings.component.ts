@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormArray } from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
@@ -16,7 +16,7 @@ import { Subscription } from 'rxjs';
 })
 
 
-export class SettingsComponent implements OnInit {
+export class SettingsComponent implements OnInit, OnDestroy {
   userNewDetails: FormGroup;
   petNewDetails: FormGroup;
   newPet: FormGroup;
@@ -78,8 +78,9 @@ export class SettingsComponent implements OnInit {
           newLastName : userData.lastName,
           newUsername : userData.userName,
           newEmail : userData.email,
-          newAvatar: userData.imagePath
+          newAvatar : userData.imagePath,
         });
+        this.imagePreview=this.user.imagePath;
       });
       this.petService.getUserPets(this.username);
       this.petSub = this.petService.getPetsUpdateListener()
@@ -114,6 +115,20 @@ export class SettingsComponent implements OnInit {
     this.iterations.push(this.x);
 
   }
+  petSaveSubmited(){
+
+  }
+
+  petChangeSubmited(){
+    let pet: PetData = {
+      id: '',
+      petName: this.petNewDetails.get('newPetName').value,
+      species: this.petNewDetails.get('newSpecies').value,
+      gender: this.petNewDetails.get('newGender').value,
+      ownerUsername: this.username
+    };
+    this.petService.updatePet(pet.petName, pet.species, pet.gender, pet.ownerUsername);
+  }
 
   onImagePicked(event: Event) {
     const file = (event.target as HTMLInputElement).files[0];
@@ -127,12 +142,8 @@ export class SettingsComponent implements OnInit {
   }
 
   userSubmited(){
-    let image;
-    if(this.userNewDetails.get('newAvatar').value === null){
-        image=null;
-    } else{
-      image =this.userNewDetails.get('newAvatar').value;
-    }
+
+     let image =this.userNewDetails.get('newAvatar').value;
     this.authService.updateUser(
       this.userNewDetails.get('newFirstName').value,
       this.userNewDetails.get('newLastName').value,
@@ -142,7 +153,9 @@ export class SettingsComponent implements OnInit {
       image
       );
   }
-
+ngOnDestroy(){
+  this.petSub.unsubscribe();
+}
   submited(): void {
     this.pets = {
       id: '',

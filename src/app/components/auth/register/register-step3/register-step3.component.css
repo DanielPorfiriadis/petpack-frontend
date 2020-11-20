@@ -11,16 +11,16 @@
   border-radius: 3px;
   transition: 0.5s;
   color: #fff;
-  background: #387c08;
+  background: #47536e;
   position: relative;
 }
 
 .download-btn:hover {
-  background: #469d08;
+    background: #5777ba;
   }
 
 .reg3{
-  text-shadow: 1px 1px 1px rgb(128, 128, 128);
+  text-shadow: 1px 1px 1px gray;
   font-weight: bold;
 }
 
@@ -28,7 +28,7 @@ input[type="file"] {
   visibility: hidden;
 }
 .imagePicker {
-  color: #428d0c;
+  color: #47536e;
   font-size: 24px;
   border: hidden;
   background-color: transparent;
