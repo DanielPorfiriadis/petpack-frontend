@@ -52,6 +52,8 @@ import { PetminiComponent } from './components/feed-page/petmini/petmini.compone
 import { TimeComponent } from './components/time/time.component'
 import { DatePipe } from '@angular/common';
 import { CommentsComponent } from './components/feed-page/comments/comments.component';
+import { InfoComponent } from './components/info/info.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -78,7 +80,9 @@ import { CommentsComponent } from './components/feed-page/comments/comments.comp
     LikesComponent,
     PetminiComponent,
     TimeComponent,
-    CommentsComponent
+    CommentsComponent,
+    InfoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -40,7 +40,7 @@ mat-spinner{
   border: none;
   font-weight: 300;
   box-shadow: none;
-  color: #c3c3c3;
+  color: #cbe9ae;
   font-size: 16px;
 }
 
@@ -52,7 +52,7 @@ mat-spinner{
   box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
   transition: all 0.3s ease-in-out;
   border-radius: 10px;
-  background-color: #e8ecf5;
+  background-color: transparent;
 }
 
 /* ==================== create a post ================== */
@@ -69,16 +69,16 @@ mat-spinner{
 }
 
 .panel-footer {
-  background-color:#f2f5fa;
-  border-top: 1px solid #e7ebee;
+  background-color: #c5f7a1;
+  border-top: 1px solid #c1fc96;
 }
 
 .panel-footer ul li a {
-  color: #47536e;
+  color:  #387c08;
   cursor: pointer;
 }
 .panel-footer ul li a:hover {
-  background-color: #e6edf8;
+  background-color:  #cef5b1;
   cursor: pointer;
 }
 
@@ -91,7 +91,7 @@ input[type="file"] {
 }
 
 .imagePicker {
-  color: #47536e;
+  color: #428d0c;
   font-size: 20px;
   border: hidden;
   background-color: transparent;
@@ -109,17 +109,17 @@ input[type="file"] {
 
   .btn {
     color: #fff;
-    background: #4d5e85;
+    background: #428d0c;
   }
     .btn:hover {
-      background: #5777ba;
+      background: #5fb521;
     }
 
     .p-text-area, .p-text-area:focus {
       border: none;
       font-weight: 300;
       box-shadow: none;
-      color: #827e7e;
+      color: #9dee82;
       font-size: 16px;
       padding-left: 10px;
     }

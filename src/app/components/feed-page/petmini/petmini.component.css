@@ -1,5 +1,5 @@
 body {
-    background: #F1F3FA;
+    background: transparent;
 }
 
 /*  sidebar */
@@ -21,7 +21,7 @@ body {
 .pet-name {
   text-align: center;
   margin-top: 20px;
-  color: #5a7391;
+  color: #1d6803;
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 7px;
@@ -34,7 +34,7 @@ body {
   
 }
 .wrapper{
-  background-color: #e8ecf5;
+  background-color: transparent;
   display: inline-block;
   width: 100%;
 }

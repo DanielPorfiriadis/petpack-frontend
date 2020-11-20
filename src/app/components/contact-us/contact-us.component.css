@@ -1,14 +1,4 @@
-/* .field {
-    padding: 2px;
-    margin: 2px;
-}
 
-.button{
-    padding: 2px;
-    margin: 2px;
-} */
-
-/* ======================= */
 
 section {
     padding: 40px 0;
@@ -29,18 +19,17 @@ section {
     font-weight: 400;
     margin-bottom: 20px;
     padding-bottom: 0;
-    color: #5777ba;
+    color: #357b1e;
     font-family: "Poppins", sans-serif;
   }
   
   .contact .email-form {
     width: 70%;
-    border-top: 3px solid #5777ba;
-    border-bottom: 3px solid #5777ba;
+    border-top: 3px solid #357b1e;
+    border-bottom: 3px solid #357b1e;
     padding: 30px;
     background: #fff;
     box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
-    
     margin: auto;
   }
   
@@ -63,7 +52,7 @@ section {
   }
   
   .contact .email-form button[type="submit"] {
-    background: #47536e;
+    background: #387c08;
     border: 0;
     padding: 10px 24px;
     color: #fff;
@@ -72,7 +61,7 @@ section {
   }
   
   .contact .email-form button[type="submit"]:hover {
-    background: #5777ba;
+    background: #469d08;
   }
 
 
