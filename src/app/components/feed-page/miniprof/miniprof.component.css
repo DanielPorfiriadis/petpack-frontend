@@ -1,11 +1,19 @@
 body {
-    background: #F1F3FA;
+    background: transparent;
   }
   
   /* Profile container */
   .profile {
     margin: 20px 0;
   }
+  a {
+    color: #1d6803;
+}
+
+a:hover {
+    color: #2d8a0e;
+    text-decoration: none;
+}
   
   /* Profile sidebar */
   .profile-sidebar {
@@ -29,7 +37,7 @@ body {
   }
   
   .profile-usertitle-name {
-    color: #5a7391;
+    color: #1d6803;
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 7px;
@@ -37,7 +45,7 @@ body {
   
   .profile-usertitle-pet {
     text-transform: uppercase;
-    color: #5b9bd1;
+    color: #1d6803;
     font-size: 12px;
     font-weight: 600;
     margin-bottom: 15px;
@@ -56,7 +64,7 @@ body {
   }
   
   .profile-usermenu ul li a {
-    color: #93a3b5;
+    color:#1d6803;
     font-size: 14px;
     font-weight: 400;
   }
@@ -68,7 +76,7 @@ body {
   
   .profile-usermenu ul li a:hover {
     background-color: #fafcfd;
-    color: #5b9bd1;
+    color: #317e17;
   }
   
   .profile-usermenu ul li.active {
@@ -76,9 +84,9 @@ body {
   }
   
   .profile-usermenu ul li.active a {
-    color: #5b9bd1;
+    color: #1d6803;
     background-color: #f6f9fb;
-    border-left: 2px solid #5b9bd1;
+    border-left: 2px solid #1d6803;
     margin-left: -2px;
   }
   
