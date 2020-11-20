@@ -44,7 +44,7 @@
   <mat-accordion multi="true" *ngIf="posts.length >0">
     <mat-card class="post" *ngFor="let post of posts" >
       <mat-card-header>
-      <img mat-card-avatar class="card-avatar-image">
+      <img mat-card-avatar class="card-avatar-image" [src] ="user.imagePath" >
       <mat-card-title><a class="userLink" href="http://localhost:4200/feed-page">{{post.creatorUsername}}</a></mat-card-title>
       <span class="spacer"></span> 
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
