@@ -396,3 +396,18 @@ margin-bottom:10px;
 .petField{
   width:100%;
 }
+
+input[type="file"] {
+  visibility: hidden;
+}
+
+.imagePicker {
+  color: #47536e;
+  font-size: 20px;
+  border: hidden;
+  background-color: transparent;
+  outline: none !important;
+}
+.imagePreview {
+  size: 20%;
+}
