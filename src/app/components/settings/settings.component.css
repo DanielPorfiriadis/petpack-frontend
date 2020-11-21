@@ -395,6 +395,7 @@ margin-bottom:10px;
 
 .petField{
   width:100%;
+  padding:0px 15px;
 }
 
 input[type="file"] {
