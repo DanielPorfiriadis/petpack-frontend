@@ -5,6 +5,7 @@ import { Subject } from "rxjs";
 
 import { PetData } from "./pet.model";
 import { map } from 'rxjs/operators';
+import { NumberValueAccessor } from '@angular/forms';
 
 @Injectable({ providedIn: "root" })
 export class PetService {
@@ -13,6 +14,7 @@ export class PetService {
     private pets: PetData[]=[];
     private petsCount: number;
     private petsUpdated = new Subject<{ pets: PetData[]; petsCount: number }>();
+    private petUpdateDataSuccessfully=false;
 
     createPet(petName: string, species: string, gender: string, ownerUsername: string) {
         const petData: PetData = { petName: petName, species: species, gender: gender, ownerUsername: null, id:null};
@@ -22,6 +24,32 @@ export class PetService {
               console.log(res);
           });
     }
+
+    updatePet(petName: string, species: string, gender: string, owner: string){
+        let petData: PetData;
+        petData={
+            id : '',
+            petName: petName,
+            species: species,
+            gender: gender,
+            ownerUsername: owner
+        }
+        console.log(petData);
+        this.http.put<{message: string, status: Number}>("http://localhost:3000/api/pet/update", petData)
+            .subscribe(response =>{
+                if(response.status==200){
+                    this.petUpdateDataSuccessfully=true;
+                  } else{
+                    this.petUpdateDataSuccessfully=false;
+                  }
+                  this.router.routeReuseStrategy.shouldReuseRoute = function () {
+                    return false;
+                  }
+                  this.router.onSameUrlNavigation = 'reload';
+                  this.router.navigate(["/settings"]);  
+            });
+    }
+    
     getUserPets(username: string){
         this.http.get<{ message: string; pets: any; petsCount: number; }>(
             "http://localhost:3000/api/pet/get/" + username )

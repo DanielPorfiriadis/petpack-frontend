@@ -218,6 +218,7 @@ calculateTimeDifference(postString:string, currentTime:Date){
         this.ngOnInit();
         document.documentElement.scrollTop = current;
       }
+      //else gia reset counters oste na trexoyn ola apo tin arxi
     }
   }
 }

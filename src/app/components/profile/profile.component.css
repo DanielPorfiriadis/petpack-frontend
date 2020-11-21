@@ -1,9 +1,15 @@
 .section-bg {
-  background-color: #e8ecf5;
+  background-color: rgb(243, 253, 232);
+  background-image: url('/assets/img/kortari.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: contain;
+  float: left;
+  background-position: bottom;
 }
 
 .wrapper {
-  background-color: #e8ecf5;
+  background-color: transparent;
   display: inline-block;
   width: 100%;
   }
@@ -13,7 +19,7 @@
   position: relative;
   overflow: hidden;
   margin: 10px 0 10px 0;
-  background-color: #e8ecf5;
+  background-color: transparent;
   box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
   transition: all 0.3s ease-in-out;
   border-radius: 10px;

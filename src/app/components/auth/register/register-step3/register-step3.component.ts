@@ -25,7 +25,7 @@ export class RegisterStep3Component implements OnInit{
 
   ngOnInit(){
     this.form = new FormGroup({
-          image: new FormControl(null, {validators: [Validators.required], asyncValidators: [mimeType]
+          image: new FormControl(null, { asyncValidators: [mimeType]
           })
     });
   }
@@ -42,6 +42,7 @@ export class RegisterStep3Component implements OnInit{
   }
 
   submit(){
+    let petGender; 
     this.authService.createUser(
     this.regForm.get('personalDetails').get('firstname').value,
     this.regForm.get('personalDetails').get('lastname').value,
@@ -49,12 +50,16 @@ export class RegisterStep3Component implements OnInit{
     this.regForm.get('personalDetails').get('email').value,
     this.regForm.get('personalDetails').get('password').value,
     this.form.value.image);
-    console.log(this.form.value.image);
-    
+    if(this.regForm.get('petDetails').get('gender').value===1){
+      petGender = 'Male';
+    }
+    else{
+      petGender='Female';
+    }
     this.petService.createPet(
       this.regForm.get('petDetails').get('petName').value,
       this.regForm.get('petDetails').get('species').value,
-      this.regForm.get('petDetails').get('gender').value,
+      petGender,
       this.regForm.get('personalDetails').get('username').value,
     );
   }

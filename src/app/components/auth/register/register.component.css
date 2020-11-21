@@ -4,7 +4,7 @@
   margin: 0 0 10px 0;
   font-size: 48px;
   font-weight: 500;
-  color: #5777ba;
+  color: #076a02;
   font-family: "Poppins", sans-serif;
 }
 
@@ -16,15 +16,15 @@
 
 .register-wrapper {
   padding: 10px 0px;
-  background: rgba(255, 255, 255, 0.603);
+  background: rgba(248, 255, 241, 0.603);
   border-radius: 10px;
   transform: scale(1);
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   z-index: 5;
-  -webkit-box-shadow: 1px 3px 5px 4px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-  -moz-box-shadow:    1px 3px 5px 4px #ccc;  /* Firefox 3.5 - 3.6 */
-  box-shadow:         1px 3px 5px 4px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+  -webkit-box-shadow: 1px 3px 5px 4px rgb(188, 201, 177); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    1px 3px 5px 4px rgb(188, 201, 177);  /* Firefox 3.5 - 3.6 */
+  box-shadow:         1px 3px 5px 4px rgb(188, 201, 177);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 }
 
 .img-fluid {
@@ -35,17 +35,17 @@
 /* =============================== */
 body {
   font-family: "Open Sans", sans-serif;
-  color: #585a61;
+  color: #5a6158;
   height: 100%;
   min-height: 100vh;
 }
 
 a {
-  color: #5777ba;
+  color: #076a02;
 }
 
   a:hover {
-    color: #7b94c9;
+    color: #197602;
     text-decoration: none;
   }
 
@@ -69,7 +69,7 @@ a {
     width: 250%;
     height: 200%;
     z-index: -1;
-    background-color: #e8ecf5;
+    background-color: #c5f7a1;
     transform: skewY(135deg);
   }
 
@@ -83,13 +83,13 @@ a {
     border-radius: 3px;
     transition: 0.5s;
     color: #fff;
-    background: #47536e;
+    background: #387c08;
     position: relative;
     
   }
 
     #myregister .download-btn:hover {
-      background: #5777ba;
+      background: #469d08;
     }
 
     #myregister .download-btn + .download-btn {

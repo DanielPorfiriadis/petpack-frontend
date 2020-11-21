@@ -2,19 +2,25 @@
 # feedpage
 --------------------------------------------------------------*/
 a {
-    color: #5777ba;
+    color: #1d6803;
 }
 
 a:hover {
-    color: #7b94c9;
+    color: #2d8a0e;
     text-decoration: none;
 }
 .section-bg {
-    background-color: #e8ecf5;
+    background-color: rgb(243, 253, 232);
+    background-image: url('/assets/img/kortari.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: contain;
+    float: left;
+    background-position: bottom;
 }
 
 .wrapper {
-    background-color: #e8ecf5;
+    background-color: transparent;
     display: inline-block;
     width: 100%;
 }
