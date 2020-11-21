@@ -4,8 +4,13 @@
 </div>
 <div class=reg3 *ngIf="!formSubmitted">
   <form [formGroup]="form">
-    
-      <button mat-stroke-button (click)="filePicker.click()" class="fa fa-picture-o imagePicker"></button>
+        
+        <button mat-stroke-button (click)="filePicker.click()" 
+        class="fa fa-picture-o imagePicker"
+        matTooltip="Upload your profile pic"
+        matTooltipPosition="right"
+        ></button> 
+
 
     <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid ">
       <img [src]="imagePreview" >
