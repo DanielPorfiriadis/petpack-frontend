@@ -11,7 +11,13 @@ export class ReactionService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  countReactions(id: string) {
-    return this.http.get<{ postId: string , emote: string}>("http://localhost:3000/api/reactions/posts/" + id);
+  getReactions(id: string) {
+    return this.http.get<{ emote: string }>("http://localhost:3000/api/reactions/posts/" + id);
+
+   
+    
+  }
+  postReaction(res) {
+    return this.http.post<{ userId: string; postId: string; emote: string }>("http://localhost:3000/api/reactions", res);
   }
 }

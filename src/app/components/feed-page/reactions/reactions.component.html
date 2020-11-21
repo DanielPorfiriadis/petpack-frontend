@@ -1,16 +1,22 @@
-<div class="wrapper" (mouseenter)="toggleShow()" (mouseleave)="toggleShow()"> <!--(mouseenter)="toggleShow(true)" (mouseleave)="toggleShow(false)"-->
-  <div class="emojis" *ngIf="showEmojis"> <!--*ngIf="showEmojis"-->
+<div class="wrapper"  >
+  <!--(mouseenter)="toggleShow(true)" (mouseleave)="toggleShow(false)"-->
+  <div class="emojis" *ngIf="showEmojis" (mouseleave)="toggleShow()">
+    <!--*ngIf="showEmojis"-->
 
-    <span *ngFor="let emoji of emojiList; index as i;">
-      <img [src]="emojiPath(emoji)" width="75" >
+    <span *ngFor="let emoji of emojiList; index as i;"   >
+      <img [src]="emojiPath(emoji)" width="75" (click)="react(emoji)">
     </span>
 
   </div>
 
-  <span class="like"  >
-    Like
+  <span class="like" *ngIf="selectedEmote" (mouseenter)="toggleShow()">
+    <img [src]="emojiPath(selectedEmote)">
   </span>
 
+ <!-- <span *ngIf="countReactions({{i}})">
+    <img [src]="emojiPath(emoji)"> {{ reactionCount[i] }}
+  </span>
+-->
   <!--<span *ngIf="userReaction != null">
     | You reacted <strong>{{ emojiList[userReaction] }}</strong>
   </span>
