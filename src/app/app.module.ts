@@ -53,6 +53,8 @@ import { TimeComponent } from './components/time/time.component'
 import { DatePipe } from '@angular/common';
 import { CommentsComponent } from './components/feed-page/comments/comments.component';
 import { ReactionsComponent } from './components/feed-page/reactions/reactions.component';
+import { InfoComponent } from './components/info/info.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -80,7 +82,9 @@ import { ReactionsComponent } from './components/feed-page/reactions/reactions.c
     PetminiComponent,
     TimeComponent,
     CommentsComponent,
-    ReactionsComponent
+    ReactionsComponent,
+    InfoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
