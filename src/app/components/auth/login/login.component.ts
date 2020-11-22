@@ -12,11 +12,12 @@ import { MatDialog } from '@angular/material/dialog';
 })
 
 export class LoginComponent {
-  credentials =  true;
+  credentials = true;
   isLoading= false;
   response=null;
   hide = true;
-  self=null;
+  self = null;
+  n = 1;
    //We manually create a loginData object that holds login credentials
 
 
@@ -27,7 +28,7 @@ export class LoginComponent {
            return;
        }
      this.authService.login(form.value.username, form.value.password);
-     this.credentials = this.authService.Credentials
+     this.credentials = this.authService.getCredentials()
      console.log(this.credentials);
    }
 

@@ -13,7 +13,7 @@ export interface Username {
 }
 @Injectable({ providedIn: "root" })
 export class AuthService {
-  Credentials = false;
+  Credentials = true;
   private isAuthenticated = false;
   private token: string;
   private userId: string;
@@ -147,7 +147,7 @@ export class AuthService {
 
   
 
- /* getCredentials() { return this.Credentials; };*/
+  getCredentials() { return this.Credentials; };
 
   autoAuthUser() {
     const authInformation = this.getAuthData();

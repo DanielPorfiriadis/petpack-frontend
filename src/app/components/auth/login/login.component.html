@@ -14,7 +14,7 @@
             <mat-card-header>
               <mat-card-title><h1><i style='font-size:16px' class='fas'>&#xf1b0;</i> Log in <i style='font-size:16px' class='fas'>&#xf1b0;</i></h1></mat-card-title>
               <p>login here using your username and password</p>
-              <div *ngIf="!credentials">
+              <div *ngIf="!authService.getCredentials()">
                 <div class="alert alert-danger" role="alert">Wrong Credentials!</div>
               </div>
               <br />
