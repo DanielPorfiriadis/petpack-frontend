@@ -2,7 +2,7 @@
   background-color: rgb(243, 253, 232);
   background-image: url('/assets/img/kortari.png');
   background-repeat: no-repeat;
-  background-attachment: fixed;  
+  background-attachment: fixed;
   background-size: contain;
   float: left;
   background-position: bottom;
@@ -12,7 +12,7 @@
   background-color: transparent;
   display: inline-block;
   width: 100%;
-  }
+}
 
 .box {
   padding: 0px;
@@ -27,12 +27,13 @@
   border-bottom: 3px solid #fff;
   border-color: #e1dddd;
 }
-.box-pet{
+
+.box-pet {
   margin: 20px 0 10px 0;
   border-radius: 10px;
 }
 
-.prof{
+.prof {
   margin-top: 10px;
 }
 
@@ -54,24 +55,23 @@
 }
 
 .imagepost {
-
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
+
 .spacer {
   flex: 1 1 auto;
 }
 
-.userLink{
-    color: #181818;
-    text-decoration: none;
-    font-family: "Raleway", sans-serif;
+.userLink {
+  color: #181818;
+  text-decoration: none;
+  font-family: "Raleway", sans-serif;
 }
 
-mat-spinner{
+mat-spinner {
   margin: auto;
 }
 
@@ -105,19 +105,21 @@ mat-spinner{
   border-top: 1px solid #c1fc96;
 }
 
-.panel-footer ul li a {
-  color:  #387c08;
-  cursor: pointer;
-}
-.panel-footer ul li a:hover {
-  background-color:  #cef5b1;
-  cursor: pointer;
-}
+  .panel-footer ul li a {
+    color: #387c08;
+    cursor: pointer;
+  }
+
+    .panel-footer ul li a:hover {
+      background-color: #cef5b1;
+      cursor: pointer;
+    }
 
 mat-form-field, .textarea {
   width: 100%;
   padding-left: 5px;
 }
+
 input[type="file"] {
   visibility: hidden;
 }
@@ -135,18 +137,18 @@ input[type="file"] {
   margin: 1rem 0;
 }
 
-.image-preview img {
-  height: 100%;
-}
+  .image-preview img {
+    height: 100%;
+  }
 
 .btn {
   color: #fff;
   background: #428d0c;
 }
 
-.btn:hover {
-  background: #5fb521;
-}
+  .btn:hover {
+    background: #5fb521;
+  }
 
 .p-text-area, .p-text-area:focus {
   border: none;

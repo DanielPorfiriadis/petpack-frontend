@@ -2,11 +2,14 @@
 # footer
 --------------------------------------------------------------*/
 .footer {
-    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     background-color: rgb(35, 105, 2);
     color: white;
     text-align: center;
+ }
+
+ a {
+     color: white;
  }

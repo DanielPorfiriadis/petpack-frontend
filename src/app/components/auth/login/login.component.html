@@ -1,4 +1,3 @@
-
 <app-first-navbar></app-first-navbar>
 
 <!-- ======= Login ======= -->
@@ -7,16 +6,19 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1">
-        <div class="login-wrapper" fxLayout="row" fxLayoutAlign="left-center center">
-
+        <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center">
+          
           <mat-card class="box" >
             <mat-spinner *ngIf="isLoading"></mat-spinner>
-              <mat-card-header>
-                <mat-card-title><h1><i style='font-size:16px' class='fas'>&#xf1b0;</i> Log in <i style='font-size:16px' class='fas'>&#xf1b0;</i></h1></mat-card-title>
-                <p>login here using your username and password</p>
-                <br/>
-              </mat-card-header>
-          
+            <mat-card-header>
+              <mat-card-title><h1><i style='font-size:16px' class='fas'>&#xf1b0;</i> Log in <i style='font-size:16px' class='fas'>&#xf1b0;</i></h1></mat-card-title>
+              <p>login here using your username and password</p>
+              <div *ngIf="!authService.getCredentials()">
+                <div class="alert alert-danger" role="alert">Wrong Credentials!</div>
+              </div>
+              <br />
+            </mat-card-header>
+              
               <form (submit) ="onLogin(loginForm)" #loginForm="ngForm" *ngIf ="!isLoading" class="example-form">
                 <mat-card-content>
                   <mat-form-field class="example-full-width">
@@ -56,4 +58,3 @@
   </div>
 
 </section><!-- End -->
-
