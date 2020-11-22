@@ -3,7 +3,7 @@
 <div class="container-fluid section-bg">
   <div class="row">
 
-    <!-- Profile -->
+    <!-- Profile - Left Panel-->
     <div class="col-md-3 prof">
             
       <div class="wrapper">
@@ -17,10 +17,115 @@
 
     </div>
 
-    <!-- Post panels -->
+    <!-- ---------------------------------------------------------------
+       ************************************************************
+    ---------------------------------------------------------------- -->
+
+    <!-- User Posts - Right Panel [Copy Paste from Feedview and ngif for user] -->
     <div class=" col-md-9">
-      <app-feedview> </app-feedview>
+
+      <!-- -------------------- --Create Post ---------------------- -->
+      <div class="panel">
+            <form [formGroup]="form" (submit)="onSavePost()" *ngIf="!isLoading">
+              
+              <mat-form-field>
+                <textarea matInput
+                          rows="4"
+                          formControlName="content"
+                          name="content"
+                          placeholder="Whats in your mind today?"
+                          class="form-control input-lg p-text-area">
+                </textarea>
+                <mat-error *ngIf="form.get('content').invalid" class="error">
+                  Please enter content
+                </mat-error>
+              </mat-form-field>
+            
+              <footer class="panel-footer">
+                
+                <button class="btn pull-right postButton" type="submit">Post</button>
+                
+                <ul class="nav nav-pills">
+                    
+                    <li>
+                      <a (click)="filePicker.click()" class="fa fa-picture-o imagePicker" aria-hidden="true"></a>
+                    </li>
+                    <li>
+                      <input type="file" #filePicker (change)="onImagePicked($event)">
+                    </li>
+                    <li class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid ">
+                      <img [src]="imagePreview" [alt]="form.value.content">
+                    </li>
+                </ul>
+              </footer>
+            </form>
+      </div>
+      <!-- ---------------- End of Create Post -------------- -->
+
+      <!-- ---------------- Posts Feed ------------------- -->
+      <div class="box-main" (scroll)="onWindowScroll()">
+        <mat-accordion multi="true" *ngIf="posts.length >0">
+
+          <!-- Only Posts of User -->
+          <div *ngFor="let post of posts ">
+
+            <mat-card class="post" *ngIf ="userIsAuthenticated && userId == post.creator">
+              <mat-card-header>
+                <img mat-card-avatar class="card-avatar-image">
+                <mat-card-title><a class="userLink" href="http://localhost:4200/feed-page">{{post.creatorUsername}}</a></mat-card-title>
+                <span class="spacer"></span> 
+                  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item *ngIf ="userIsAuthenticated && userId == post.creator">
+                      <mat-icon>edit</mat-icon>
+                      <span>Edit</span>
+                    </button>
+                    <button mat-menu-item disabled *ngIf ="userId != post.creator">
+                      <mat-icon>edit</mat-icon>
+                      <span>Edit</span>
+                    </button>
+                    <button mat-menu-item *ngIf ="userIsAuthenticated && userId == post.creator" (click)="deletePostProfile(post.id)">
+                      <mat-icon>delete</mat-icon>
+                      <span>Delete</span>
+                    </button>
+                    <button mat-menu-item disabled *ngIf ="userId != post.creator" >
+                      <mat-icon>delete</mat-icon>
+                      <span>Delete</span>
+                    </button>
+                  </mat-menu>
+                <mat-card-subtitle>{{calculateTimeDifference(post.timeStamp,currentDate)}}</mat-card-subtitle>
+              </mat-card-header>
+              <hr />
+              <mat-card-content>
+                <p>  <b><a class="userLink" href="http://localhost:4200/feed-page"></a></b> {{post.content}} </p>
+              </mat-card-content>
+              <hr />
+              <img class="imagepost" [src]="post.imagePath">
+              <hr />
+                
+              <app-reactions></app-reactions>
+              <mat-card> <!-- Comments-->
+                <app-comments></app-comments>
+              </mat-card>
+
+              <!-- <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+              </mat-card-actions> -->
+
+            </mat-card>
+
+          </div>
+
+        </mat-accordion>
+      </div>
+      <!-- ---------------- End of Posts Feed ------------------- -->
+      <mat-spinner *ngIf = "isLoading"></mat-spinner>
+
     </div>
+    <!-- End of User Posts panel -->
 
   </div>
 </div>

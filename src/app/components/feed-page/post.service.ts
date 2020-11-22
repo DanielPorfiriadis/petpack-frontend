@@ -125,18 +125,77 @@ export class PostService{
             this.router.onSameUrlNavigation = 'reload';
             this.router.navigate(["/feed-page"]);
          })
-      }
+    }
 
-      deletePost(postId: string) {
-        return this.http
-          .delete("http://localhost:3000/api/posts/" + postId)
-          .subscribe(response => {
+    deletePost(postId: string) {
+    return this.http
+        .delete("http://localhost:3000/api/posts/" + postId)
+        .subscribe(response => {
+        this.router.routeReuseStrategy.shouldReuseRoute = function () {
+            return false;
+        }
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate(["/feed-page"]);
+        })
+    }
+
+
+    //new, for Profile
+    addPostProfile(content: string, image: File, timeStamp: Date){
+        const postData = new FormData();
+        postData.append("content", content);
+        postData.append("image", image);
+        postData.append("timeStamp", timeStamp.toISOString());
+        this.http.post<{ message: string; post: Post}>( "http://localhost:3000/api/posts/", postData )
+         .subscribe(responseData => {
             this.router.routeReuseStrategy.shouldReuseRoute = function () {
                 return false;
             }
             this.router.onSameUrlNavigation = 'reload';
-            this.router.navigate(["/feed-page"]);
-          })
-      }
+            this.router.navigate(["/profile"]);
+         })
+    }
+
+    updatePostProfile(id: string, content: string, image: File | string) {
+        let postData: Post | FormData;
+        if (typeof image === "object") {
+          postData = new FormData();
+          postData.append("id", id);
+          postData.append("content", content);
+          postData.append("image", image);
+        } else {
+          postData = {
+            id: id,
+            content: content,
+            imagePath: image,
+            creator: null,
+            creatorUsername: null,
+            timeStamp: null
+          };
+        }
+        this.http
+          .put("http://localhost:3000/api/posts/" + id, postData)
+          .subscribe(responseData => {
+            this.router.routeReuseStrategy.shouldReuseRoute = function () {
+                return false;
+            }
+            this.router.onSameUrlNavigation = 'reload';
+            this.router.navigate(["/profile"]);
+         })
+    }
+
+    deletePostProfile(postId: string) {
+        return this.http
+            .delete("http://localhost:3000/api/posts/" + postId)
+            .subscribe(response => {
+            this.router.routeReuseStrategy.shouldReuseRoute = function () {
+                return false;
+            }
+            this.router.onSameUrlNavigation = 'reload';
+            this.router.navigate(["/profile"]);
+            })
+    }
+    
+    //end of Profile
 
 }
