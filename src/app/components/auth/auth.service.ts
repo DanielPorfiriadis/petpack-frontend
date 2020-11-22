@@ -1,17 +1,19 @@
-import { Injectable } from "@angular/core";
+import { Injectable, Output } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
-import { Subject } from "rxjs";
+import { Subject, Observable } from "rxjs";
 
 import { LoginData } from "./login-data.model";
 import { UserData } from "./user-data.model";
 import { RegisterData } from "./register-data.model";
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
+
 export interface Username {
   username: string;
 }
 @Injectable({ providedIn: "root" })
 export class AuthService {
+  Credentials = false;
   private isAuthenticated = false;
   private token: string;
   private userId: string;
@@ -116,11 +118,12 @@ export class AuthService {
     this.http
       .post<{ token: string; expiresIn: number, userId: string, userName: string}>(
         "http://localhost:3000/api/users/login",
-        loginData
+        loginData,
       )
       .subscribe(response => {
         const token = response.token;
         this.token = token;
+        this.Credentials = true;
         if (token) {
           const expiresInDuration = response.expiresIn;
           this.setAuthTimer(expiresInDuration);
@@ -134,8 +137,17 @@ export class AuthService {
           this.saveAuthData(token, expirationDate, this.userId, this.userName);
           this.router.navigate(["/feed-page"]);
         }
-      });
+      }, err => { this.printError() });
   }
+
+  
+  printError() {
+    this.Credentials = false;
+  };
+
+  
+
+ /* getCredentials() { return this.Credentials; };*/
 
   autoAuthUser() {
     const authInformation = this.getAuthData();
