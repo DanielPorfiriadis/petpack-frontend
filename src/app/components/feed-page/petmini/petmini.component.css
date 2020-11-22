@@ -1,5 +1,4 @@
 body {
-<<<<<<< HEAD
     background: transparent;
 }
 
@@ -39,33 +38,3 @@ body {
   display: inline-block;
   width: 100%;
 }
-=======
-    background: #F1F3FA;
-  }
-  /*  sidebar */
-  .pet-sidebar {
-    padding: 20px 0 10px 0;
-    background: #fff;
-  }
-  
-  .pet-pic img {
-    float: none;
-    margin: 0 auto;
-    width: 50%;
-    height: 50%;
-    -webkit-border-radius: 50% !important;
-    -moz-border-radius: 50% !important;
-    border-radius: 50% !important;
-  }
-  
-  .pet-name {
-    text-align: center;
-    margin-top: 20px;
-
-    color: #5a7391;
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 7px;
-  
-  }
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071

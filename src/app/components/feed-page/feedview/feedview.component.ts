@@ -171,17 +171,10 @@ calculateTimeDifference(postString:string, currentTime:Date){
 
 
   if(differenceInMinutes >= 1440){
-<<<<<<< HEAD
     if(Math.floor(differenceInMinutes/1440)===1){
       return "Yesterday";
     }
     return Math.floor(differenceInMinutes/1440) +" Days ago";
-=======
-    if(Math.floor(difference/(1000*1440))===1){
-      return "Yesterday";
-    }
-    return Math.floor(difference/(1000*1440)) +" Days ago";
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
   }
   else if(differenceInMinutes < 1440 && differenceInMinutes >= 60){
     if(Math.floor(difference/(1000*60*60)) === 1){
@@ -225,10 +218,7 @@ calculateTimeDifference(postString:string, currentTime:Date){
         this.ngOnInit();
         document.documentElement.scrollTop = current;
       }
-<<<<<<< HEAD
       //else gia reset counters oste na trexoyn ola apo tin arxi
-=======
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
     }
   }
 }

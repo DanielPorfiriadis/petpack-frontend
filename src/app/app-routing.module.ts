@@ -14,15 +14,11 @@ import { MiniprofComponent } from './components/feed-page/miniprof/miniprof.comp
 
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
-<<<<<<< HEAD
 import { SettingsComponent} from './components/settings/settings.component';
 import { CommentsComponent } from './components/feed-page/comments/comments.component';
 import { InfoComponent } from './components/info/info.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-=======
-import { SettingsComponent} from './components/settings/settings.component'
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
 
 
 const routes: Routes = [
@@ -39,14 +35,10 @@ const routes: Routes = [
   { path: 'contact_us', component: ContactUsComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'miniprof', component: MiniprofComponent },
-<<<<<<< HEAD
   { path: 'settings', component: SettingsComponent},
   { path: 'comments', component: CommentsComponent }, 
   { path: 'info', component: InfoComponent},
   { path: 'footer', component: FooterComponent }, 
-=======
-  { path: 'settings', component: SettingsComponent} 
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
 
 ];
 

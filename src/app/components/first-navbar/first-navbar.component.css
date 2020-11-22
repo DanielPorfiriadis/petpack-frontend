@@ -17,11 +17,7 @@
   /*-------- Header----------------*/
   #header {
   padding: 5px 0;
-<<<<<<< HEAD
   background-color: rgba(18, 73, 4, 0);
-=======
-  background-color: rgba(6, 216, 216, 0);
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
 }
 
 #header.header-transparent {
@@ -31,11 +27,7 @@
 
 
 #header .logo a, #header .logo a:hover {
-<<<<<<< HEAD
   color: #377604;
-=======
-  color: #5777ba;
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
   text-decoration: none;
   letter-spacing: 2px;
 }
@@ -64,11 +56,7 @@
 .nav-menu a {
   display: block;
   position: relative;
-<<<<<<< HEAD
   color: #448038;
-=======
-  color: #47536e;
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
   padding: 12px 15px;
   transition: 0.3s;
   font-size: 14px;
@@ -76,13 +64,8 @@
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-<<<<<<< HEAD
   color: #3cac10;
   text-decoration: none;
   background-color: transparent;
-=======
-  color: #5777ba;
-  text-decoration: none;
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
 }
 

@@ -1,16 +1,11 @@
 body {
-<<<<<<< HEAD
     background: transparent;
-=======
-    background: #F1F3FA;
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
   }
   
   /* Profile container */
   .profile {
     margin: 20px 0;
   }
-<<<<<<< HEAD
   a {
     color: #1d6803;
 }
@@ -19,8 +14,6 @@ a:hover {
     color: #2d8a0e;
     text-decoration: none;
 }
-=======
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
   
   /* Profile sidebar */
   .profile-sidebar {
@@ -44,11 +37,7 @@ a:hover {
   }
   
   .profile-usertitle-name {
-<<<<<<< HEAD
     color: #1d6803;
-=======
-    color: #5a7391;
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 7px;
@@ -56,11 +45,7 @@ a:hover {
   
   .profile-usertitle-pet {
     text-transform: uppercase;
-<<<<<<< HEAD
     color: #1d6803;
-=======
-    color: #5b9bd1;
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
     font-size: 12px;
     font-weight: 600;
     margin-bottom: 15px;
@@ -79,11 +64,7 @@ a:hover {
   }
   
   .profile-usermenu ul li a {
-<<<<<<< HEAD
     color:#1d6803;
-=======
-    color: #93a3b5;
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
     font-size: 14px;
     font-weight: 400;
   }
@@ -95,11 +76,7 @@ a:hover {
   
   .profile-usermenu ul li a:hover {
     background-color: #fafcfd;
-<<<<<<< HEAD
     color: #317e17;
-=======
-    color: #5b9bd1;
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
   }
   
   .profile-usermenu ul li.active {
@@ -107,15 +84,9 @@ a:hover {
   }
   
   .profile-usermenu ul li.active a {
-<<<<<<< HEAD
     color: #1d6803;
     background-color: #f6f9fb;
     border-left: 2px solid #1d6803;
-=======
-    color: #5b9bd1;
-    background-color: #f6f9fb;
-    border-left: 2px solid #5b9bd1;
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
     margin-left: -2px;
   }
   
@@ -125,20 +96,4 @@ a:hover {
     background: #fff;
     min-height: 460px;
   }
-<<<<<<< HEAD
   
-=======
-  .box {
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
-    margin: 10px 0 10px 0;
-    background: #fff;
-    box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
-    transition: all 0.3s ease-in-out;
-    border-radius: 15px;
-    text-align: center;
-    border-bottom: 3px solid #fff;
-    border-color: #e1dddd;
-  }
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071

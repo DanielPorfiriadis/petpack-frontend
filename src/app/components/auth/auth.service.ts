@@ -1,33 +1,19 @@
-<<<<<<< HEAD
 import { Injectable, Output } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { Subject, Observable } from "rxjs";
-=======
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Router } from "@angular/router";
-import { Subject } from "rxjs";
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
 
 import { LoginData } from "./login-data.model";
 import { UserData } from "./user-data.model";
 import { RegisterData } from "./register-data.model";
-<<<<<<< HEAD
 import { catchError, map } from 'rxjs/operators';
 
-=======
-import { map } from 'rxjs/operators';
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
 export interface Username {
   username: string;
 }
 @Injectable({ providedIn: "root" })
 export class AuthService {
-<<<<<<< HEAD
   Credentials = true;
-=======
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
   private isAuthenticated = false;
   private token: string;
   private userId: string;
@@ -36,10 +22,7 @@ export class AuthService {
   private tokenTimer: any;
   private authStatusListener = new Subject<boolean>();
   private userUpdated= new Subject< { user: RegisterData} >();
-<<<<<<< HEAD
   private userUpdateDataSuccessfully=false;
-=======
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -105,7 +88,6 @@ export class AuthService {
         this.router.navigate(["/login"]);
       });
   }
-<<<<<<< HEAD
   
   updateUser(firstName: string, lastName: string, userName: string, email: string, password: string, image: File) {
     const regData = new FormData();
@@ -131,27 +113,17 @@ export class AuthService {
       })
   }
   
-=======
-
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
   login(username: string, password: string) {
     const loginData: LoginData = { userName: username, password: password };
     this.http
       .post<{ token: string; expiresIn: number, userId: string, userName: string}>(
         "http://localhost:3000/api/users/login",
-<<<<<<< HEAD
         loginData,
-=======
-        loginData
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
       )
       .subscribe(response => {
         const token = response.token;
         this.token = token;
-<<<<<<< HEAD
         this.Credentials = true;
-=======
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
         if (token) {
           const expiresInDuration = response.expiresIn;
           this.setAuthTimer(expiresInDuration);
@@ -165,7 +137,6 @@ export class AuthService {
           this.saveAuthData(token, expirationDate, this.userId, this.userName);
           this.router.navigate(["/feed-page"]);
         }
-<<<<<<< HEAD
       }, err => { this.printError() });
   }
 
@@ -178,11 +149,6 @@ export class AuthService {
 
   getCredentials() { return this.Credentials; };
 
-=======
-      });
-  }
-
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
   autoAuthUser() {
     const authInformation = this.getAuthData();
     if (!authInformation) {
@@ -247,8 +213,4 @@ export class AuthService {
       userName: userName
     }
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071

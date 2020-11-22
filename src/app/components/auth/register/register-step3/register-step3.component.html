@@ -3,7 +3,6 @@
   <!-- <a href="afterlogin">Wellcome</a> -->  
 </div>
 <div class=reg3 *ngIf="!formSubmitted">
-<<<<<<< HEAD
   <form [formGroup]="form">
         
         <button mat-stroke-button (click)="filePicker.click()" 
@@ -12,11 +11,6 @@
         matTooltipPosition="right"
         ></button> 
 
-=======
-  <form [formGroup]="form" (submit)="submit()">
-    
-      <button mat-stroke-button (click)="filePicker.click()" class="fa fa-picture-o imagePicker"></button>
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
 
     <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid ">
       <img [src]="imagePreview" >

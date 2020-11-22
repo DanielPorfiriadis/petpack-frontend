@@ -2,17 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 
-<<<<<<< HEAD
 // For search Bar
-=======
-// import { AuthService } from 'auth';
-
-
-/*import { LoggingService, Config } from 'loggerservice';*/
-
-
-//Search Bar
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
@@ -30,20 +20,9 @@ export interface Username {
 })
 export class NavbarComponent {
 
-<<<<<<< HEAD
   @Output() toggleSidenav = new EventEmitter<void>();
 
   private returnUrl = '/';
-=======
-  //Search Bar {{option.name}}
-
-  //End Search Bar
-
-  @Output() toggleSidenav = new EventEmitter<void>();
-
-  private returnUrl = '/';
-    
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
 
   constructor(private router: Router, private authService: AuthService) {
 
@@ -59,16 +38,12 @@ export class NavbarComponent {
     } );
 
   }
-<<<<<<< HEAD
 
   //Settings for Search Bar
-=======
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
   myControl = new FormControl();
   options: Username[] = this.authService.getUsernames();
   filteredOptions: Observable<Username[]>;
 
-<<<<<<< HEAD
   //Profile
   public onHome() {
 
@@ -82,19 +57,11 @@ export class NavbarComponent {
   }
 
   //Logout
-=======
-  public onProfile() {
-
-    this.router.navigate(['users/profile']);
-  }
-
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
   public logout() {
 
     this.authService.logout();
   }
 
-<<<<<<< HEAD
   //Settings
   public settings(){
     this.router.navigate(['../settings']);
@@ -103,21 +70,11 @@ export class NavbarComponent {
 
   //Search Bar
 
-=======
-  public settings(){
-    // this.settings.....kati
-  }
-
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
   display = false;
   onPress() {
     this.display = true;
   }
 
-<<<<<<< HEAD
-=======
-  //Search Bar
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
   ngOnInit(): void {
     console.log(this.options);
     this.filteredOptions = this.myControl.valueChanges

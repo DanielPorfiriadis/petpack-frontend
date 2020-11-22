@@ -1,32 +1,11 @@
-<<<<<<< HEAD
 
-=======
-/* html, body {
-    height: 100%;
-    background-color: rgb(194, 102, 102);
-}
-
-.col-md-12{
-    margin-top: 8px;
-}
-.main-content{
-    height: 100%;
-}
-.col-md-4 {
-    position: bottom;
-} */
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
 section {
   padding: 40px 0;
   overflow: hidden;
 }
 
 .section-bg {
-<<<<<<< HEAD
   background-color: #c5f7a1;
-=======
-  background: #eff2f8;
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
 }
 
 .section-title {
@@ -39,11 +18,7 @@ section {
   font-weight: 400;
   margin-bottom: 0px;
   padding-bottom: 0;
-<<<<<<< HEAD
   color: #357b1e;
-=======
-  color: #5777ba;
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
   font-family: "Poppins", sans-serif;
 }
 
@@ -53,11 +28,7 @@ section {
   text-align: center;
   margin: auto;
   width: 80%;
-<<<<<<< HEAD
   color: #357b1e;
-=======
-  color: #515f7d;
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
 }
 .about .title {
   font-weight: 700;
@@ -74,22 +45,14 @@ section {
   h2 {
     font-size: 24px;
     text-transform: uppercase;
-<<<<<<< HEAD
     color: #286314;
-=======
-    color: #303030;
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
     font-weight: 600;
     margin-bottom: 30px;
   }
   h4 {
     font-size: 19px;
     line-height: 1.375em;
-<<<<<<< HEAD
     color: #255a14;
-=======
-    color: #303030;
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
     font-weight: 400;
     margin-bottom: 30px;
   }  
@@ -111,22 +74,14 @@ section {
 # about
 --------------------------------------------------------------*/
 .about {
-<<<<<<< HEAD
   background-color: #cffcaf;
-=======
-  background: #eff2f8;
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
   padding: 0px 0;
   }
   
   .about .team {
     text-align: center;
     margin-bottom: 20px;
-<<<<<<< HEAD
     background-color: #c5f7a1;
-=======
-    background: #eff2f8;
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
     position: relative;
     overflow: hidden;
   }
@@ -170,11 +125,7 @@ section {
     bottom: 0;
     width: 50px;
     transition: left ease-in-out 0.3s;
-<<<<<<< HEAD
     background: rgba(91, 230, 36, 0.6);
-=======
-    background: rgba(157, 184, 242, 0.6);
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
     text-align: center;
   }
   
@@ -186,11 +137,7 @@ section {
   }
   
   .about .team .social a:hover {
-<<<<<<< HEAD
     color: #255a14;;
-=======
-    color: #5f59af;
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
   }
   
   .about .team .social i {
@@ -199,11 +146,7 @@ section {
   }
   
   .about .team:hover .team-info {
-<<<<<<< HEAD
     background: linear-gradient(0deg, rgba(91, 146, 59, 0.6) 0%, rgba(91, 146, 59, 0.6) 15%, rgba(255, 255, 255, 0) 100%);
-=======
-    background: linear-gradient(0deg, rgba(59, 87, 146, 0.6) 0%, rgba(59, 87, 146, 0.6) 15%, rgba(255, 255, 255, 0) 100%);
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
     opacity: 1;
     transition: 0.4s;
   }

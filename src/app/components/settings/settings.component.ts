@@ -1,20 +1,13 @@
-<<<<<<< HEAD
 import { Component, OnDestroy, OnInit } from '@angular/core';
-=======
-import { Component, OnInit } from '@angular/core';
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
 import { FormControl, FormGroup, Validators, FormArray } from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { UserData } from '../auth/user-data.model';
 import { userInfo } from 'os';
-<<<<<<< HEAD
 import { PetData } from '../auth/pet.model';
 import { PetService } from '../auth/pet.service';
 import { Subscription } from 'rxjs';
-=======
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
 
 @Component({
   selector: 'app-settings',
@@ -23,44 +16,30 @@ import { Subscription } from 'rxjs';
 })
 
 
-<<<<<<< HEAD
 export class SettingsComponent implements OnInit, OnDestroy {
   userNewDetails: FormGroup;
   petNewDetails: FormGroup;
   newPet: FormGroup;
 
   constructor(private router: Router, public authService: AuthService, public petService: PetService) { }
-=======
-export class SettingsComponent implements OnInit {
-  newDetails: FormGroup;
-
-  constructor( private router: Router,public authService: AuthService) { }
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
 
   public username = '';
   public user: UserData;
   userId: string;
-<<<<<<< HEAD
   imagePreview: string;
-=======
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
   x = 1;
   iterations: any[] = [this.x];
   petNames: string[] = [];
   petGenders: string[] = [];
-<<<<<<< HEAD
   pets: PetData;
   petArray: any[] = [];
   userPets: PetData[] = [];
   petSub: Subscription;
   petsCount:number;
-=======
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
 
   ngOnInit(): void {
     this.userId = this.authService.getUserId();
     this.username = this.authService.getUserName();
-<<<<<<< HEAD
     this.userNewDetails = new FormGroup({
       'newFirstName': new FormControl(null, [Validators.required, Validators.minLength(2)]),
       'newLastName': new FormControl(null, [Validators.required, Validators.minLength(2)]),
@@ -86,18 +65,6 @@ export class SettingsComponent implements OnInit {
       'newSpecies': new FormControl(null, Validators.required),
       'newPetSpecies': new FormControl(null)
     })
-=======
-    this.newDetails = new FormGroup({
-       /*key: new FormArray(this.iterations.map(data => new FormControl(data.key))),*/
-      'newFirstName': new FormControl(null),
-      'newLastName': new FormControl(null),
-      'newUsername': new FormControl(null),
-      'newPetName': new FormControl(null),
-      'newGender': new FormControl(null),
-      'newEmail': new FormControl(null)
-    })
-
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
     this.authService.getUserInfo(this.userId)
       .subscribe(userData => {
         this.user = {
@@ -108,7 +75,6 @@ export class SettingsComponent implements OnInit {
           imagePath: userData.imagePath,
           id: userData._id
         };
-<<<<<<< HEAD
         this.userNewDetails.patchValue({
           newFirstName : userData.firstName,
           newLastName : userData.lastName,
@@ -126,18 +92,11 @@ export class SettingsComponent implements OnInit {
         })
   }
 
-=======
-      })
-    /*this.firstname = this.user.firstname;*/
-
-  }
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
   cancel(): void {
     this.router.navigate(["/feed-page"]);
   }
 
   addNewPet(): void {
-<<<<<<< HEAD
     this.pets = {
       id: '',
       petName: this.petNewDetails.get('newPetName').value,
@@ -148,15 +107,10 @@ export class SettingsComponent implements OnInit {
     
     this.petArray.push(this.pets);
 
-=======
-    this.petNames.push(this.newDetails.get('newPetName').value);
-    this.petGenders.push(this.newDetails.get('newGender').value);
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
     this.x += 1;
     this.iterations.push(this.x);
   }
 
-<<<<<<< HEAD
   petSaveSubmited() {
 
     this.newPet.get('newPetName').markAsTouched();
@@ -357,29 +311,3 @@ ngOnDestroy(){
   }
 }
 
-=======
-  submited(): void {
-    this.petNames.push(this.newDetails.get('newPetName').value);
-    this.petGenders.push(this.newDetails.get('newGender').value);
-
-    console.log(this.newDetails.get('newFirstName').value);
-    console.log(this.newDetails.get('newLastName').value);
-    console.log(this.newDetails.get('newUsername').value);
-    console.log(this.newDetails.get('newEmail').value);
-    console.log(this.petNames);
-    console.log(this.petGenders);
-/*    let _this = this;
-
-    this.service.SettingsService(this.newDetails).subscribe({
-      next: x => {
-        console.log(x);
-      },
-      error: error => {
-        _this.newDetails.hasError(error);
-      }
-    });*/
-  }
-
-
-}
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071

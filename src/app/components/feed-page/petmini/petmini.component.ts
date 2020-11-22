@@ -24,10 +24,6 @@ export class PetminiComponent implements OnInit, OnDestroy{
         .subscribe((petsData: {pets: PetData[], petsCount: number}) =>{
             this.pets = petsData.pets;
             this.totalPets = petsData.petsCount;
-<<<<<<< HEAD
-=======
-
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
         });
   }
 

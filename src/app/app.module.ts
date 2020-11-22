@@ -52,13 +52,10 @@ import { PetminiComponent } from './components/feed-page/petmini/petmini.compone
 
 import { TimeComponent } from './components/time/time.component'
 import { DatePipe } from '@angular/common';
-<<<<<<< HEAD
 import { CommentsComponent } from './components/feed-page/comments/comments.component';
 import { ReactionsComponent } from './components/feed-page/reactions/reactions.component';
 import { InfoComponent } from './components/info/info.component';
 import { FooterComponent } from './components/footer/footer.component';
-=======
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
 
 
 
@@ -84,15 +81,11 @@ import { FooterComponent } from './components/footer/footer.component';
     SettingsComponent,
     LikesComponent,
     PetminiComponent,
-<<<<<<< HEAD
     TimeComponent,
     CommentsComponent,
     ReactionsComponent,
     InfoComponent,
     FooterComponent
-=======
-    TimeComponent
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
   ],
   imports: [
     CommonModule,

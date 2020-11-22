@@ -5,10 +5,7 @@ import { Subject } from "rxjs";
 
 import { PetData } from "./pet.model";
 import { map } from 'rxjs/operators';
-<<<<<<< HEAD
 import { NumberValueAccessor } from '@angular/forms';
-=======
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
 
 @Injectable({ providedIn: "root" })
 export class PetService {
@@ -17,10 +14,7 @@ export class PetService {
     private pets: PetData[]=[];
     private petsCount: number;
     private petsUpdated = new Subject<{ pets: PetData[]; petsCount: number }>();
-<<<<<<< HEAD
     private petUpdateDataSuccessfully=false;
-=======
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
 
     createPet(petName: string, species: string, gender: string, ownerUsername: string) {
         const petData: PetData = { petName: petName, species: species, gender: gender, ownerUsername: null, id:null};
@@ -30,7 +24,6 @@ export class PetService {
               console.log(res);
           });
     }
-<<<<<<< HEAD
 
     updatePet(petName: string, species: string, gender: string, owner: string){
         let petData: PetData;
@@ -57,8 +50,6 @@ export class PetService {
             });
     }
     
-=======
->>>>>>> 21dee4023abecd20730a324fa01b6fa577d1f071
     getUserPets(username: string){
         this.http.get<{ message: string; pets: any; petsCount: number; }>(
             "http://localhost:3000/api/pet/get/" + username )
