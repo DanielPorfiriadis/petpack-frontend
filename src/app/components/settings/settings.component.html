@@ -1,8 +1,8 @@
 <app-navbar></app-navbar>
-  <div class="container-fluid section-bg">
+  <div class="container bootstrap snippets bootdey">
     <div class="row">
 
-      <div class="col-md-3 settings">
+      <div class="profile-nav col-md-3">
 
         <div class="panel">
           <app-miniprof></app-miniprof>
@@ -14,7 +14,7 @@
 
       <!-- User Bio Graph -->
 
-        <div class="col-md-9 settings-info">
+        <div class="profile-nav col-md-8">
           <div class="panel">
 
             <div class="panel-body bio-graph-info">
@@ -26,46 +26,44 @@
                   <mat-form-field floatLabel="always" appearance="outline">
                     <mat-label>First Name</mat-label>
                     <input matInput type="text" formControlName="newFirstName" placeholder="{{user.firstName}}">
-                    <mat-error *ngIf="userNewDetails.get('newFirstName').invalid">{{getFirstnameErrorMessage()}}</mat-error>
                   </mat-form-field>
+                  <!--<p><span>First Name </span>: @FName</p>-->
                 </div>
                 <div class="bio-row">
                   <mat-form-field floatLabel="always" appearance="outline">
                     <mat-label>Last Name</mat-label>
                     <input matInput type="text" formControlName="newLastName" placeholder="{{user.lastName}}">
-                    <mat-error *ngIf="userNewDetails.get('newLastName').invalid">{{getLastnameErrorMessage()}}</mat-error>
                   </mat-form-field>
+                  <!--<p><span>Last Name </span>: @LName</p>-->
                 </div>
                 <div class="bio-row">
                   <mat-form-field floatLabel="always" appearance="outline">
                     <mat-label>Username</mat-label>
                     <input matInput type="text" formControlName="newUsername" placeholder="{{user.userName}}">
-                    <mat-error *ngIf="userNewDetails.get('newUsername').invalid">{{getUsernameErrorMessage()}}</mat-error>
                   </mat-form-field>
+                  <!--<p><span>Username </span>: {{username}} </p>-->
                 </div>
                 <div class="bio-row">
                   <mat-form-field floatLabel="always" appearance="outline">
                     <mat-label>Email</mat-label>
                     <input matInput type="email" formControlName="newEmail" placeholder="{{user.email}}">
-                    <mat-error *ngIf="userNewDetails.get('newEmail').invalid">{{getEmailErrorMessage()}}</mat-error>
                   </mat-form-field>
+                  <!--<p><span>Pet Name </span>: @PetName</p>-->
                 </div>
                 <div class="bio-row">
                   <mat-form-field floatLabel="always" appearance="outline">
-                    <mat-label>
-                      Password
+                    <mat-label>Password
                     </mat-label>
                     <input matInput type="password" formControlName="newPassword" placeholder="Password">
-                    <mat-error *ngIf="userNewDetails.get('newPassword').invalid">{{getPasswordErrorMessage()}}</mat-error>
                   </mat-form-field>
+                  <!--<p><span>Pet Name </span>: @PetName</p>-->
                 </div>
                 <div class="bio-row">
                   <mat-form-field floatLabel="always" appearance="outline">
                     <mat-label>Confirm passowrd</mat-label>
-                    <input matInput type="password" formControlName="confirmPassword" placeholder="Confirm password">
-                    <span>{{matching()}}</span>
-                    <mat-error>{{getConfirmErrorMessage()}}</mat-error>
+                    <input matInput type="password"  placeholder="Confirm password">
                   </mat-form-field>
+                  <!--<p><span>Pet Name </span>: @PetName</p>-->
                 </div>                        
                   <ul class="nav nav-pills">
                       
@@ -101,7 +99,6 @@
                           <mat-option value="male">Male</mat-option>
                           <mat-option value="female">Female</mat-option>
                         </mat-select>
-                       <!-- <mat-error *ngIf="petNewDetails.get('newGender').invalid">{{getGenderErrorMessage()}}</mat-error>-->
                       </mat-form-field>
                       <!-- <p><span>Pet Sex</span>: @PetSex</p>-->
                     </div>
@@ -109,18 +106,16 @@
                       <mat-form-field floatLabel="always" appearance="outline">
                         <mat-label>Pet Name</mat-label>
                         <input matInput type="text" formControlName="newPetName" placeholder="{{pet.petName}}">
-                        <!--<mat-error *ngIf="petNewDetails.get('newPetName').invalid">{{getPetnameErrorMessage()}}</mat-error>-->
                       </mat-form-field>
                     </div>
                     <div class="bio-row">
                       <mat-form-field appearance="outline">
                         <mat-label>Select</mat-label>
-                        <mat-select formControlName="newSpecies">
-                          <mat-option value="cat">Cat</mat-option>
-                          <mat-option value="dog">Dog</mat-option>
-                          <mat-option value="other">Other</mat-option>
-                        </mat-select>
-                        <!--<mat-error *ngIf="petNewDetails.get('newSpecies').invalid">{{getSpeciesErrorMessage()}}</mat-error>-->
+                          <mat-select formControlName="newSpecies">
+                            <mat-option value="cat">Cat</mat-option>
+                            <mat-option value="dog">Dog</mat-option>
+                            <mat-option value="other">Other</mat-option>
+                          </mat-select>
                       </mat-form-field>
                     </div>
                   <div class="bio-row">
@@ -144,25 +139,22 @@
                           <mat-option value="male">Male</mat-option>
                           <mat-option value="female">Female</mat-option>
                         </mat-select>
-                        <mat-error *ngIf="newPet.get('newGender').invalid">{{getNewGenderErrorMessage()}}</mat-error>
                       </mat-form-field>
                     </div>
                     <div class="bio-row">
                       <mat-form-field floatLabel="always" appearance="outline">
                         <mat-label>Pet Name</mat-label>
                         <input matInput type="text" formControlName="newPetName" placeholder="Pet name">
-                        <mat-error *ngIf="newPet.get('newPetName').invalid">{{getNewPetnameErrorMessage()}}</mat-error>
                       </mat-form-field>
                     </div>
                     <div class="bio-row">
                       <mat-form-field appearance="outline">
                         <mat-label>Species</mat-label>
-                        <mat-select formControlName="newSpecies">
-                          <mat-option value="cat">Cat</mat-option>
-                          <mat-option value="dog">Dog</mat-option>
-                          <mat-option value="other">Other</mat-option>
-                        </mat-select>
-                        <mat-error *ngIf="newPet.get('newSpecies').invalid">{{getNewSpeciesErrorMessage()}}</mat-error>
+                          <mat-select formControlName="newSpecies">
+                            <mat-option value="cat">Cat</mat-option>
+                            <mat-option value="dog">Dog</mat-option>
+                            <mat-option value="other">Other</mat-option>
+                          </mat-select>
                       </mat-form-field>
                     </div>
                   <div class="bio-row">
@@ -176,4 +168,3 @@
       </div>
     </div>
   </div>
-  <app-footer> </app-footer>
