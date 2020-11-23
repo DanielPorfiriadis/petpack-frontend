@@ -41,11 +41,11 @@ export class SettingsComponent implements OnInit, OnDestroy {
     this.userId = this.authService.getUserId();
     this.username = this.authService.getUserName();
     this.userNewDetails = new FormGroup({
-      'newFirstName': new FormControl(null, [Validators.required, Validators.minLength(2)]),
-      'newLastName': new FormControl(null, [Validators.required, Validators.minLength(2)]),
-      'newUsername': new FormControl(null, [Validators.required, Validators.minLength(4)]),
-      'newEmail': new FormControl(null, [Validators.required, Validators.email]),
-      'newPassword': new FormControl(null, [Validators.required, Validators.pattern('(?=.*[0-9])(?=.*[$@$!%*?&]).{6,}')]),
+      'newFirstName': new FormControl(null, [Validators.minLength(2)]),
+      'newLastName': new FormControl(null, [Validators.minLength(2)]),
+      'newUsername': new FormControl(null, [Validators.minLength(4)]),
+      'newEmail': new FormControl(null, [ Validators.email]),
+      'newPassword': new FormControl(null, [ Validators.pattern('(?=.*[0-9])(?=.*[$@$!%*?&]).{6,}')]),
       'newAvatar': new FormControl(null),
       'confirmPassword': new FormControl(null, [Validators.required]),
 
@@ -166,18 +166,18 @@ export class SettingsComponent implements OnInit, OnDestroy {
   }
 
   userSubmited() {
+    let image = this.userNewDetails.get('newAvatar').value;
+    // if (!this.userNewDetails.get('newFirstName').hasError('required') &&
+    //   !this.userNewDetails.get('newFirstName').hasError('minLength') &&
+    //   !this.userNewDetails.get('newLastName').hasError('required') &&
+    //   !this.userNewDetails.get('newLastName').hasError('minLength') &&
+    //   !this.userNewDetails.get('newUsername').hasError('required') &&
+    //   !this.userNewDetails.get('newUsername').hasError('minLength') &&
+    //   !this.userNewDetails.get('newEmail').hasError('required') &&
+    //   !this.userNewDetails.get('newEmail').hasError('email') &&
+    //   !this.userNewDetails.get('newPassword').hasError('required') &&
+    //   !this.userNewDetails.get('newPassword').hasError('pattern')) {
 
-    if (!this.userNewDetails.get('newFirstName').hasError('required') &&
-      !this.userNewDetails.get('newFirstName').hasError('minLength') &&
-      !this.userNewDetails.get('newLastName').hasError('required') &&
-      !this.userNewDetails.get('newLastName').hasError('minLength') &&
-      !this.userNewDetails.get('newUsername').hasError('required') &&
-      !this.userNewDetails.get('newUsername').hasError('minLength') &&
-      !this.userNewDetails.get('newEmail').hasError('required') &&
-      !this.userNewDetails.get('newEmail').hasError('email') &&
-      !this.userNewDetails.get('newPassword').hasError('required') &&
-      !this.userNewDetails.get('newPassword').hasError('pattern')) {
-      let image = this.userNewDetails.get('newAvatar').value;
       this.authService.updateUser(
         this.userNewDetails.get('newFirstName').value,
         this.userNewDetails.get('newLastName').value,
@@ -186,7 +186,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
         this.userNewDetails.get('newPassword').value,
         image
       );
-    }
+    // }
      
   }
 ngOnDestroy(){
