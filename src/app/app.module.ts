@@ -56,7 +56,6 @@ import { CommentsComponent } from './components/feed-page/comments/comments.comp
 import { ReactionsComponent } from './components/feed-page/reactions/reactions.component';
 import { InfoComponent } from './components/info/info.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 
 
@@ -86,8 +85,7 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
     CommentsComponent,
     ReactionsComponent,
     InfoComponent,
-    FooterComponent,
-    ErrorPageComponent
+    FooterComponent
   ],
   imports: [
     CommonModule,

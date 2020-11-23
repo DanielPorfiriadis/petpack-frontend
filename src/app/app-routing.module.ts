@@ -19,7 +19,7 @@ import { CommentsComponent } from './components/feed-page/comments/comments.comp
 import { InfoComponent } from './components/info/info.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-import { ErrorPageComponent } from './components/error-page/error-page.component';
+
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'landing-page' },
@@ -38,8 +38,7 @@ const routes: Routes = [
   { path: 'settings', component: SettingsComponent},
   { path: 'comments', component: CommentsComponent }, 
   { path: 'info', component: InfoComponent},
-  { path: 'footer', component: FooterComponent },
-  { path: 'error-page', component: ErrorPageComponent },  
+  { path: 'footer', component: FooterComponent }, 
 
 ];
 
