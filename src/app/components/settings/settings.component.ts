@@ -27,6 +27,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
   public user: UserData;
   userId: string;
   imagePreview: string;
+  imagePath: string;
   x = 1;
   iterations: any[] = [this.x];
   petNames: string[] = [];
@@ -41,13 +42,13 @@ export class SettingsComponent implements OnInit, OnDestroy {
     this.userId = this.authService.getUserId();
     this.username = this.authService.getUserName();
     this.userNewDetails = new FormGroup({
-      'newFirstName': new FormControl(null, [Validators.required, Validators.minLength(2)]),
-      'newLastName': new FormControl(null, [Validators.required, Validators.minLength(2)]),
-      'newUsername': new FormControl(null, [Validators.required, Validators.minLength(4)]),
-      'newEmail': new FormControl(null, [Validators.required, Validators.email]),
-      'newPassword': new FormControl(null, [Validators.required, Validators.pattern('(?=.*[0-9])(?=.*[$@$!%*?&]).{6,}')]),
+      'newFirstName': new FormControl(null, [ Validators.minLength(2)]),
+      'newLastName': new FormControl(null, [Validators.minLength(2)]),
+      'newUsername': new FormControl(null, [Validators.minLength(4)]),
+      'newEmail': new FormControl(null, [Validators.email]),
+      'newPassword': new FormControl(null, [Validators.pattern('(?=.*[0-9])(?=.*[$@$!%*?&]).{6,}')]),
       'newAvatar': new FormControl(null),
-      'confirmPassword': new FormControl(null, [Validators.required]),
+      'confirmPassword': new FormControl(null),
 
     })
     
@@ -80,9 +81,9 @@ export class SettingsComponent implements OnInit, OnDestroy {
           newLastName : userData.lastName,
           newUsername : userData.userName,
           newEmail : userData.email,
-          newAvatar : userData.imagePath,
         });
         this.imagePreview=this.user.imagePath;
+        this.imagePath = this.user.imagePath
       });
       this.petService.getUserPets(this.username);
       this.petSub = this.petService.getPetsUpdateListener()
@@ -177,14 +178,17 @@ export class SettingsComponent implements OnInit, OnDestroy {
       !this.userNewDetails.get('newEmail').hasError('email') &&
       !this.userNewDetails.get('newPassword').hasError('required') &&
       !this.userNewDetails.get('newPassword').hasError('pattern')) {
+
       let image = this.userNewDetails.get('newAvatar').value;
+      
       this.authService.updateUser(
         this.userNewDetails.get('newFirstName').value,
         this.userNewDetails.get('newLastName').value,
         this.userNewDetails.get('newUsername').value,
         this.userNewDetails.get('newEmail').value,
         this.userNewDetails.get('newPassword').value,
-        image
+        image,
+        this.imagePreview
       );
     }
      
