@@ -3,6 +3,7 @@
 }
 .panel {
 	position:relative;
+	border-bottom: none;
 }
 .panel>.panel-heading:after,.panel>.panel-heading:before{
 	position:absolute;
@@ -26,9 +27,19 @@
 	border-right-color:#ddd;
 	border-width:8px;
 }
+.button_comment {
+	border: none;
+}
 
-.button_comment{
-	position: left;
+.btn {
+	color: #fff;
+	background: #428d0c;
+	border: none;
+	margin-bottom: 5px;
+  }
+  
+.btn:hover {
+	  background: #5fb521;
 }
 
 .time{
