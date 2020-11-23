@@ -102,7 +102,8 @@ export class ProfileComponent implements OnInit {
                     imagePath: postData.imagePath,
                     creator: postData.creator,
                     creatorUsername: postData.creatorUsername,
-                    timeStamp: postData.timeStamp
+                    timeStamp: postData.timeStamp,
+                    postAvatar: postData.postAvatar
                 };
                 this.form.setValue({
                     content: this.post.content,

@@ -29,7 +29,8 @@ export class PostService {
                 imagePath: post.imagePath,
                 creator: post.creator,
                 creatorUsername: post.creatorUsername,
-                timeStamp: post.timeStamp
+                timeStamp: post.timeStamp,
+                postAvatar: post.postAvatar
               };
             }),
             maxPosts: postData.maxPosts
@@ -59,7 +60,8 @@ export class PostService {
                 id: post._id,
                 imagePath: post.imagePath,
                 creator: post.creator,
-                creatorUsername: post.creatorUsername
+                creatorUsername: post.creatorUsername,
+                postAvatar: post.postAvatar
               };
             }),
             maxPosts: postData.maxPosts
@@ -81,13 +83,14 @@ export class PostService {
   }
 
   getPost(id: string) {
-    return this.http.get<{ _id: string; content: string; imagePath: string; creator: string; creatorUsername: string; timeStamp: Date; }>("http://localhost:3000/api/posts/" + id);
+    return this.http.get<{ _id: string; content: string; imagePath: string; creator: string; creatorUsername: string; timeStamp: Date; postAvatar: string; }>("http://localhost:3000/api/posts/" + id);
   }
 
-  addPost(content: string, image: File, timeStamp: Date) {
+  addPost(content: string, image: File, timeStamp: Date, postAvatar: string) {
     const postData = new FormData();
     postData.append("content", content);
     postData.append("image", image);
+    postData.append("postAvatar", postAvatar);
     postData.append("timeStamp", timeStamp.toISOString());
     this.http.post<{ message: string; post: Post }>("http://localhost:3000/api/posts/", postData)
       .subscribe(responseData => {
@@ -113,7 +116,8 @@ export class PostService {
         imagePath: image,
         creator: null,
         creatorUsername: null,
-        timeStamp: null
+        timeStamp: null,
+        postAvatar:null
       };
     }
     this.http
@@ -170,7 +174,8 @@ export class PostService {
         imagePath: image,
         creator: null,
         creatorUsername: null,
-        timeStamp: null
+        timeStamp: null,
+        postAvatar: null
       };
     }
     this.http
