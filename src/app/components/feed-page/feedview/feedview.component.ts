@@ -19,6 +19,7 @@ import { mimeType } from "./mime-type.validator";
   styleUrls: ['./feedview.component.css'],
 })
 export class FeedviewComponent implements OnInit, OnDestroy {
+    
 
   constructor(public postsService: PostService, public route: ActivatedRoute, public authService: AuthService, private datePipe: DatePipe){}
   
@@ -41,6 +42,8 @@ export class FeedviewComponent implements OnInit, OnDestroy {
   userIsAuthenticated = false;
   private authStatusSub: Subscription;
   currentDate = new Date();
+  endOfPosts = false;
+  show = 0;
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -211,18 +214,21 @@ calculateTimeDifference(postString:string, currentTime:Date){
   onWindowScroll() {
     //In chrome and some browser scroll is given to body tag
     let pos = (document.documentElement.scrollTop || document.body.scrollTop) + document.documentElement.offsetHeight;
-    let max = document.documentElement.scrollHeight;
+    let max = document.documentElement.scrollHeight * (5/6);
     let current = document.documentElement.scrollTop;
     // pos/max will give you the distance between scroll bottom and and bottom of screen in percentage.
-    if (pos == max) {
+    if (pos >= max) {
       console.log("total posts:"+this.totalPosts +" & postPerPage:" + this.postsPerPage);
       if (this.totalPosts > this.postsPerPage) {
-        this.isLoading= true;
+        this.isLoading = true;
         this.postsPerPage += 5;
         this.ngOnInit();
         document.documentElement.scrollTop = current;
       }
-      //else gia reset counters oste na trexoyn ola apo tin arxi
+      else {
+        this.endOfPosts = true;
+        this.posts = this.posts.concat(this.posts);
+      }
     }
   }
 }
