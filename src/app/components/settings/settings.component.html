@@ -20,7 +20,7 @@
             <div class="panel-body bio-graph-info">
               <h1>My Info</h1>
 
-              <div class="row" [formGroup]="userNewDetails">
+              <div class="row" [formGroup]="userNewDetails" *ngIf ="user">
 
                 <div class="bio-row">
                   <mat-form-field floatLabel="always" appearance="outline">
@@ -67,8 +67,7 @@
                     <mat-error>{{getConfirmErrorMessage()}}</mat-error>
                   </mat-form-field>
                 </div>                        
-                  <ul class="nav nav-pills">
-                      
+                  <ul class="nav nav-pills">       
                       <li>
                         <a (click)="filePicker.click()" class="fa fa-picture-o imagePicker" aria-hidden="true"> Change avatar</a>
                       </li>
@@ -88,8 +87,8 @@
 
           </div>
           <!-- END User Bio Graph -->
-          <div class="row" [formGroup]="petNewDetails">
-            <div class="petField" *ngFor="let pet of userPets;">
+          <div class="row" [formGroup]="petNewDetails" *ngIf="userPets.length>0" >
+            <div class="petField"  *ngFor="let pet of userPets; index as i">
               <div class="panel">
                 <div class="panel-body bio-graph-info">
                   <h1>Pet Info</h1>
@@ -97,7 +96,7 @@
                     <div class="bio-row">
                       <mat-form-field floatLabel="always" appearance="outline">
                         <mat-label>PetGender</mat-label>
-                        <mat-select formControlName="newGender" placeholder="{{pet.gender}}">
+                        <mat-select formControlName="newGenderDetails" placeholder="{{pet.gender}}">
                           <mat-option value="male">Male</mat-option>
                           <mat-option value="female">Female</mat-option>
                         </mat-select>
@@ -108,23 +107,34 @@
                     <div class="bio-row">
                       <mat-form-field floatLabel="always" appearance="outline">
                         <mat-label>Pet Name</mat-label>
-                        <input matInput type="text" formControlName="newPetName" placeholder="{{pet.petName}}">
+                        <input matInput type="text" formControlName="newPetNameDetails" placeholder="{{pet.petName}}">
                         <!--<mat-error *ngIf="petNewDetails.get('newPetName').invalid">{{getPetnameErrorMessage()}}</mat-error>-->
                       </mat-form-field>
                     </div>
                     <div class="bio-row">
                       <mat-form-field appearance="outline">
                         <mat-label>Select</mat-label>
-                        <mat-select formControlName="newSpecies">
+                        <mat-select formControlName="newSpeciesDetails">
                           <mat-option value="cat">Cat</mat-option>
                           <mat-option value="dog">Dog</mat-option>
                           <mat-option value="other">Other</mat-option>
                         </mat-select>
                         <!--<mat-error *ngIf="petNewDetails.get('newSpecies').invalid">{{getSpeciesErrorMessage()}}</mat-error>-->
                       </mat-form-field>
+                      <ul class="nav nav-pills">       
+                        <li>
+                          <a (click)="petChangeFilePicker.click()" class="fa fa-picture-o imagePicker" aria-hidden="true"> Change avatar</a>
+                        </li>
+                        <li>
+                          <input type="file" #petChangeFilePicker (change)="onPetChangeImagePicked($event, i)">
+                        </li>
+                        <li class="image-preview" *ngIf="imagePetPreview[i] !== '' && imagePetPreview[i] && petNewDetails.get('newPetAvatarDetails').valid ">
+                          <img [src]="imagePetPreview[i]">
+                        </li>
+                      </ul>
                     </div>
                   <div class="bio-row">
-                    <button mat-raised-button (click)="petChangeSubmited()"> Change </button>
+                    <button mat-raised-button (click)="petChangeSubmited(pet, i)"> Change </button>
                     <button mat-raised-button (click)="cancel()"> Cancel </button>
                   </div>
                 </div>
@@ -164,7 +174,19 @@
                         </mat-select>
                         <mat-error *ngIf="newPet.get('newSpecies').invalid">{{getNewSpeciesErrorMessage()}}</mat-error>
                       </mat-form-field>
-                    </div>
+                    <ul class="nav nav-pills">       
+                      <li>
+                        <a (click)="newPetFilePicker.click()" class="fa fa-picture-o imagePicker" aria-hidden="true"> Change avatar</a>
+                      </li>
+                      <li>
+                        <input type="file" #newPetFilePicker (change)="onNewPetImagePicked($event)">
+                      </li>
+                      <li class="image-preview" *ngIf="newPetImagePreview !== '' && newPetImagePreview && newPet.get('newPetAvatar').valid ">
+                        <img [src]="newPetImagePreview">
+                      </li>
+                    </ul>
+                    </div> 
+
                   <div class="bio-row">
                     <button mat-raised-button (click)="petSaveSubmited()"> Change </button>
                     <button mat-raised-button (click)="cancel()"> Cancel </button>

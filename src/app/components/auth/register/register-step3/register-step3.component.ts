@@ -22,10 +22,12 @@ export class RegisterStep3Component implements OnInit{
   form: FormGroup;
   formSubmitted: boolean = false;
   imagePreview: string;
+  petImagePreview: string;
 
   ngOnInit(){
     this.form = new FormGroup({
-          image: new FormControl(null, { asyncValidators: [mimeType]
+          image: new FormControl(null, { asyncValidators: [mimeType]}),
+          petAvatar: new FormControl(null, { asyncValidators: [mimeType]
           })
     });
   }
@@ -40,7 +42,16 @@ export class RegisterStep3Component implements OnInit{
     };
     reader.readAsDataURL(file);
   }
-
+  onPetImagePicked(event: Event) {
+    const file = (event.target as HTMLInputElement).files[0];
+    this.form.patchValue({petAvatar: file});
+    this.form.get('petAvatar').updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+        this.petImagePreview = (reader.result as string);
+    };
+    reader.readAsDataURL(file);
+  }
   submit(){
     let petGender; 
     this.authService.createUser(
@@ -61,6 +72,7 @@ export class RegisterStep3Component implements OnInit{
       this.regForm.get('petDetails').get('species').value,
       petGender,
       this.regForm.get('personalDetails').get('username').value,
+      this.form.value.petAvatar
     );
   }
   // submit(): void{

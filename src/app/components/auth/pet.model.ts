@@ -4,4 +4,5 @@ export interface PetData {
     species: string;
     gender: string;
     ownerUsername: string;
+    petAvatar: string;
 }

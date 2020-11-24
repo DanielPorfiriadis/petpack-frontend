@@ -27,6 +27,8 @@ export class SettingsComponent implements OnInit, OnDestroy {
   public user: UserData;
   userId: string;
   imagePreview: string;
+  imagePetPreview: string[] = [];
+  newPetImagePreview: string;
   imagePath: string;
   x = 1;
   iterations: any[] = [this.x];
@@ -54,17 +56,20 @@ export class SettingsComponent implements OnInit, OnDestroy {
     
     this.petNewDetails = new FormGroup({
 
-      'newPetName': new FormControl(null),
-      'newGender': new FormControl(null),
-      'newSpecies': new FormControl(null),
-      'newPetSpecies': new FormControl(null)
+      'newPetNameDetails': new FormControl(null),
+      'newGenderDetails': new FormControl(null),
+      'newSpeciesDetails': new FormControl(null),
+      'newPetAvatarDetails': new FormControl(null),
+      'newPetSpeciesDetails': new FormControl(null)
     })
     this.newPet = new FormGroup({
 
       'newPetName': new FormControl(null, [Validators.required, Validators.pattern('^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$')]),
       'newGender': new FormControl(null, Validators.required),
       'newSpecies': new FormControl(null, Validators.required),
-      'newPetSpecies': new FormControl(null)
+      'newPetSpecies': new FormControl(null),
+      'newPetAvatar': new FormControl(null),
+      
     })
     this.authService.getUserInfo(this.userId)
       .subscribe(userData => {
@@ -90,6 +95,11 @@ export class SettingsComponent implements OnInit, OnDestroy {
         .subscribe((petsData: {pets : PetData[], petsCount: number}) => {
           this.userPets = petsData.pets;
           this.petsCount = petsData.petsCount;
+          this.userPets.forEach(pet => {
+            
+            this.imagePetPreview.push(pet.petAvatar);
+          });
+         // this.imagePetPreview=this.user.imagePath;
         })
   }
 
@@ -97,20 +107,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
     this.router.navigate(["/feed-page"]);
   }
 
-  addNewPet(): void {
-    this.pets = {
-      id: '',
-      petName: this.petNewDetails.get('newPetName').value,
-      species: this.petNewDetails.get('newSpecies').value,
-      gender: this.petNewDetails.get('newGender').value,
-      ownerUsername: this.username
-    };
-    
-    this.petArray.push(this.pets);
-
-    this.x += 1;
-    this.iterations.push(this.x);
-  }
 
   petSaveSubmited() {
 
@@ -131,9 +127,11 @@ export class SettingsComponent implements OnInit, OnDestroy {
         petName: this.newPet.get('newPetName').value,
         species: this.newPet.get('newSpecies').value,
         gender: this.newPet.get('newGender').value,
-        ownerUsername: this.username
+        ownerUsername: this.username,
+        petAvatar: this.newPet.get('newPetAvatar').value
         }
-      this.petService.createPet(pet.petName, pet.species, pet.gender, pet.ownerUsername)
+        let image = this.newPet.get('newPetAvatar').value;
+      this.petService.createPet(pet.petName, pet.species, pet.gender, pet.ownerUsername, image);
       this.router.routeReuseStrategy.shouldReuseRoute = function () {
         return false;
       }
@@ -142,19 +140,30 @@ export class SettingsComponent implements OnInit, OnDestroy {
     }
   }
 
-  petChangeSubmited(){
-
-    let pet: PetData = {
-      id: '',
-      petName: this.petNewDetails.get('newPetName').value,
-      species: this.petNewDetails.get('newSpecies').value,
-      gender: this.petNewDetails.get('newGender').value,
-      ownerUsername: this.username
-    };
+  petChangeSubmited(pet:PetData, i){
+    if(this.petNewDetails.get('newPetNameDetails').value){
+      pet.petName = this.petNewDetails.get('newPetNameDetails').value;
+    }
+    if(this.petNewDetails.get('newSpeciesDetails').value){
+      pet.species = this.petNewDetails.get('newSpeciesDetails').value;
+    }
+    if(this.petNewDetails.get('newGenderDetails').value){
+      pet.gender = this.petNewDetails.get('newGenderDetails').value;
+    }
+    let image = this.petNewDetails.get('newPetAvatarDetails').value;
+    if(this.petNewDetails.get('newPetAvatarDetails').value){
+      pet.petAvatar = image;
+      console.log(image);
+    }
     console.log(pet);
-    this.petService.updatePet(pet.petName, pet.species, pet.gender, pet.ownerUsername);
+    this.petService.updatePet(pet, image, this.imagePetPreview[i]);
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    }
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate(["/settings"]);
   }
-
+  
   onImagePicked(event: Event) {
     const file = (event.target as HTMLInputElement).files[0];
     this.userNewDetails.patchValue({newAvatar: file});
@@ -166,6 +175,27 @@ export class SettingsComponent implements OnInit, OnDestroy {
     reader.readAsDataURL(file);
   }
 
+  onPetChangeImagePicked(event: Event, i) {
+    const file = (event.target as HTMLInputElement).files[0];
+    this.petNewDetails.patchValue({newPetAvatarDetails: file});
+    this.petNewDetails.get('newPetAvatarDetails').updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+        this.imagePetPreview[i]=(reader.result as string);
+    };
+    reader.readAsDataURL(file);
+  }
+
+  onNewPetImagePicked(event: Event) {
+    const file = (event.target as HTMLInputElement).files[0];
+    this.newPet.patchValue({newPetAvatar: file});
+    this.newPet.get('newPetAvatar').updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+        this.newPetImagePreview = (reader.result as string);
+    };
+    reader.readAsDataURL(file);
+  }
   userSubmited() {
 
     if (!this.userNewDetails.get('newFirstName').hasError('required') &&
@@ -180,7 +210,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
       !this.userNewDetails.get('newPassword').hasError('pattern')) {
 
       let image = this.userNewDetails.get('newAvatar').value;
-      
+      console.log(image);
       this.authService.updateUser(
         this.userNewDetails.get('newFirstName').value,
         this.userNewDetails.get('newLastName').value,
@@ -202,7 +232,9 @@ ngOnDestroy(){
       petName: this.petNewDetails.get('newPetName').value,
       species: this.petNewDetails.get('newSpecies').value,
       gender: this.petNewDetails.get('newGender').value,
-      ownerUsername: this.petNewDetails.get('newUsername').value
+      ownerUsername: this.petNewDetails.get('newUsername').value,
+      petAvatar: this.petNewDetails.get('newUsername').value,
+
     };
 
     this.petArray.push(this.pets);
