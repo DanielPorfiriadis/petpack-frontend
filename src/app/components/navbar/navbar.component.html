@@ -1,0 +1,84 @@
+<!-- Navbar Component-->
+
+<mat-toolbar color="primary" class="navbar bg-color">
+  <mat-toolbar-row>
+
+    <!-- Logo -->
+    <a class="navigation-items" href="feed-page">
+      <img src="assets/img/logo.png" alt="logo" style="width:60px;">
+    </a>
+    <span>PetPack</span>
+
+    <!--Icon Buttons & Search Bar-->
+    <div class="left-icons" fxFlex fxLayout fxLayoutAlign="flex-end">
+      <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+
+        <!-- Search Bar-->
+        <li fxHide.xs>
+          <mat-form-field class="search-form searchbar">
+            <mat-label>Search</mat-label>
+            <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" >
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option" [routerLink]="['/feed-page' , option.username]">
+                {{option.username}}
+              </mat-option>
+            </mat-autocomplete>
+            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+          </mat-form-field>
+        </li>
+
+        <!-- notifications -->
+       <!-- <li fxHide.xs>
+          <button mat-icon-button>
+            <mat-icon>notifications</mat-icon>
+          </button>
+        </li>-->
+
+         <!-- notifications -->
+         <li fxHide.xs>
+          <button mat-icon-button (click)="onHome()">
+            <mat-icon>home</mat-icon>
+          </button>
+        </li>
+
+       
+
+        <!-- Dropdown -->
+        <li>
+          <!-- Dropdown button -->
+          <button mat-icon-button [matMenuTriggerFor]="auth" class="dropdown-toggle" data-toggle="dropdown">
+            <mat-icon> person </mat-icon>
+          </button>
+
+            <mat-menu #auth="matMenu">
+
+              <!--Profile Button-->
+              <button mat-menu-item (click)="onProfile()">
+                <mat-icon> person </mat-icon>
+                <span> {{ 'My Profile' }} </span>
+              </button>
+              <mat-divider></mat-divider>
+
+              <!--Settings Button-->
+              <button mat-menu-item (click)="settings()">
+                <mat-icon> settings </mat-icon>
+                <span> {{ 'Settings' }} </span>
+              </button>
+              <mat-divider></mat-divider>
+
+              <!--Settings Logout-->
+              <button mat-menu-item (click)="logout()">
+                <mat-icon> exit_to_app </mat-icon>
+                <span> {{ 'Logout' }} </span>
+              </button>
+            </mat-menu>
+        </li>
+
+      </ul>
+    </div>
+    <!--End of Icon Buttons & Search Bar-->
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- ===================================== -->

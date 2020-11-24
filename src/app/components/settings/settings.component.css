@@ -1,0 +1,120 @@
+body {
+  color: #797979;
+  background-color: rgb(243, 253, 232);
+  font-family: 'Open Sans', sans-serif;
+  padding: 0px !important;
+  margin: 0px !important;
+  font-size: 13px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+}
+.lista{
+  list-style-type: none;
+}
+
+.panel {
+  background: transparent;
+}
+
+.settings, .settings-info{
+  margin-top:40px;
+  background-color: transparent;
+}
+
+
+.bio-graph-info {
+  color: #89817e;
+  background-color: #fff;
+  text-align: center;
+  font-style: italic;
+  padding: 40px 20px;
+  border-radius: 4px 4px 0 0;
+  -webkit-border-radius: 4px 4px 0 0;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.bio-graph-info h1 {
+  font-size: 22px;
+  font-weight: 300;
+  margin: 0 0 20px;
+}
+
+.bio-row {
+  width: 50%;
+  float: left;
+  margin-bottom: 10px;
+  padding:0 15px;
+}
+
+.bio-row p span {
+  width: 100px;
+  display: inline-block;
+}
+/* .fields {
+  padding: 80px;
+} */
+
+
+.box {
+  background: transparent ;
+  margin-bottom: 30px;
+  box-shadow: 1px 3px 5px 4px rgb(188, 201, 177);
+}
+
+
+
+mat-raised-button, button {
+  color:cornsilk;
+  margin-left:6px;
+  background: #387c08;
+  position: relative;
+  }
+
+mat-raised-button, button:hover {
+      background: #469d08;
+    }
+
+.section-bg {
+  background-color: #c5f7a1;
+  min-height: 100vh;
+}
+
+.addButton{
+border-radius:100%;
+display:block;
+margin-left:20%;
+margin-bottom:10px;
+}
+/* mat-form-field, .fields {
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: purple;
+} */
+
+.petField{
+  width:100%;
+  padding:0px 15px;
+}
+
+input[type="file"] {
+  visibility: hidden;
+}
+
+.imagePicker {
+  color: #47536e;
+  font-size: 20px;
+  border: hidden;
+  background-color: transparent;
+  outline: none !important;
+}
+
+.image-preview {
+  height: 8rem;
+  margin: 1rem 0;
+}
+
+  .image-preview img {
+    height: 100%;
+  }

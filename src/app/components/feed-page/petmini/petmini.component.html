@@ -1,0 +1,19 @@
+<!-- Pet Pic -->
+<div class="wrapper">
+  <mat-accordion class="accordion" multi="true" *ngIf="pets.length >0">
+    <div class="pettt" *ngFor="let pet of pets">
+      <mat-card class="pets">
+        <mat-card-header></mat-card-header>
+          <!-- Pet Avatar -->
+          <div class="pet-pic">
+              <img [src]="pet.petAvatar" class="img-responsive" alt="">
+          </div>
+          <!-- Pet Name -->
+          <div class="pet-name">
+              {{pet.petName}}
+          </div>
+      </mat-card>
+    </div>
+  </mat-accordion>
+</div>
+

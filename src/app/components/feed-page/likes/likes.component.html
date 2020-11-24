@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+      <p class="col">{{numberOfLikes}}</p>
+      <button class="col btn btn-success" (click)="likeButtonClick()">Like</button>
+      <button class="col btn btn-danger" (click)="dislikeButtonClick()">Dislike</button>
+    </div>
+</div>
+
+
+<!-- 
+<div class="container">
+	<div class="row">
+		<p class="col">{{numberOfLikes}}</p>
+	</div>
+  
+	<ng-container *ngIf="number = 0; then Like; else Dislike">
+	</ng-container>
+
+	<ng-template #Like>
+		
+			<button class="col btn btn-success" (click)="likeButtonClick()">Like</button>
+		
+	</ng-template>
+	<ng-template #Dislike>
+
+			<button class="col btn btn-danger" (click)="dislikeButtonClick()">Dislike</button>
+
+	</ng-template> -->

@@ -1,0 +1,29 @@
+.form-control.ng-touched.ng-invalid {
+  border-color: red;
+}
+
+
+.form-group {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+/* buttons*/
+.row_button{
+  margin-left: 1%;
+}
+.download-btn {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  display: inline-block;
+  padding: 10px 24px 10px 24px;
+  border-radius: 3px;
+  transition: 0.5s;
+  color: #fff;
+  background: #387c08;
+  position: relative;
+}
+
+.download-btn:hover {
+  background: #469d08;
+  }

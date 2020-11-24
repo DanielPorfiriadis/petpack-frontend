@@ -1,0 +1,68 @@
+.thumbnail {
+    padding:0px;
+}
+.panel {
+	position:relative;
+	width: 80%;
+	border-bottom: none;
+}
+.panel>.panel-heading:after,.panel>.panel-heading:before{
+	position:absolute;
+	top:11px;left:-16px;
+	right:100%;
+	width:0;
+	height:0;
+	display:block;
+	content:" ";
+	border-color:transparent;
+	border-style:solid solid outset;
+	pointer-events:none;
+}
+.panel>.panel-heading:after{
+	border-width:7px;
+	border-right-color:#f7f7f7;
+	margin-top:1px;
+	margin-left:2px;
+}
+.panel>.panel-heading:before{
+	border-right-color:#ddd;
+	border-width:8px;
+}
+.button_comment {
+	border: none;
+}
+
+.btn {
+	color: #fff;
+	background: #428d0c;
+	border: none;
+	margin-bottom: 5px;
+  }
+  
+.btn:hover {
+	  background: #5fb521;
+}
+
+.time{
+	position: right;
+}
+
+.new-comments{
+	margin: 5px;
+	padding: 5px;
+}
+
+.gedf-wrapper {
+	margin-top: 0.97rem;
+}
+
+@media (min-width: 992px) {
+	.gedf-main {
+	  padding-left: 4rem;
+	  padding-right: 4rem;
+	}
+  
+	.gedf-card {
+	  margin-bottom: 2.77rem;
+	}
+  }
