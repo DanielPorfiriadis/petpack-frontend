@@ -198,6 +198,16 @@ export class SettingsComponent implements OnInit, OnDestroy {
   }
   userSubmited() {
 
+    if (!this.userNewDetails.get('newFirstName').hasError('required') &&
+      !this.userNewDetails.get('newFirstName').hasError('minLength') &&
+      !this.userNewDetails.get('newLastName').hasError('required') &&
+      !this.userNewDetails.get('newLastName').hasError('minLength') &&
+      !this.userNewDetails.get('newUsername').hasError('required') &&
+      !this.userNewDetails.get('newUsername').hasError('minLength') &&
+      !this.userNewDetails.get('newEmail').hasError('required') &&
+      !this.userNewDetails.get('newEmail').hasError('email') &&
+      !this.userNewDetails.get('newPassword').hasError('required') &&
+      !this.userNewDetails.get('newPassword').hasError('pattern')) {
 
       let image = this.userNewDetails.get('newAvatar').value;
       console.log(image);
@@ -210,6 +220,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
         image,
         this.imagePreview
       );
+    }
      
   }
 ngOnDestroy(){
