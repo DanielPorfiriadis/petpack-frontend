@@ -6,6 +6,7 @@
   background-size: contain;
   float: left;
   background-position: bottom;
+  min-height: 100vh;
 }
 
 .wrapper {
@@ -65,10 +66,17 @@
   flex: 1 1 auto;
 }
 
-.userLink {
-  color: #181818;
+mat-card-content, p{
+  font-size: 16px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: rgb(41, 41, 41);
+}
+
+mat-card-title, .userLink{
+  color: rgb(31, 31, 31);
   text-decoration: none;
-  font-family: "Raleway", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }
 
 mat-spinner {

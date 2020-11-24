@@ -74,6 +74,7 @@ mat-raised-button, button:hover {
 
 .section-bg {
   background-color: #c5f7a1;
+  min-height: 100vh;
 }
 
 .addButton{
