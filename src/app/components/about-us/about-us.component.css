@@ -1,24 +1,11 @@
-/* html, body {
-    height: 100%;
-    background-color: rgb(194, 102, 102);
-}
 
-.col-md-12{
-    margin-top: 8px;
-}
-.main-content{
-    height: 100%;
-}
-.col-md-4 {
-    position: bottom;
-} */
 section {
   padding: 40px 0;
   overflow: hidden;
 }
 
 .section-bg {
-  background: #eff2f8;
+  background-color: #c5f7a1;
 }
 
 .section-title {
@@ -31,7 +18,7 @@ section {
   font-weight: 400;
   margin-bottom: 0px;
   padding-bottom: 0;
-  color: #5777ba;
+  color: #357b1e;
   font-family: "Poppins", sans-serif;
 }
 
@@ -41,7 +28,7 @@ section {
   text-align: center;
   margin: auto;
   width: 80%;
-  color: #515f7d;
+  color: #357b1e;
 }
 .about .title {
   font-weight: 700;
@@ -58,14 +45,14 @@ section {
   h2 {
     font-size: 24px;
     text-transform: uppercase;
-    color: #303030;
+    color: #286314;
     font-weight: 600;
     margin-bottom: 30px;
   }
   h4 {
     font-size: 19px;
     line-height: 1.375em;
-    color: #303030;
+    color: #255a14;
     font-weight: 400;
     margin-bottom: 30px;
   }  
@@ -87,14 +74,14 @@ section {
 # about
 --------------------------------------------------------------*/
 .about {
-  background: #eff2f8;
+  background-color: #cffcaf;
   padding: 0px 0;
   }
   
   .about .team {
     text-align: center;
     margin-bottom: 20px;
-    background: #eff2f8;
+    background-color: #c5f7a1;
     position: relative;
     overflow: hidden;
   }
@@ -138,7 +125,7 @@ section {
     bottom: 0;
     width: 50px;
     transition: left ease-in-out 0.3s;
-    background: rgba(157, 184, 242, 0.6);
+    background: rgba(91, 230, 36, 0.6);
     text-align: center;
   }
   
@@ -150,7 +137,7 @@ section {
   }
   
   .about .team .social a:hover {
-    color: #5f59af;
+    color: #255a14;;
   }
   
   .about .team .social i {
@@ -159,7 +146,7 @@ section {
   }
   
   .about .team:hover .team-info {
-    background: linear-gradient(0deg, rgba(59, 87, 146, 0.6) 0%, rgba(59, 87, 146, 0.6) 15%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(0deg, rgba(91, 146, 59, 0.6) 0%, rgba(91, 146, 59, 0.6) 15%, rgba(255, 255, 255, 0) 100%);
     opacity: 1;
     transition: 0.4s;
   }

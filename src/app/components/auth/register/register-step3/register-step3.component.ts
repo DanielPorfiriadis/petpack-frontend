@@ -22,10 +22,12 @@ export class RegisterStep3Component implements OnInit{
   form: FormGroup;
   formSubmitted: boolean = false;
   imagePreview: string;
+  petImagePreview: string;
 
   ngOnInit(){
     this.form = new FormGroup({
-          image: new FormControl(null, { asyncValidators: [mimeType]
+          image: new FormControl(null, { asyncValidators: [mimeType]}),
+          petAvatar: new FormControl(null, { asyncValidators: [mimeType]
           })
     });
   }
@@ -40,8 +42,18 @@ export class RegisterStep3Component implements OnInit{
     };
     reader.readAsDataURL(file);
   }
-
+  onPetImagePicked(event: Event) {
+    const file = (event.target as HTMLInputElement).files[0];
+    this.form.patchValue({petAvatar: file});
+    this.form.get('petAvatar').updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+        this.petImagePreview = (reader.result as string);
+    };
+    reader.readAsDataURL(file);
+  }
   submit(){
+    let petGender; 
     this.authService.createUser(
     this.regForm.get('personalDetails').get('firstname').value,
     this.regForm.get('personalDetails').get('lastname').value,
@@ -49,12 +61,18 @@ export class RegisterStep3Component implements OnInit{
     this.regForm.get('personalDetails').get('email').value,
     this.regForm.get('personalDetails').get('password').value,
     this.form.value.image);
- 
+    if(this.regForm.get('petDetails').get('gender').value===1){
+      petGender = 'Male';
+    }
+    else{
+      petGender='Female';
+    }
     this.petService.createPet(
       this.regForm.get('petDetails').get('petName').value,
       this.regForm.get('petDetails').get('species').value,
-      this.regForm.get('petDetails').get('gender').value,
+      petGender,
       this.regForm.get('personalDetails').get('username').value,
+      this.form.value.petAvatar
     );
   }
   // submit(): void{

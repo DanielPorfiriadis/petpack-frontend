@@ -21,11 +21,12 @@
   outline:none !important;
 }
 .mat-icon-button:hover{
-  background-color:  #657baf;
+  background-color: #b5fa84;
+
 }
 .bg-color {
-/* background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%); */
-  background-color: #4d5e85;
+background-image: linear-gradient(15deg, #3e8805 0%, #b5fa84 100%); 
+  /* background-color: #4d5e85; */
 }
 
 /* ================== Search ====================== */
@@ -85,7 +86,9 @@ mat-form-field{
   height: 34px;
   line-height: 34px;
   text-align: center;
-  color: #3596e0;
+  color: #71c72f;
+
+
   left: initial;
   font-size: 14px;
 }

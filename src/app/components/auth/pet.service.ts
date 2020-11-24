@@ -16,8 +16,13 @@ export class PetService {
     private petsUpdated = new Subject<{ pets: PetData[]; petsCount: number }>();
     private petUpdateDataSuccessfully=false;
 
-    createPet(petName: string, species: string, gender: string, ownerUsername: string) {
-        const petData: PetData = { petName: petName, species: species, gender: gender, ownerUsername: null, id:null};
+    createPet(petName: string, species: string, gender: string, ownerUsername: string, petAvatar: File) {
+        const petData = new FormData();
+        petData.append("ownerUsername", ownerUsername);
+        petData.append("petName", petName);
+        petData.append("species", species);
+        petData.append("gender", gender);
+        petData.append("image", petAvatar);
         console.log(petData);
         this.http
           .post("http://localhost:3000/api/pet/add/"+ownerUsername, petData).subscribe(res =>{
@@ -25,13 +30,18 @@ export class PetService {
           });
     }
 
-    updatePet(petName: string, species: string, gender: string, owner: string){
-        const petData = new FormData(); 
-        petData.append("petName", petName); 
-        petData.append("species", species); 
-        petData.append("gender", gender); 
-        petData.append("ownerUsername", owner); 
-        this.http.put<{message: string, status: Number}>("http://localhost:3000/api/pet/update", petData)
+    updatePet(petData: PetData, petAvatar: File, petImagePreview: string){
+        console.log(petData);
+        const pet = new FormData();
+        pet.append("petName", petData.petName);
+        pet.append("_id", petData.id);
+        pet.append("species", petData.species);
+        pet.append("ownerUsername", petData.ownerUsername);
+        pet.append("gender", petData.gender);
+        if(petAvatar){
+            pet.append("petAvatar", petAvatar);
+          }else{pet.append("petImagePreview", petImagePreview);}
+        this.http.put<{message: string, status: Number}>("http://localhost:3000/api/pet/update", pet)
             .subscribe(response =>{
                 if(response.status==200){
                     this.petUpdateDataSuccessfully=true;
@@ -42,9 +52,10 @@ export class PetService {
                     return false;
                   }
                   this.router.onSameUrlNavigation = 'reload';
-                  this.router.navigate(["/settings"]);
-            })
+                  this.router.navigate(["/settings"]);  
+            });
     }
+    
     getUserPets(username: string){
         this.http.get<{ message: string; pets: any; petsCount: number; }>(
             "http://localhost:3000/api/pet/get/" + username )
@@ -57,7 +68,8 @@ export class PetService {
                                 id: pet._id,
                                 ownerUsername: pet.ownerUsername,
                                 gender: pet.gender,
-                                species: pet.species
+                                species: pet.species,
+                                petAvatar: pet.petAvatar
                             };
                         }),
                         totalPets: petData.petsCount

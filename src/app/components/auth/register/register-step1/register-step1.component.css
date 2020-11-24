@@ -2,6 +2,7 @@
   border-color: red;
 }
 
+
 .form-group {
   margin-right: 5px;
   margin-left: 5px;
@@ -19,10 +20,10 @@
   border-radius: 3px;
   transition: 0.5s;
   color: #fff;
-  background: #47536e;
+  background: #387c08;
   position: relative;
 }
 
 .download-btn:hover {
-    background: #5777ba;
+  background: #469d08;
   }

@@ -5,4 +5,5 @@ export interface Post {
     creator: string;
     creatorUsername: string;
     timeStamp: Date;
+    postAvatar: string;
 }
