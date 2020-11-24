@@ -6,6 +6,7 @@
   background-size: contain;
   float: left;
   background-position: bottom;
+  min-height: 100vh;
 }
 
 .wrapper {

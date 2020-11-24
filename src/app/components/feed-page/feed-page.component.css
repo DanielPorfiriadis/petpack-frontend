@@ -10,13 +10,14 @@ a:hover {
     text-decoration: none;
 }
 .section-bg {
-    background-color: rgb(243, 253, 232);
-    background-image: url('/assets/img/kortari.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;  
-    background-size: contain;
-    float: left;
-    background-position: bottom;
+  background-color: rgb(243, 253, 232);
+  background-image: url('/assets/img/kortari.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: contain;
+  float: left;
+  background-position: bottom;
+  min-height: 100vh;
 }
 
 .wrapper {

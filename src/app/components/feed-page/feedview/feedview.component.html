@@ -42,53 +42,55 @@
 <!-- ---------------- Posts Feed ------------------- -->
 <div class="box-main" (scroll)="onWindowScroll()">
   <mat-accordion multi="true" *ngIf="posts.length >0">
-    <mat-card class="post" *ngFor="let post of posts" >
-      <mat-card-header>
-      <img mat-card-avatar class="card-avatar-image" [src] ="post.postAvatar" >
-      <mat-card-title><a class="userLink" href="http://localhost:4200/feed-page">{{post.creatorUsername}}</a></mat-card-title>
-      <span class="spacer"></span> 
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-          <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item *ngIf ="userIsAuthenticated && userId == post.creator">
-            <mat-icon>edit</mat-icon>
-            <span>Edit</span>
+    <div *ngFor="let post of posts; let i = index">
+      <mat-card class="post">
+        <mat-card-header>
+          <img mat-card-avatar class="card-avatar-image" [src]="post.postAvatar">
+          <mat-card-title><a class="userLink" href="http://localhost:4200/feed-page">{{post.creatorUsername}}</a></mat-card-title>
+          <span class="spacer"></span>
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
           </button>
-          <button mat-menu-item disabled *ngIf ="userId != post.creator">
-            <mat-icon>edit</mat-icon>
-            <span>Edit</span>
-          </button>
-          <button mat-menu-item *ngIf ="userIsAuthenticated && userId == post.creator" (click)="deletePost(post.id)">
-            <mat-icon>delete</mat-icon>
-            <span>Delete</span>
-          </button>
-          <button mat-menu-item disabled *ngIf ="userId != post.creator" >
-            <mat-icon>delete</mat-icon>
-            <span>Delete</span>
-          </button>
-        </mat-menu>
-      <mat-card-subtitle>{{calculateTimeDifference(post.timeStamp,currentDate)}}</mat-card-subtitle>
-      </mat-card-header>
-      <hr />
-      <mat-card-content>
-        <p>  <b><a class="userLink" href="http://localhost:4200/feed-page"></a></b> {{post.content}} </p>
-      </mat-card-content>
-      <hr />
-      <img class="imagepost" [src]="post.imagePath">
-      <hr />
-      
-      <app-reactions></app-reactions>
-       <!-- Comments-->
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item *ngIf="userIsAuthenticated && userId == post.creator">
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button mat-menu-item disabled *ngIf="userId != post.creator">
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button mat-menu-item *ngIf="userIsAuthenticated && userId == post.creator" (click)="deletePost(post.id)">
+              <mat-icon>delete</mat-icon>
+              <span>Delete</span>
+            </button>
+            <button mat-menu-item disabled *ngIf="userId != post.creator">
+              <mat-icon>delete</mat-icon>
+              <span>Delete</span>
+            </button>
+          </mat-menu>
+          <mat-card-subtitle>{{calculateTimeDifference(post.timeStamp,currentDate)}}</mat-card-subtitle>
+        </mat-card-header>
+        <hr />
+        <mat-card-content>
+          <p>  <b><a class="userLink" href="http://localhost:4200/feed-page"></a></b> {{post.content}} </p>
+        </mat-card-content>
+        <hr />
+        <img class="imagepost" [src]="post.imagePath">
+        <hr />
+
+        <app-reactions></app-reactions>
+        <!-- Comments-->
         <app-comments></app-comments>
-     
 
-      <!-- <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-      </mat-card-actions> -->
+
+        <!-- <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+    </mat-card-actions> -->
       </mat-card>
-
-    </mat-accordion>
+      <div *ngIf="endOfPosts && i == totalPosts"><mat-card class="post"><mat-card-content style="text-align:center"><b>End of new posts!</b></mat-card-content></mat-card></div>
+    </div>
+  </mat-accordion>
 </div>
 <mat-spinner *ngIf = "isLoading"></mat-spinner>
