@@ -21,11 +21,14 @@ a:hover {
     background: #fff;
   }
   
-  .profile-userpic img {
-    float: none;
+  .profile-userpic img {    float: none;
     margin: 0 auto;
-    width: 50%;
-    height: 50%;
+    /*width: 50%;
+    height: 50%;*/
+    min-height:150px;
+    min-width:150px;
+    max-height:150px;
+    max-width:150px;
     -webkit-border-radius: 50% !important;
     -moz-border-radius: 50% !important;
     border-radius: 50% !important;
@@ -92,8 +95,13 @@ a:hover {
   
   /* Profile Content */
   .profile-content {
-    padding: 20px;
-    background: #fff;
-    min-height: 460px;
+    float: none;
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+
   }
   

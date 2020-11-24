@@ -46,7 +46,7 @@
     <mat-card class="post">
       <mat-card-header>
         <img mat-card-avatar class="card-avatar-image" [src]="post.postAvatar">
-        <mat-card-title><a class="userLink" href="http://localhost:4200/feed-page">{{post.creatorUsername}}</a></mat-card-title>
+        <mat-card-title><a class="userLink" href="http://localhost:4200/profile">{{post.creatorUsername}}</a></mat-card-title>
         <span class="spacer"></span>
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
           <mat-icon>more_vert</mat-icon>
@@ -71,26 +71,29 @@
         </mat-menu>
         <mat-card-subtitle>{{calculateTimeDifference(post.timeStamp,currentDate)}}</mat-card-subtitle>
       </mat-card-header>
-      <hr />
+
       <mat-card-content>
         <p>  <b><a class="userLink" href="http://localhost:4200/feed-page"></a></b> {{post.content}} </p>
       </mat-card-content>
       <hr />
       <img class="imagepost" [src]="post.imagePath">
       <hr />
-
-      <app-reactions></app-reactions>
-      <!-- Comments-->
-      <app-comments></app-comments>
-
-
+      <ul>
+      <div>
+        <app-reactions></app-reactions>
+      </div> <!-- Comments-->
+      <div>
+        
+      </div>
+      </ul>
       <!-- <mat-card-actions>
   <button mat-button>LIKE</button>
   <button mat-button>SHARE</button>
   </mat-card-actions> -->
     </mat-card>
-    <div *ngIf="endOfPosts && i == totalPosts"><mat-card class="post"><mat-card-content style="text-align:center"><b>End of new posts!</b></mat-card-content></mat-card></div>
+   
   </div>
 </mat-accordion>
+<div *ngIf="endOfPosts "><mat-card class="post"><mat-card-content style="text-align:center"><b>End of new posts!</b></mat-card-content></mat-card></div>
 </div>
 <mat-spinner *ngIf = "isLoading"></mat-spinner>

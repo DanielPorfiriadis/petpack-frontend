@@ -227,7 +227,7 @@ calculateTimeDifference(postString:string, currentTime:Date){
       }
       else {
         this.endOfPosts = true;
-        this.posts = this.posts.concat(this.posts);
+        // this.posts = this.posts.concat(this.posts);
       }
     }
   }

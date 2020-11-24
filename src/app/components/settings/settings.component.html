@@ -66,23 +66,23 @@
                     <span>{{matching()}}</span>
                     <mat-error>{{getConfirmErrorMessage()}}</mat-error>
                   </mat-form-field>
-                </div>                        
-                  <ul class="nav nav-pills">       
-                      <li>
-                        <a (click)="filePicker.click()" class="fa fa-picture-o imagePicker" aria-hidden="true"> Change avatar</a>
-                      </li>
-                      <li>
-                        <input type="file" #filePicker (change)="onImagePicked($event)">
-                      </li>
-                      <li class="image-preview" *ngIf="imagePreview !== '' && imagePreview && userNewDetails.get('newAvatar').valid ">
-                        <img [src]="imagePreview">
-                      </li>
+                  <ul class="lista">       
+                    <li>
+                      <a (click)="newPetFilePicker.click()" class="fa fa-picture-o imagePicker" aria-hidden="true"> Change avatar</a>
+                    </li>
+                    <li>
+                      <input type="file" #newPetFilePicker (change)="onNewPetImagePicked($event)">
+                    </li>
+                    <li class="image-preview" *ngIf="newPetImagePreview !== '' && newPetImagePreview && newPet.get('newPetAvatar').valid ">
+                      <img [src]="newPetImagePreview">
+                    </li>
                   </ul>
+                  </div> 
+
                 <div class="bio-row">
-                  <button mat-raised-button (click)="userSubmited()"> Change </button>
+                  <button mat-raised-button (click)="petSaveSubmited()"> Change </button>
                   <button mat-raised-button (click)="cancel()"> Cancel </button>
                 </div>
-              </div>
             </div>
 
           </div>
@@ -121,7 +121,7 @@
                         </mat-select>
                         <!--<mat-error *ngIf="petNewDetails.get('newSpecies').invalid">{{getSpeciesErrorMessage()}}</mat-error>-->
                       </mat-form-field>
-                      <ul class="nav nav-pills">       
+                      <ul class="lista">       
                         <li>
                           <a (click)="petChangeFilePicker.click()" class="fa fa-picture-o imagePicker" aria-hidden="true"> Change avatar</a>
                         </li>
@@ -174,7 +174,7 @@
                         </mat-select>
                         <mat-error *ngIf="newPet.get('newSpecies').invalid">{{getNewSpeciesErrorMessage()}}</mat-error>
                       </mat-form-field>
-                    <ul class="nav nav-pills">       
+                    <ul class="lista">       
                       <li>
                         <a (click)="newPetFilePicker.click()" class="fa fa-picture-o imagePicker" aria-hidden="true"> Change avatar</a>
                       </li>

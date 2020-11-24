@@ -3,6 +3,7 @@
 }
 .panel {
 	position:relative;
+	width: 80%;
 	border-bottom: none;
 }
 .panel>.panel-heading:after,.panel>.panel-heading:before{

@@ -18,6 +18,7 @@ import { SettingsComponent} from './components/settings/settings.component';
 import { CommentsComponent } from './components/feed-page/comments/comments.component';
 import { InfoComponent } from './components/info/info.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AuthGuard } from './components/auth/auth.guard';
 
 
 
@@ -28,14 +29,14 @@ const routes: Routes = [
   { path: 'landing-page', component: LandingPageComponent },
   { path: 'afterlogin', component: AfterloginComponent },
 
-  { path: 'feed-page', component: FeedPageComponent },
-  { path: 'feed-page/:username', component: FeedPageComponent },
+  { path: 'feed-page', component: FeedPageComponent, canActivate:[AuthGuard]},
+  { path: 'feed-page/:username', component: FeedPageComponent, canActivate:[AuthGuard]},
 
   { path: 'about_us', component: AboutUsComponent },
   { path: 'contact_us', component: ContactUsComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent,canActivate:[AuthGuard] },
   { path: 'miniprof', component: MiniprofComponent },
-  { path: 'settings', component: SettingsComponent},
+  { path: 'settings', component: SettingsComponent, canActivate:[AuthGuard]},
   { path: 'comments', component: CommentsComponent }, 
   { path: 'info', component: InfoComponent},
   { path: 'footer', component: FooterComponent }, 
@@ -45,6 +46,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers:[AuthGuard]
 })
 export class AppRoutingModule { }
