@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./register-step2.component.css']
 })
 export class RegisterStep2Component implements OnInit {
-
+  imagePreview: string;
   constructor() { }
   @Input() regForm: FormGroup;
 
@@ -35,6 +35,8 @@ export class RegisterStep2Component implements OnInit {
       return 'You must select gender';
     }
   }
+
+
 
   step2Submitted() {
     this.regForm.get('petDetails').get('petName').markAsTouched();

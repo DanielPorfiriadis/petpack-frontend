@@ -7,9 +7,9 @@
     </div>
 
     <!-- User & Pet Name -->
-    <div class="profile-usertitle">
-        <div class="profile-usertitle-name">
-        {{user.userName}}
+    <div class="profile-usertitle" >
+        <div class="profile-usertitle-name" *ngIf = "user!=null">
+        {{username}}
         </div>
         <div>
             <a href="../../profile/">  <i class="glyphicon glyphicon-user"></i>  Profile </a>

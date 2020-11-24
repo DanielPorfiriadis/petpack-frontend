@@ -36,6 +36,7 @@ export class MiniprofComponent implements OnInit {
         id: userData._id
       };
       this.picSource=this.user.imagePath;
+      this.username = this.user.userName;
     })
   }
 

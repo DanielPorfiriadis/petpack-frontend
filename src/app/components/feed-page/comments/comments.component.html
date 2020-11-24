@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
 
 
@@ -9,12 +9,12 @@
         </div>
 
 
-        <div class="col-sm-5">
+        <div class="col-sm-11">
             <div class="panel panel-default">
 
 
                 <div class="panel-heading">
-                    <strong>myusername</strong> <span class="text-muted">commented 5 days ago</span>
+                    <strong>myusername </strong>
                 </div>
                 
                 <!----=========== Comment Details ============----->
@@ -25,13 +25,13 @@
                       <textarea [(ngModel)]="message" class="form-control" id="message" rows="3" placeholder="New Comment"></textarea>
                     </div>
 
-                <div class="button_comment">
-                      <button (click)="createNewComment()" type="submit" class="btn btn-primary">Comment</button>
-                </div>
+                    <div class="button_comment">
+                        <button (click)="createNewComment()" type="submit" class="btn pull-right">Comment</button>
+                    </div>
 
 
-            </div><!-- /panel panel-default -->
-        </div><!-- /col-sm-5 -->
+                </div><!-- /panel panel-default -->
+        </div><!-- /col-sm-11 -->
 
 
 
@@ -40,8 +40,8 @@
 </div><!-- /container -->
 
 
-<mat-card class="card gedf-card " *ngFor="let post of comment; index as i">
-    <div class="container">
+<div class="card gedf-card " *ngFor="let post of comment; index as i">
+    <div class="container-fluid">
 
             <!---------New Comment Content-------->
             <div class="card-body">
@@ -54,7 +54,7 @@
 
                 
 
-                <div class="col-sm-5">
+                <div class="col-sm-9">
 
                     <div class="card-text">
 
@@ -70,8 +70,7 @@
                 <br>
 
                 <!-----------Delete Comment button------------>
-                <div class="col-sm-5"> 
-                    <i class="time"></i>10 min ago
+                <div class="col-sm-2"> 
                     <button (click)="deleteComment(i)" id="deleteIcon" type="button" class="btn btn-link deleteIcon" aria-haspopup="true"
                             aria-expanded="false">
                         <i class="fas fa-trash-alt"></i>
@@ -80,7 +79,7 @@
                 
             </div>
         </div>        
-</mat-card>
+    </div>
 
   
     

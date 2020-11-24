@@ -62,6 +62,7 @@ export class FeedviewComponent implements OnInit, OnDestroy {
           imagePath: userData.imagePath,
           id: userData._id
         };
+        this.userPicture=userData.imagePath;
       })
     this.form = new FormGroup({
       content : new FormControl(null, {
@@ -102,7 +103,8 @@ export class FeedviewComponent implements OnInit, OnDestroy {
                     imagePath: postData.imagePath,
                     creator: postData.creator,
                     creatorUsername: postData.creatorUsername,
-                    timeStamp: postData.timeStamp
+                    timeStamp: postData.timeStamp,
+                    postAvatar: postData.postAvatar
                 };
                 this.form.setValue({
                     content: this.post.content,
@@ -133,14 +135,16 @@ export class FeedviewComponent implements OnInit, OnDestroy {
         this.postsService.addPost( 
             this.form.value.content,
             this.form.value.image,
-            postCreateDate
+            postCreateDate,
+            this.userPicture
             );
     } else {
         this.postsService.addPost(
           this.form.value.content, 
           null,
-          postCreateDate
-            );
+          postCreateDate,
+          this.userPicture
+          );
     }
     this.form.reset();
 }

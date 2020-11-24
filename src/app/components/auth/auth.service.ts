@@ -89,15 +89,17 @@ export class AuthService {
       });
   }
   
-  updateUser(firstName: string, lastName: string, userName: string, email: string, password: string, image: File) {
+  updateUser(firstName: string, lastName: string, userName: string, email: string, password: string, image: File, imagePath) {
     const regData = new FormData();
     regData.append("firstName", firstName);
     regData.append("lastName", lastName);
     regData.append("userName", userName);
     regData.append("password", password);
     regData.append("email", email);
-    
-    regData.append("image", image);
+    if(image){
+      regData.append("image", image);
+    }else{regData.append("imagePath", imagePath);}
+
     this.http.put<{message: string, status: number}>("http://localhost:3000/api/users/update/"+this.userId, regData)
       .subscribe(response=>{
         if(response.status==200){

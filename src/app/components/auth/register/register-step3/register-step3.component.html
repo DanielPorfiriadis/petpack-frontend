@@ -4,7 +4,8 @@
 </div>
 <div class=reg3 *ngIf="!formSubmitted">
   <form [formGroup]="form">
-        
+    <div>
+        <p>Your Photo</p>
         <button mat-stroke-button (click)="filePicker.click()" 
         class="fa fa-picture-o imagePicker"
         matTooltip="Upload your profile pic"
@@ -16,11 +17,25 @@
       <img [src]="imagePreview" >
     </div>
     <input type="file" #filePicker (change)="onImagePicked($event)">
+  </div>
 
-    <div class="row_button"> 
-      <button type="button" class="download-btn" matStepperPrevious>Back</button>
-      &nbsp;
-      <button type="button" type="submit" class="download-btn" (click)="submit()">Submit </button>
+    <p>Pet Photo</p>
+    <button mat-stroke-button (click)="petFilePicker.click()" 
+    class="fa fa-picture-o imagePicker"
+    matTooltip="Upload your pet pic"
+    matTooltipPosition="right"
+    ></button> 
+
+
+    <div class="image-preview" *ngIf="petImagePreview !== '' && petImagePreview && form.get('petAvatar').valid ">
+      <img [src]="petImagePreview" >
     </div>
+    <input type="file" #petFilePicker (change)="onPetImagePicked($event)">
+
+<div class="row_button"> 
+  <button type="button" class="download-btn" matStepperPrevious>Back</button>
+  &nbsp;
+  <button type="button" type="submit" class="download-btn" (click)="submit()">Submit </button>
+</div>
   </form>
 </div>
