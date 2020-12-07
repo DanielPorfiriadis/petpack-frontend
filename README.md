@@ -1,6 +1,8 @@
 # PetpackFrontend
 
-Petpack Social network, skg.code project
+Petpack social network, skg.code project
+
+Connect with friends and pets around you on PetPack.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.6.
 
